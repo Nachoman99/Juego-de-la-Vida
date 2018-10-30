@@ -6,8 +6,9 @@
 package juegodelavida;
 
 /**
- *
- * @author Nacho
+ * This class is the main, where the grid, the graphic interface and other elements are implemented
+ * @author Jose Ignacio Zamora
+ * @version 29/10/2018
  */
 public class JuegoDeLaVida {
 
