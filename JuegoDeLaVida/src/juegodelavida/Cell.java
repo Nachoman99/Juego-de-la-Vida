@@ -12,5 +12,15 @@ package juegodelavida;
  * @author Kevin Trejos
  */
 public class Cell {
+    private boolean life = false;
+
+    public boolean isLife() {
+        return life;
+    }
+
+    public void setLife(boolean life) {
+        this.life = life;
+    }
+    
     
 }

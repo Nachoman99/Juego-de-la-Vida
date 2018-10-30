@@ -12,5 +12,34 @@ package juegodelavida;
  * @author Kevin Trejos
  */
 public class Grid {
+    Cell cell = new Cell();
+    private Cell[][] cells;
+    private int generation = 0;
+
+    /**
+     * Declaration public Grid(int size)
+     * This is a constructor method that initializes the grid
+     * With the size that the player wants
+     * @param size is the size of the grid
+     */
+    public Grid(int size) {
+        if (size >= 8 && size <= 20) {
+            this.cells = new Cell[size][size];
+        }
+    }
     
+    public void randomCells(){
+        int random;
+        for (int i = 0; i < cells.length; i++) {
+            for (int j = 0; j < 10; j++) {
+                
+            }
+            random = (int)(Math.random()* 2) + 1;
+            if (random == 2) {
+               // cells[i][i] = true;
+            }else{
+                //cells[i][i] = false;
+            }
+        }
+    }
 }
