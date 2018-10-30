@@ -17,6 +17,8 @@ public class JuegoDeLaVida {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Grid grid = new Grid(10);
+        grid.randomCells();
     }
     
 }
