@@ -12,7 +12,15 @@ package juegodelavida;
  * @author Kevin Trejos
  */
 public class Cell {
-    private boolean life = false;
+    private boolean life;
+
+    public Cell() {
+        this(false);
+    }
+
+    public Cell(boolean life) {
+        this.life = life;
+    }
 
     public boolean isLife() {
         return life;
@@ -21,6 +29,12 @@ public class Cell {
     public void setLife(boolean life) {
         this.life = life;
     }
+
+    @Override
+    public String toString() {
+        return "Cell{" + "life=" + life + '}';
+    }
     
+ 
     
 }

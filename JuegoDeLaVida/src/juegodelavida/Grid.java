@@ -12,7 +12,6 @@ package juegodelavida;
  * @author Kevin Trejos
  */
 public class Grid {
-    Cell cell = new Cell();
     private Cell[][] cells;
     private int generation = 0;
 
@@ -36,9 +35,11 @@ public class Grid {
             }
             random = (int)(Math.random()* 2) + 1;
             if (random == 2) {
-               // cells[i][i] = true;
+               Cell cell1 = new Cell(true);
+               cells[i][i] = cell1;
             }else{
-                //cells[i][i] = false;
+               Cell cell2 = new Cell(false);
+               cells[i][i] = cell2;
             }
         }
     }
