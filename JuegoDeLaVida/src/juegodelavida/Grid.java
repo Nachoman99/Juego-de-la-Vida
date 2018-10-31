@@ -108,7 +108,7 @@ public class Grid {
                             break;
                         }else if(i==cells.length-1){
                              //fila sea 2
-                             if(i==0 && j==cells.length-1){
+                             if(i==cells.length-1 && j==0){
                                 
                              }else if(i==cells.length-1 && j==cells.length-1){
                             //esquina derecha abajo
