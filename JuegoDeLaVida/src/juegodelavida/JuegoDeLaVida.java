@@ -5,6 +5,7 @@
  */
 package juegodelavida;
 
+
 /**
  * This class is the main, where the grid, the graphic interface and other elements are implemented
  * @author Jose Ignacio Zamora

@@ -96,24 +96,26 @@ public class Grid {
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
                 if(i==0 || i==cells.length-1 || j==0 || j==cells.length-1){
-                        if(i==0 && j==0){
-                            //esquina de izquierda arriba
-                        }else if(i==cells.length-1 && j==0){
-                            //esquina izquierda abajo
-                        }else if(i==0 && j==cells.length-1){
-                            //esquina derecha arriba
-                        }else if(i==cells.length-1 && j==cells.length-1){
-                            //esquina derecha abajo
-                        }else if(i==0){
+                        if(i==0){
                             //fila sea 0
+                            if(i==0 && j==0){
+                                 //esquina de izquierda arriba
+                            }else if(i==0 && j==cells.length-1){
+                                //esquina izquierda abajo
+                            }
                         }else if(i==cells.length-1){
                              //fila sea 2
+                             if(i==0 && j==cells.length-1){
+                                
+                             }else if(i==cells.length-1 && j==cells.length-1){
+                            //esquina derecha abajo
+                             }
+                       
                         }else if(j==0){
                             //columna sea 0
                         }else if(j==cells.length-1){
                             //columna sea 2
-                        }
-                    
+                        }       
                 }else{
                     //caso que sea del centro y se pueda sacar las 8 posiciones vecinas
                     
