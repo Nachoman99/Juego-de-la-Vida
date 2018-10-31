@@ -85,6 +85,13 @@ public class Grid {
      *       (2)(1)
      * Por lo tanto en la p´roxima generación morirían todas, eso fue lo que hice
      */
+    /*
+    -Si una casilla está ocupada y el número de casillas adyacentes también ocupadas es menor que 2, 
+    la célula muere por aislamiento y se retira del tablero en la siguiente generación.
+    -Si una casilla está ocupada y el número de células que la rodean es mayor que 3, la célula muere por 
+    superpoblación (se quita del tablero en el siguiente turno).
+    -Una casilla libre que tenga 3 (y sólo 3) células adyacentes da lugar a una célula viva en el siguiente turno.
+    */
     public void hasLife(){
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
