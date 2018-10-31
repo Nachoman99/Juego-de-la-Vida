@@ -102,19 +102,26 @@ public class Grid {
                                  //esquina de izquierda arriba
                             }else if(i==0 && j==cells.length-1){
                                 //esquina izquierda abajo
+                            }else{
+                                //caso fila 0
                             }
+                            break;
                         }else if(i==cells.length-1){
                              //fila sea 2
                              if(i==0 && j==cells.length-1){
                                 
                              }else if(i==cells.length-1 && j==cells.length-1){
                             //esquina derecha abajo
-                             }
-                       
+                            }else{
+                                //caso fila 2
+                            }
+                           break;
                         }else if(j==0){
                             //columna sea 0
+                            break;
                         }else if(j==cells.length-1){
                             //columna sea 2
+                            break;
                         }       
                 }else{
                     //caso que sea del centro y se pueda sacar las 8 posiciones vecinas
