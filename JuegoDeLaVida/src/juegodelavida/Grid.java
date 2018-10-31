@@ -21,7 +21,7 @@ public class Grid {
      * With the size that the player wants
      * @param size is the size of the grid
      */
-    public Grid(int size) {
+    public Grid(int size) { 
         if (size >= 8 && size <= 20) {
             this.cells = new Cell[size][size];
         }
@@ -52,17 +52,24 @@ public class Grid {
      * 
      * @param position 
      */
-    public void insertPosition(int position){
-        for (int i = 0; i < cells.length; i++) {
-            for (int j = 0; j < cells.length; j++) {
-                if (cells[i][j] != null) {
-                    Cell cell01 = new Cell(2);
-                    cells[i][j] = cell01;
-                }else{
-                    System.err.println("Digite una posición válida");
-                }
-            }
+    public void insertPosition(int positionRow,int positionColumn, int value){
+        if (cells[positionRow][positionColumn] != null && positionColumn >= 0 && positionColumn <= cells.length-1 &&
+                positionRow >= 0 && positionRow <= cells.length-1) {//Primero verifica la posicion si no es nula, y despes
+            //ve si la posicion columna y fila estan en ese intervalo si esta afuera no se puede, es decir de 0 a
+            // cells.length -1 xq ese es la cantidad de valores maximo ejemplo = 8 filas y columnas entonces va de 
+            //0,1,2,3,4,5,6,7 tanto en fila como columna.
+            if(value == 2){
+                Cell cell01 = new Cell(2);
+                cells[positionRow][positionColumn] = cell01; //true 
+            }else{
+                Cell cell01 = new Cell(1);
+                cells[positionRow][positionColumn] = cell01; //false  
+            } 
+        }else{
+            System.out.println("Digite una posición válida");
         }
+
+        
     }
     
     /**
