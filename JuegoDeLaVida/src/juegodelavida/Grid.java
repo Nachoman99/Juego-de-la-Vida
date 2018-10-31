@@ -35,12 +35,12 @@ public class Grid {
         int random;
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
-                random = (int)(Math.random()* 2) + 1;
+                random = (int)(Math.random()*2) + 1;
                 if (random == 2) {
-                    Cell cell1 = new Cell(true);
+                    Cell cell1 = new Cell(2);
                     cells[i][j] = cell1;
                 }else{
-                    Cell cell2 = new Cell(false);
+                    Cell cell2 = new Cell(1);
                     cells[i][j] = cell2;
                 }
             }
@@ -56,7 +56,7 @@ public class Grid {
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
                 if (cells[i][j] != null) {
-                    Cell cell01 = new Cell(true);
+                    Cell cell01 = new Cell(2);
                     cells[i][j] = cell01;
                 }else{
                     System.err.println("Digite una posición válida");
@@ -65,7 +65,28 @@ public class Grid {
         }
     }
     
-    public void enteredPositions(){
-        
+    /**
+     * Este método lo que hace es seguir las reglas para ver cuales nacen y cuales mueren
+     * No esta completado, los 2 significa que tiene vida, los 1, que está muerta
+     * sólo está en el caso de que por ejemplo:
+     * If:(2)(2)
+     *    (2)(1)
+     * Entonces
+     * (2)(2)
+     * (2)(2)
+     * else: (1)(2)
+     *       (2)(1)
+     * Por lo tanto en la p´roxima generación morirían todas, eso fue lo que hice
+     */
+    public void hasLife(){
+        for (int i = 0; i < cells.length; i++) {
+            for (int j = 0; j < cells.length; j++) {
+                if (cells[i][j].getLife() == 2 && cells[i + 1][j].getLife() == 2 && cells[i][j + 1].getLife() == 2) {
+                    cells[i + 1][j + 1].setLife(2);
+                }else{
+                    cells[i][j].setLife(1);
+                }
+            }
+        }
     }
 }

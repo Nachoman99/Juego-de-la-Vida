@@ -12,21 +12,21 @@ package juegodelavida;
  * @author Kevin Trejos
  */
 public class Cell {
-    private boolean life;
+    private int life;
 
     public Cell() {
-        this(false);
+        this(0);
     }
 
-    public Cell(boolean life) {
+    public Cell(int life) {
         this.life = life;
     }
 
-    public boolean isLife() {
+    public int getLife() {
         return life;
     }
 
-    public void setLife(boolean life) {
+    public void setLife(int life) {
         this.life = life;
     }
 
@@ -34,7 +34,4 @@ public class Cell {
     public String toString() {
         return "Cell{" + "life=" + life + '}';
     }
-    
- 
-    
 }
