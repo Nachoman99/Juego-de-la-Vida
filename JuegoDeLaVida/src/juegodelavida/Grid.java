@@ -100,10 +100,31 @@ public class Grid {
                             //fila sea 0
                             if(i==0 && j==0){
                                  //esquina de izquierda arriba
+                                if (cells[0][0].getLife() == 2) {
+                                        if (cells[1][0].getLife() == 2 && cells[0][1].getLife() == 2 && cells[1][1].getLife() == 2) {
+                                            cells[0][0].setLife(2);                     
+                                        }else{
+                                            cells[0][0].setLife(1);
+                                        }
+                                }else if(cells[0][0].getLife() == 1){
+                                    if (cells[1][0].getLife() ==2 && cells[0][1].getLife() == 2 && cells[1][1].getLife() == 2) {
+                                        cells[0][0].setLife(2);
+                                    }else{
+                                        cells[0][0].setLife(1);
+                                    }
+                                }
                             }else if(i==0 && j==cells.length-1){
-                                //esquina izquierda abajo
+                                //esquina derecha arriba
+                                if (cells[0][cells.length-1].getLife() == 2) {
+                                    if (cells[0][cells.length-2].getLife() == 2 && cells[1][cells.length-1].getLife() == 2) {
+                                        cells[1][cells.length - 2].setLife(2);
+                                    }else{
+                                        cells[0][cells.length-1].setLife(1);
+                                    }
+                                }
                             }else{
                                 //caso fila 0
+                                
                             }
                             break;
                         }else if(i==cells.length-1){
