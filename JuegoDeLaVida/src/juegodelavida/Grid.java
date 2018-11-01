@@ -142,11 +142,35 @@ public class Grid {
                         }else if(i==cells.length-1){
                              //fila sea 2
                              if(i==cells.length-1 && j==0){
-                                
+                                if(cells[cells.length-1][0].getLife()==2){
+                                    if(cells[cells.length-1][1].getLife()==2 && cells[cells.length-2][0].getLife()==2){
+                                        cells[cells.length-1][0].setLife(2);
+                                    }else{
+                                        cells[cells.length-1][0].setLife(1);
+                                    }
+                                }else if(cells[cells.length-1][0].getLife()==1) {
+                                    if(cells[cells.length-1][1].getLife()==2 && cells[cells.length-2][0].getLife()==2 && cells[cells.length-2][1].getLife()==2){
+                                        cells[cells.length-1][0].setLife(2);
+                                    }else{
+                                        cells[cells.length-1][0].setLife(1);
+                                    }
+                                }
                              }else if(i==cells.length-1 && j==cells.length-1){
-                            //esquina derecha abajo
+                                 if (cells[cells.length-1][cells.length-1].getLife() == 2){
+                                     if(cells[cells.length-1][cells.length-2].getLife() == 2 && cells[cells.length-2][cells.length-1].getLife() == 2){
+                                        cells[cells.length-1][cells.length-1].setLife(2);
+                                     }else{
+                                        cells[cells.length-1][cells.length-1].setLife(1);
+                                     }
+                                }else if(cells[cells.length-1][cells.length-1].getLife() == 1){
+                                  if(cells[cells.length-1][cells.length-2].getLife() == 2 && cells[cells.length-2][cells.length-1].getLife() == 2 && cells[cells.length-2][cells.length-2].getLife()==2){
+                                    cells[cells.length-1][cells.length-1].setLife(2);
+                                  }else{
+                                    cells[cells.length-1][cells.length-1].setLife(1);
+                                  }
+                                 }
                             }else{
-                                //caso fila 2
+                                
                             }
                            break;
                         }else if(j==0){
