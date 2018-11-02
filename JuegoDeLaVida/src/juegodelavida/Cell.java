@@ -15,7 +15,7 @@ public class Cell {
     private int life;
 
     public Cell() {
-        this(0);
+        this(1);
     }
 
     public Cell(int life) {
