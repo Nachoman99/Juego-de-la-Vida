@@ -22,11 +22,27 @@ public class Grid {
      * @param size is the size of the grid
      */
     public Grid(int size) { 
+        Cell cell1 = new Cell(1);
         if (size >= 8 && size <= 20) {
             this.cells = new Cell[size][size];
         }
+        for(int i = 0; i < cells.length;i++){
+            for(int j = 0; j < cells.length;j++){
+                cells[i][j] = cell1;
+            }    
+        }
     }
-    
+    public  String getStringMatrix(){ //lo pongo para poder poner la matriz bien bonita
+        String imprimir = "";
+        for(int i = 0; i<cells.length; i++){
+            for(int j = 0; j<cells[i].length; j++){
+               imprimir  =imprimir  + cells[i][j] + " "; 
+                     
+            }     
+            imprimir  =imprimir + "\n"; 
+        }
+        return imprimir ;
+    }
     /**Revisar este método ya que imprime muchas cells,creo que hay que quitar un for
      * Declaration: public void randomCells()
      * This method generates cells in random positions of the grid
@@ -50,7 +66,9 @@ public class Grid {
     /**Falta completar este método para hacerlo con click, por lo tanto no está comentado 
      * correctamente
      * 
-     * @param position 
+     * @param positionRow 
+     * @param positionColumn 
+     * @param value 
      */
     public void insertPosition(int positionRow,int positionColumn, int value){
         if (cells[positionRow][positionColumn] != null && positionColumn >= 0 && positionColumn <= cells.length-1 &&
@@ -61,12 +79,13 @@ public class Grid {
             if(value == 2){
                 Cell cell01 = new Cell(2);
                 cells[positionRow][positionColumn] = cell01; //true 
-            }else{
+            }else if(value == 1){
                 Cell cell01 = new Cell(1);
                 cells[positionRow][positionColumn] = cell01; //false  
             } 
         }else{
             System.out.println("Digite una posición válida");
+            
         }
 
         
