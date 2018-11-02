@@ -270,6 +270,12 @@ public class Grid {
             for (int j = 0; j < cells.length; j++) {
                 if (cells[1][0].getLife() == 2 && cells[1][1].getLife() == 2  && cells[0][1].getLife() == 2) {
                     cells[0][0].setLife(2);
+                }else if(cells[0][0].getLife() == 2 && cells[1][0].getLife() == 2 && cells[1][1].getLife() == 2){
+                    cells[0][0].setLife(2);
+                }else if(cells[0][0].getLife() == 2 && cells[1][0].getLife() == 2 && cells[0][1].getLife() == 2) {
+                    cells[0][0].setLife(2);
+                }else if (cells[0][0].) {
+                    
                 }
             }
         }
@@ -285,11 +291,32 @@ public class Grid {
         }
     }
     private void esquinaDerechaArriba(){
+        int neighbour = 0;
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
-                if (cells[0][cells.length-2].getLife() == 2 && cells[1][cells.length-2].getLife() == 2 && cells[1][cells.length-1].getLife() == 2) {
-                    cells[0][cells.length-1].setLife(2);
+                for (int k = 0; k < cells.length; k++) {
+                    if (cells[0][cells.length-2].getLife() == 2) {
+                        neighbour += 1;
+                        if (cells[1][cells.length -2].getLife() == 2) {
+                            neighbour += 1;
+                            if (cells[1][cells.length-1].getLife() == 2) {
+                                neighbour += 1;
+                            }
+                        }
+                    }
+                    if (neighbour == 3) {
+                        cells[0][cells.length-1].setLife(2);
+                    }else if(neighbour == 2 && cells[0][cells.length-1].getLife() == 1){
+                        cells[0][cells.length -1].setLife(1);
+                    }else if (neighbour == 2 && cells[0][cells.length].getLife() == 2) {
+                        cells[0][cells.length-1].setLife(2);
+                    }else if (neighbour < 2 || neighbour > 3) {
+                        cells[0][cells.length-1].setLife(1);
+                    }
                 }
+//if (cells[0][cells.length-2].getLife() == 2 && cells[1][cells.length-2].getLife() == 2 && cells[1][cells.length-1].getLife() == 2) {
+                  //  cells[0][cells.length-1].setLife(2);
+                //}
             }
         }
     }
@@ -330,6 +357,8 @@ public class Grid {
             }
         }
     }
+    
+    
 
 /*                if (cells[0][0].getLife() == 2) {
                     esquinaIzquierdaArriba();
