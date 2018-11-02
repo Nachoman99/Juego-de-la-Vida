@@ -37,13 +37,13 @@ public class Grid {
         for(int i = 0; i<cells.length; i++){
             for(int j = 0; j<cells[i].length; j++){
                imprimir  =imprimir  + cells[i][j] + " "; 
-                     
+      
             }     
             imprimir  =imprimir + "\n"; 
         }
         return imprimir ;
     }
-    /**Revisar este método ya que imprime muchas cells,creo que hay que quitar un for
+    /**
      * Declaration: public void randomCells()
      * This method generates cells in random positions of the grid
      */
@@ -244,7 +244,7 @@ public class Grid {
                     }else{//Procedimiento de abajo
                         ladoAbajo();
                     }
-                }else if(cells[j][0].getLife() == 2){
+                }else if(cells[j][0].getLife() == 2){ //Izquierda
                     if (cells[0][0].getLife() == 2) {
                         esquinaIzquierdaArriba();
                     }else if(cells[cells.length -1][0].getLife() == 2){
@@ -252,7 +252,7 @@ public class Grid {
                     }else{// procedimiento izquierda
                         ladoIzquierdo();
                     }
-                }else if(cells[j][cells.length-1].getLife() == 2){
+                }else if(cells[j][cells.length-1].getLife() == 2){ //derecha
                     if (cells[0][cells.length-1].getLife() ==2) {
                         esquinaDerechaArriba();
                     }else if(cells[cells.length-1][cells.length-1].getLife() == 2){
@@ -266,28 +266,69 @@ public class Grid {
     }
     
     private void esquinaIzquierdaArriba(){
-
+        for (int i = 0; i < cells.length; i++) {
+            for (int j = 0; j < cells.length; j++) {
+                if (cells[1][0].getLife() == 2 && cells[1][1].getLife() == 2  && cells[0][1].getLife() == 2) {
+                    cells[0][0].setLife(2);
+                }
+            }
+        }
     }
-    private void esquinaIzquierdaAbajo(){
         
+    private void esquinaIzquierdaAbajo(){
+        for (int i = 0; i < cells.length; i++) {
+            for (int j = 0; j < cells.length; j++) {
+                if (cells[cells.length-2][0].getLife() == 2 && cells[cells.length-2][1].getLife() == 2 && cells[cells.length-1][1].getLife() == 2) {
+                    cells[cells.length-1][0].setLife(2);
+                }
+            }
+        }
     }
     private void esquinaDerechaArriba(){
-        
+        for (int i = 0; i < cells.length; i++) {
+            for (int j = 0; j < cells.length; j++) {
+                if (cells[0][cells.length-2].getLife() == 2 && cells[1][cells.length-2].getLife() == 2 && cells[1][cells.length-1].getLife() == 2) {
+                    cells[0][cells.length-1].setLife(2);
+                }
+            }
+        }
     }
     private void esquinaDerechaAbajo(){
-        
+        for (int i = 0; i < cells.length; i++) {
+            for (int j = 0; j < cells.length; j++) {
+                if (cells[cells.length-1][cells.length-2].getLife() ==2 && cells[cells.length-2][cells.length-2].getLife() == 2 && cells[cells.length-2][cells.length-1].getLife() == 2) {
+                    cells[cells.length-1][cells.length-1].setLife(2);
+                }
+            }
+        }
     }
     private void ladoArriba(){
-        
+        for (int i = 0; i < cells.length; i++) {
+            for (int j = 0; j < cells.length; j++) {
+                
+            }
+        }
     }
     private void ladoAbajo(){
-        
+        for (int i = 0; i < cells.length; i++) {
+            for (int j = 0; j < cells.length; j++) {
+                
+            }
+        }
     }
     private void ladoIzquierdo(){
-        
+        for (int i = 0; i < cells.length; i++) {
+            for (int j = 0; j < cells.length; j++) {
+                
+            }
+        }
     }
     private void ladoDerecho(){
-        
+        for (int i = 0; i < cells.length; i++) {
+            for (int j = 0; j < cells.length; j++) {
+                
+            }
+        }
     }
 
 /*                if (cells[0][0].getLife() == 2) {
