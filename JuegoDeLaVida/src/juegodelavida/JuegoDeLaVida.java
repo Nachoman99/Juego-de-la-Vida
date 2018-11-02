@@ -27,6 +27,7 @@ public class JuegoDeLaVida {
       
         System.out.println(grid.getStringMatrix());
         
-        
+        grid.hasLife();
+        System.out.println(grid.getStringMatrix());
     }
 }
