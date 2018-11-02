@@ -6,6 +6,9 @@
 package juegodelavida;
 
 
+
+
+
 /**
  * This class is the main, where the grid, the graphic interface and other elements are implemented
  * @author Jose Ignacio Zamora
@@ -17,6 +20,13 @@ public class JuegoDeLaVida {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Grid grid = new Grid(8);
+        grid.insertPosition(1, 1, 2);
+        grid.insertPosition(0, 1, 2);
+        grid.insertPosition(1, 0, 2);
+      
+        System.out.println(grid.getStringMatrix());
+        
         
     }
 }
