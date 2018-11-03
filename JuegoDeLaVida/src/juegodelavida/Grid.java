@@ -342,10 +342,26 @@ public class Grid {
         }
     }
     private void esquinaDerechaAbajo(){
+        int neighbour = 0;
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
-                if (cells[cells.length-1][cells.length-2].getLife() ==2 && cells[cells.length-2][cells.length-2].getLife() == 2 && cells[cells.length-2][cells.length-1].getLife() == 2) {
-                    cells[cells.length-1][cells.length-1].setLife(2);
+                if (cells[cells.length-1][cells.length-2].getLife() == 2) {
+                neighbour += 1;
+                    if (cells[cells.length-2][cells.length-2].getLife() == 2) {
+                        neighbour += 1;
+                        if (cells[cells.length-2][cells.length-1].getLife() == 2) {
+                            neighbour += 1;
+                        }
+                    }
+                }
+                if (neighbour == 3) {
+                    insertPosition(cells.length-1, cells.length-1, true);
+                }else if (neighbour == 2 && cells[cells.length-1][cells.length-1].getLife() == 2) {
+                    insertPosition(cells.length-1, cells.length-1, true);
+                }else if (neighbour == 2 && cells[cells.length-1][cells.length-1].getLife() == 1) {
+                    insertPosition(cells.length-1, cells.length-1, false);
+                }else if (neighbour < 2 || neighbour > 3) {
+                    insertPosition(cells.length-1, cells.length-1, true);
                 }
             }
         }
