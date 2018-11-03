@@ -27,7 +27,7 @@ public class JuegoDeLaVida {
         grid.insertPosition(1, 1, true);
         grid.insertPosition(0, 1, true);
         //grid.randomCells();
-        grid.isSide();
+        grid.hasLife();
         System.out.println(grid.getStringMatrix());
         //System.out.println(grid.getStringMatrix());
         

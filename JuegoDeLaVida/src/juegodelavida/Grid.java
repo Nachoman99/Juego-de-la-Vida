@@ -115,117 +115,16 @@ public class Grid {
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
                 if(i == 0 || i == cells.length-1 || j == 0 || j == cells.length-1){
-                        if(i == 0){
-                            //fila sea 0
-                            if(i == 0 && j == 0){
-                                 //esquina izquierda arriba
-                                if (cells[0][0].getLife() == 2) {
-                                    System.out.println("cuarto if");
-                                        if (cells[1][0].getLife() == 2 && cells[0][1].getLife() == 2) {
-                                            cells[0][0].setLife(2); 
-                                            System.out.println("quinto if");
-                                        }else{
-                                            cells[0][0].setLife(1);
-                                        }
-                                }else if(cells[0][0].getLife() == 1){
-                                    System.out.println("else 01");
-                                    if (cells[1][0].getLife() == 2 && cells[0][1].getLife() == 2 && cells[1][1].getLife() == 2) {
-                                        //System.out.println(getStringMatrix());
-                                        //cells[0][0].setLife(2);
-                                        System.out.println("sexto if");
-                                    }else{
-                                        cells[0][0].setLife(1);
-                                        System.out.println("else 02");
-                                    }
-                                }
-                            }else if(i==0 && j==cells.length-1){
-                                System.out.println("else 03");
-                                //esquina derecha arriba
-                                if (cells[0][cells.length-1].getLife() == 2) {
-                                    if (cells[0][cells.length-2].getLife() == 2 && cells[1][cells.length-1].getLife() == 2) {
-                                        cells[1][cells.length - 2].setLife(2);
-                                    }else{
-                                        cells[0][cells.length-1].setLife(1);
-                                    }
-                                }
-                            }else{
-                                //caso fila 0
-                                System.out.println("else 05");
-                                
-                                //Falta
-                                
-                                
-                                
-                                    for (int k = 0; k < cells.length; k++) {
-                                        if (cells[0][k].getLife() == 2) {
-                                            if (cells[0][k-1].getLife() == 2 && cells[0][k+1].getLife() == 2 && cells[1][k-1].getLife() == 2 && cells[1][k].getLife() == 2) {
-                                                cells[0][k].setLife(1);
-                                            }
-                                        }
-                                    }
-                            }
-                            break;
-                        }else if(i==cells.length-1){
-                             //fila sea 2
-                             System.out.println("HOLA");
-                             if(i == cells.length-1 && j == 0){
-                                 System.out.println("depues break");
-                                if(cells[cells.length-1][0].getLife()==2){
-                                    System.out.println("Esquina izquierda abajo");
-                                    if(cells[cells.length-1][1].getLife()==2 && cells[cells.length-2][0].getLife()==2){
-                                        cells[cells.length-1][0].setLife(2);
-                                    }else{
-                                        cells[cells.length-1][0].setLife(1);
-                                    }
-                                }else if(cells[cells.length-1][0].getLife()==1) {
-                                    if(cells[cells.length-1][1].getLife()==2 && cells[cells.length-2][0].getLife()==2 && cells[cells.length-2][1].getLife()==2){
-                                        cells[cells.length-1][0].setLife(2);
-                                    }else{
-                                        cells[cells.length-1][0].setLife(1);
-                                    }
-                                }
-                             }else if(i==cells.length-1 && j==cells.length-1){
-                                 if (cells[cells.length-1][cells.length-1].getLife() == 2){
-                                     if(cells[cells.length-1][cells.length-2].getLife() == 2 && cells[cells.length-2][cells.length-1].getLife() == 2){
-                                        cells[cells.length-1][cells.length-1].setLife(2);
-                                     }else{
-                                        cells[cells.length-1][cells.length-1].setLife(1);
-                                     }
-                                }else if(cells[cells.length-1][cells.length-1].getLife() == 1){
-                                  if(cells[cells.length-1][cells.length-2].getLife() == 2 && cells[cells.length-2][cells.length-1].getLife() == 2 && cells[cells.length-2][cells.length-2].getLife()==2){
-                                    cells[cells.length-1][cells.length-1].setLife(2);
-                                  }else{
-                                    cells[cells.length-1][cells.length-1].setLife(1);
-                                  }
-                                 }
-                            }else{
-                                
-                            }
-                           break;
-                        }else if(j==0){
-                            //columna sea 0
-                            break;
-                        }else if(j==cells.length-1){
-                            //columna sea 2
-                            break;
-                        }       
+                    isSide();
                 }else{
-                    //caso que sea del centro y se pueda sacar las 8 posiciones vecinas
-                    System.out.println("else");
+                    // Aquí va otro método para calcular los del centro
+                    isCentro();
                 }
-                
-                
-                
-                
-                /*if (cells[i][j].getLife() == 2 && cells[i + 1][j].getLife() == 2 && cells[i][j + 1].getLife() == 2) {
-                    cells[i + 1][j + 1].setLife(2);
-                }else{
-                    cells[i][j].setLife(1);
-                }*/
             }
         }
     }
-    public void isSide(){
+    
+    private void isSide(){
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
                 if (cells[0][j].getLife() == 2) {   //arriba
@@ -395,16 +294,9 @@ public class Grid {
         }
     }
     
-    
-
-/*                if (cells[0][0].getLife() == 2) {
-                    esquinaIzquierdaArriba();
-                }else if(cells[cells.length -1][0].getLife() == 2){
-                    esquinaIzquierdaAbajo();
-                }else if(cells[0][cells.length-1].getLife() == 2){
-                    esquinaDerechaArriba();
-                }else if(cells[cells.length-1][cells.length -1].getLife() == 2){
-                    esquinaDerechaAbajo();
-                }else{
-*/
+    private void isCentro(){
+        
+    }
 }
+
+
