@@ -231,31 +231,31 @@ public class Grid {
                 if (cells[0][j].getLife() == 2) {   //arriba
                     if (cells[0][0].getLife() == 2 || cells[0][0].getLife() == 1) {
                         esquinaIzquierdaArriba();
-                    }else if(cells[0][cells.length-1].getLife() == 2){
+                    }else if(cells[0][cells.length-1].getLife() == 2 || cells[0][cells.length-1].getLife() == 1){
                         esquinaDerechaArriba();
                     }else{//procedimiento del lado arriba
                         ladoArriba();
                     }
                 }else if(cells[cells.length-1][j].getLife() == 2){ //abajo
-                    if (cells[cells.length-1][0].getLife() == 2) {
+                    if (cells[cells.length-1][0].getLife() == 2 || cells[cells.length-1][0].getLife() == 1) {
                         esquinaIzquierdaAbajo();
-                    }else if(cells[cells.length-1][cells.length-1].getLife() == 2){
+                    }else if(cells[cells.length-1][cells.length-1].getLife() == 2 || cells[cells.length-1][cells.length-1].getLife() == 1){
                         esquinaDerechaAbajo();
                     }else{//Procedimiento de abajo
                         ladoAbajo();
                     }
                 }else if(cells[j][0].getLife() == 2){ //Izquierda
-                    if (cells[0][0].getLife() == 2) {
+                    if (cells[0][0].getLife() == 2 || cells[0][0].getLife() == 1) {
                         esquinaIzquierdaArriba();
-                    }else if(cells[cells.length -1][0].getLife() == 2){
+                    }else if(cells[cells.length -1][0].getLife() == 2 || cells[cells.length-1][0].getLife() == 1){
                         esquinaIzquierdaAbajo();
                     }else{// procedimiento izquierda
                         ladoIzquierdo();
                     }
                 }else if(cells[j][cells.length-1].getLife() == 2){ //derecha
-                    if (cells[0][cells.length-1].getLife() ==2) {
+                    if (cells[0][cells.length-1].getLife() == 2 || cells[0][cells.length-1].getLife() == 1) {
                         esquinaDerechaArriba();
-                    }else if(cells[cells.length-1][cells.length-1].getLife() == 2){
+                    }else if(cells[cells.length-1][cells.length-1].getLife() == 2 || cells[cells.length-1][cells.length-1].getLife() == 1){
                         esquinaDerechaAbajo();
                     }else{//procedimiento derecha
                         ladoDerecho();
