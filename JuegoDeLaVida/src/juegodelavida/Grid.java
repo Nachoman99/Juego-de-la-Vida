@@ -225,11 +225,11 @@ public class Grid {
             }
         }
     }
-    private void isSide(){
+    public void isSide(){
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
                 if (cells[0][j].getLife() == 2) {   //arriba
-                    if (cells[0][0].getLife() == 2) {
+                    if (cells[0][0].getLife() == 2 || cells[0][0].getLife() == 1) {
                         esquinaIzquierdaArriba();
                     }else if(cells[0][cells.length-1].getLife() == 2){
                         esquinaDerechaArriba();
@@ -266,15 +266,25 @@ public class Grid {
     }
     
     private void esquinaIzquierdaArriba(){
+        int neighbour = 0;
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
-                if (cells[1][0].getLife() == 2 && cells[1][1].getLife() == 2  && cells[0][1].getLife() == 2) {
+                if (cells[0][1].getLife() == 2) {
+                    neighbour += 1;
+                    if (cells[1][0].getLife() == 2) {
+                        neighbour += 1;
+                        if (cells[1][1].getLife() == 2) {
+                            neighbour += 1;
+                        }
+                    }
+                }
+                if (neighbour == 3) {
+                    insertPosition(0, 0, 2);
+                }else if (neighbour == 2 && cells[0][0].getLife() == 2) {
                     cells[0][0].setLife(2);
-                }else if(cells[0][0].getLife() == 2 && cells[1][0].getLife() == 2 && cells[1][1].getLife() == 2){
-                    cells[0][0].setLife(2);
-                }else if(cells[0][0].getLife() == 2 && cells[1][0].getLife() == 2 && cells[0][1].getLife() == 2) {
-                    cells[0][0].setLife(2);
-                }else if (cells[0][0].) {
+                }else if (neighbour == 2 && cells[0][0].getLife() == 1) {
+                    cells[0][0].setLife(1);
+               // }else if (ne) {
                     
                 }
             }
@@ -285,7 +295,7 @@ public class Grid {
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
                 if (cells[cells.length-2][0].getLife() == 2 && cells[cells.length-2][1].getLife() == 2 && cells[cells.length-1][1].getLife() == 2) {
-                    cells[cells.length-1][0].setLife(2);
+                    cells[cells.length][0].setLife(2);
                 }
             }
         }
@@ -294,29 +304,24 @@ public class Grid {
         int neighbour = 0;
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
-                for (int k = 0; k < cells.length; k++) {
-                    if (cells[0][cells.length-2].getLife() == 2) {
+                if (cells[0][cells.length-2].getLife() == 2) {
+                    neighbour += 1;
+                    if (cells[1][cells.length -2].getLife() == 2) {
                         neighbour += 1;
-                        if (cells[1][cells.length -2].getLife() == 2) {
+                        if (cells[1][cells.length-1].getLife() == 2) {
                             neighbour += 1;
-                            if (cells[1][cells.length-1].getLife() == 2) {
-                                neighbour += 1;
-                            }
                         }
                     }
-                    if (neighbour == 3) {
-                        cells[0][cells.length-1].setLife(2);
-                    }else if(neighbour == 2 && cells[0][cells.length-1].getLife() == 1){
-                        cells[0][cells.length -1].setLife(1);
-                    }else if (neighbour == 2 && cells[0][cells.length].getLife() == 2) {
-                        cells[0][cells.length-1].setLife(2);
-                    }else if (neighbour < 2 || neighbour > 3) {
-                        cells[0][cells.length-1].setLife(1);
-                    }
                 }
-//if (cells[0][cells.length-2].getLife() == 2 && cells[1][cells.length-2].getLife() == 2 && cells[1][cells.length-1].getLife() == 2) {
-                  //  cells[0][cells.length-1].setLife(2);
-                //}
+                if (neighbour == 3) {
+                    cells[0][cells.length-1].setLife(2);
+                }else if(neighbour == 2 && cells[0][cells.length-1].getLife() == 1){
+                    cells[0][cells.length -1].setLife(1);
+                }else if (neighbour == 2 && cells[0][cells.length].getLife() == 2) {
+                    cells[0][cells.length-1].setLife(2);
+                }else if (neighbour < 2 || neighbour > 3) {
+                    cells[0][cells.length-1].setLife(1);
+                }
             }
         }
     }

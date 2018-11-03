@@ -22,12 +22,13 @@ public class JuegoDeLaVida {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Grid grid = new Grid(20);
-        //grid.insertPosition(1, 1, 2);
-        //grid.insertPosition(0, 1, 2);
-        //grid.insertPosition(1, 0, 2);
-        grid.randomCells();
-        JOptionPane.showMessageDialog(null, grid.getStringMatrix());
+        Grid grid = new Grid(8);
+        grid.insertPosition(1, 0, 2);
+        grid.insertPosition(1, 1, 2);
+        grid.insertPosition(0, 1, 2);
+        //grid.randomCells();
+        grid.isSide();
+        System.out.println(grid.getStringMatrix());
         //System.out.println(grid.getStringMatrix());
         
         //grid.hasLife();
