@@ -70,16 +70,16 @@ public class Grid {
      * @param positionColumn 
      * @param value 
      */
-    public void insertPosition(int positionRow,int positionColumn, int value){
+    public void insertPosition(int positionRow,int positionColumn, boolean value){
         if (cells[positionRow][positionColumn] != null && positionColumn >= 0 && positionColumn <= cells.length-1 &&
                 positionRow >= 0 && positionRow <= cells.length-1) {//Primero verifica la posicion si no es nula, y despes
             //ve si la posicion columna y fila estan en ese intervalo si esta afuera no se puede, es decir de 0 a
             // cells.length -1 xq ese es la cantidad de valores maximo ejemplo = 8 filas y columnas entonces va de 
             //0,1,2,3,4,5,6,7 tanto en fila como columna.
-            if(value == 2){
+            if(value == true){
                 Cell cell01 = new Cell(2);
                 cells[positionRow][positionColumn] = cell01; //true 
-            }else if(value == 1){
+            }else if(value == false){
                 Cell cell01 = new Cell(1);
                 cells[positionRow][positionColumn] = cell01; //false  
             } 
@@ -279,23 +279,39 @@ public class Grid {
                     }
                 }
                 if (neighbour == 3) {
-                    insertPosition(0, 0, 2);
+                    insertPosition(0, 0, true);
                 }else if (neighbour == 2 && cells[0][0].getLife() == 2) {
-                    cells[0][0].setLife(2);
+                    insertPosition(0, 0, true);
                 }else if (neighbour == 2 && cells[0][0].getLife() == 1) {
-                    cells[0][0].setLife(1);
-               // }else if (ne) {
-                    
+                    insertPosition(0, 0, false);
+                }else if (neighbour < 2 || neighbour > 3) {
+                    insertPosition(0, 0, false);
                 }
             }
         }
     }
         
     private void esquinaIzquierdaAbajo(){
+        int neighbour = 0;
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
-                if (cells[cells.length-2][0].getLife() == 2 && cells[cells.length-2][1].getLife() == 2 && cells[cells.length-1][1].getLife() == 2) {
-                    cells[cells.length][0].setLife(2);
+                if (cells[cells.length -2][0].getLife() == 2) {
+                    neighbour += 1;
+                    if (cells[cells.length-2][1].getLife() == 2) {
+                        neighbour += 1;
+                        if (cells[cells.length-1][1].getLife() == 2) {
+                            neighbour += 1;
+                        }
+                    }
+                }
+                if (neighbour == 3) {
+                    insertPosition(cells.length-1, 0, true);
+                }else if (neighbour == 2 && cells[cells.length -1][0].getLife() == 2) {
+                    insertPosition(cells.length-1, 0, true);
+                }else if (neighbour == 2 && cells[cells.length -1][0].getLife() == 1) {
+                    insertPosition(cells.length-1, 0, false);
+                }else if (neighbour < 2 || neighbour > 3) {
+                    insertPosition(cells.length-1, 0, false);
                 }
             }
         }
