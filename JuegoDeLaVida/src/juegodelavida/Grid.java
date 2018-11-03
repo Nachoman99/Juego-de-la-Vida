@@ -32,12 +32,11 @@ public class Grid {
             }    
         }
     }
-    public  String getStringMatrix(){ //lo pongo para poder poner la matriz bien bonita
+    public  String getStringMatrix(){ 
         String imprimir = "";
         for(int i = 0; i<cells.length; i++){
             for(int j = 0; j<cells[i].length; j++){
                imprimir  =imprimir  + cells[i][j] + " "; 
-      
             }     
             imprimir  =imprimir + "\n"; 
         }
@@ -128,11 +127,11 @@ public class Grid {
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
                 if (cells[0][j].getLife() == 2) {   //arriba
-                    if (cells[0][0].getLife() == 2 || cells[0][0].getLife() == 1) {
+                    if (cells[0][0].getLife() == 2 || cells[0][1].getLife() == 2 || cells[1][0].getLife()==2 || cells[1][1].getLife() ==2) {
                         esquinaIzquierdaArriba();
-                    }else if(cells[0][cells.length-1].getLife() == 2 || cells[0][cells.length-1].getLife() == 1){
+                    }else if(cells[0][cells.length-1].getLife() == 2 || cells[0][cells.length-2].getLife() == 2 || cells[1][cells.length-2].getLife() == 2 || cells[1][cells.length-1].getLife() == 2){
                         esquinaDerechaArriba();
-                    }else{//procedimiento del lado arriba
+                    }else if (cells[0][j+1].getLife() == 2 || cells[0][j+1].getLife() == 1) {//procedimiento del lado arriba  
                         ladoArriba();
                     }
                 }else if(cells[cells.length-1][j].getLife() == 2){ //abajo
@@ -265,13 +264,43 @@ public class Grid {
             }
         }
     }
+    
+    // Entra al primer for, pero de ahí no pasa
     private void ladoArriba(){
+        int neighbour = 0;
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
-                
-            }
-        }
+                if (cells[0][j+1].getLife() == 2 || cells[0][j+1].getLife() == 1) {
+                    System.out.println("Hola");
+                    if (cells[0][j].getLife() == 2) {
+                        neighbour += 1;
+                        if (cells[0][j+2].getLife() == 2) {
+                            neighbour += 1;
+                            if (cells[1][j].getLife() == 2) {
+                                neighbour += 1;
+                                if (cells[1][j+1].getLife() == 2) {
+                                    neighbour += 1;
+                                    if (cells[1][j+2].getLife() == 2) {
+                                        neighbour += 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                if (neighbour == 3) {
+                    insertPosition(0, j+1, true);
+                }else if (neighbour == 2 && cells[0][j+1].getLife() == 2) {
+                    insertPosition(0, j+1, true);
+                }else if (neighbour == 2 && cells[0][j+1].getLife() == 1) {
+                    insertPosition(0, j+1, false);
+                }else if (neighbour < 2 || neighbour > 3) {
+                    insertPosition(0, j+1, false);
+                }
+            }         
+        }            
     }
+        
     private void ladoAbajo(){
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
@@ -295,7 +324,12 @@ public class Grid {
     }
     
     private void isCentro(){
-        
+        int neighbour = 0;
+        for (int i = 0; i < cells.length; i++) {
+            for (int j = 0; j < cells.length; j++) {
+
+            }
+        }
     }
 }
 
