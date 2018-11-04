@@ -123,8 +123,9 @@ public class Grid {
         }
     }
     
-    private void isSide(){
-        for (int i = 0; i < cells.length; i++) {
+    /*
+    metodo viejo de isSide
+    for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
                 if (cells[0][j].getLife() == 2) {   //arriba
                     if (cells[0][0].getLife() == 2 || cells[0][1].getLife() == 2 || cells[1][0].getLife()==2 || cells[1][1].getLife() ==2) {
@@ -162,6 +163,42 @@ public class Grid {
             }
         }
     }
+    */
+    
+    private void isSide(){
+        esquinaDerechaArriba();
+        esquinaIzquierdaAbajo();
+        esquinaIzquierdaArriba();
+        esquinaDerechaAbajo();
+        for (int i = 0; i < cells.length; i++) {
+            for (int j = 0; j < cells.length; j++) {
+                if (i == 0) {   //arriba
+                    if (j != 0 || j != cells.length-1) {
+                        //procedimiento del lado arriba  
+                        ladoArriba();
+                    }
+                
+                }else if(i == cells.length-1 ){ //abajo
+                    if (j != 0 || j!= cells.length-1) {
+                        //Procedimiento de abajo
+                        ladoAbajo();
+                    }
+                
+                }else if(j == 0){ //Izquierda
+                    if (i != 0 && i != cells.length-1) {
+                        // procedimiento izquierda
+                        ladoIzquierdo();
+                    }
+                
+                }else if(j == cells.length-1){ //derecha
+                    if (i != 0 && i != cells.length-1){
+                        ladoDerecho();
+                    }
+                
+                }
+            }
+        }
+    }
     
     private void esquinaIzquierdaArriba(){
         int neighbour = 0;
@@ -176,7 +213,10 @@ public class Grid {
                         }
                     }
                 }
-                if (neighbour == 3) {
+            }
+        }
+        
+        if (neighbour == 3) {
                     insertPosition(0, 0, true);
                 }else if (neighbour == 2 && cells[0][0].getLife() == 2) {
                     insertPosition(0, 0, true);
@@ -185,8 +225,7 @@ public class Grid {
                 }else if (neighbour < 2 || neighbour > 3) {
                     insertPosition(0, 0, false);
                 }
-            }
-        }
+        
     }
         
     private void esquinaIzquierdaAbajo(){
@@ -202,7 +241,11 @@ public class Grid {
                         }
                     }
                 }
-                if (neighbour == 3) {
+                
+            }
+        }
+        
+       if (neighbour == 3) {
                     insertPosition(cells.length-1, 0, true);
                 }else if (neighbour == 2 && cells[cells.length -1][0].getLife() == 2) {
                     insertPosition(cells.length-1, 0, true);
@@ -211,9 +254,9 @@ public class Grid {
                 }else if (neighbour < 2 || neighbour > 3) {
                     insertPosition(cells.length-1, 0, false);
                 }
-            }
-        }
+       
     }
+    
     private void esquinaDerechaArriba(){
         int neighbour = 0;
         for (int i = 0; i < cells.length; i++) {
@@ -227,7 +270,9 @@ public class Grid {
                         }
                     }
                 }
-                if (neighbour == 3) {
+            }
+        }
+        if (neighbour == 3) {
                     cells[0][cells.length-1].setLife(2);
                 }else if(neighbour == 2 && cells[0][cells.length-1].getLife() == 1){
                     cells[0][cells.length -1].setLife(1);
@@ -236,8 +281,7 @@ public class Grid {
                 }else if (neighbour < 2 || neighbour > 3) {
                     cells[0][cells.length-1].setLife(1);
                 }
-            }
-        }
+        
     }
     private void esquinaDerechaAbajo(){
         int neighbour = 0;
@@ -252,20 +296,25 @@ public class Grid {
                         }
                     }
                 }
-                if (neighbour == 3) {
-                    insertPosition(cells.length-1, cells.length-1, true);
-                }else if (neighbour == 2 && cells[cells.length-1][cells.length-1].getLife() == 2) {
-                    insertPosition(cells.length-1, cells.length-1, true);
-                }else if (neighbour == 2 && cells[cells.length-1][cells.length-1].getLife() == 1) {
-                    insertPosition(cells.length-1, cells.length-1, false);
-                }else if (neighbour < 2 || neighbour > 3) {
-                    insertPosition(cells.length-1, cells.length-1, true);
-                }
+              
             }
         }
+        if (neighbour == 3) {
+            insertPosition(cells.length-1, cells.length-1, true);
+        }else if (neighbour == 2 && cells[cells.length-1][cells.length-1].getLife() == 2) {
+            insertPosition(cells.length-1, cells.length-1, true);
+        }else if (neighbour == 2 && cells[cells.length-1][cells.length-1].getLife() == 1) {
+            insertPosition(cells.length-1, cells.length-1, false);
+        }else if (neighbour < 2 || neighbour > 3) {
+            insertPosition(cells.length-1, cells.length-1, false);
+        }
+        
     }
     
     // Entra al primer for, pero de ahí no pasa
+    
+    
+    
     private void ladoArriba(){
         int neighbour = 0;
         for (int i = 0; i < cells.length; i++) {

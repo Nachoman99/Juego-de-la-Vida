@@ -23,9 +23,14 @@ public class JuegoDeLaVida {
      */
     public static void main(String[] args) {
         Grid grid = new Grid(8);
-        grid.insertPosition(0, 2, true);
-        grid.insertPosition(1, 2, true);
-        grid.insertPosition(1, 3, true);
+        //grid.insertPosition(0, 2, true);
+        //grid.insertPosition(1, 2, true);
+        //grid.insertPosition(1, 3, true);
+        
+        grid.insertPosition(0, 0, true);
+        grid.insertPosition(0, 7, true);
+        grid.insertPosition(7, 0, true);
+        grid.insertPosition(7, 7, true);
         //grid.randomCells();
         grid.hasLife();
         System.out.println(grid.getStringMatrix());
