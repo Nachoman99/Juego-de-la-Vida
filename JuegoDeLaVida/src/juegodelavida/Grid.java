@@ -185,13 +185,13 @@ public class Grid {
                     }
                 
                 }else if(j == 0){ //Izquierda
-                    if (i != 0 && i != cells.length-1) {
+                    if (i != 0 || i != cells.length-1) {
                         // procedimiento izquierda
                         ladoIzquierdo();
                     }
                 
                 }else if(j == cells.length-1){ //derecha
-                    if (i != 0 && i != cells.length-1){
+                    if (i != 0 || i != cells.length-1){
                         ladoDerecho();
                     }
                 
