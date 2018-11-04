@@ -316,7 +316,7 @@ public class Grid {
     
     
     private void ladoArriba(){
-        int neighbour = 0;
+        /*int neighbour = 0;
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
                 if (cells[0][j+1].getLife() == 2 || cells[0][j+1].getLife() == 1) {
@@ -347,7 +347,38 @@ public class Grid {
                     insertPosition(0, j+1, false);
                 }
             }         
-        }            
+        }  */
+        
+        for (int i = 0; i < cells.length; i++) {
+            for (int j = 0; j < cells.length; j++) {
+                if (i == 0) {   //arriba
+                    if (j != 0 || j != cells.length-1) {
+                        //procedimiento del lado arriba  
+                        int neighbour = 0;
+                        for(int k=0; k<2; k++){
+                            for(int p= j-1; p<j+1;p++){
+                                if(k!=0 && p!=j){
+                                    if(cells[k][p].getLife() == 2){
+                                        neighbour += 1;
+                                    }
+                                }
+                                
+                            }
+                        }
+                        
+                         if (neighbour == 3) {
+                            insertPosition(i, j, true);
+                        }else if (neighbour == 2 && cells[0][j+1].getLife() == 2) {
+                            insertPosition(i, j, true);
+                        }else if (neighbour == 2 && cells[0][j+1].getLife() == 1) {
+                            insertPosition(i, j, false);
+                        }else if (neighbour < 2 || neighbour > 3) {
+                            insertPosition(i, j, false);
+                        }
+                    }
+                }
+            }
+        }
     }
         
     private void ladoAbajo(){
