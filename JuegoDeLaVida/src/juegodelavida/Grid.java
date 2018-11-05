@@ -127,7 +127,7 @@ public class Grid {
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
                 if(i == 0 || i == cells.length-1 || j == 0 || j == cells.length-1){
-                    isSide();
+                  isSide();
                 }else{
                     // Aquí va otro método para calcular los del centro
                     isCentro();
@@ -235,7 +235,7 @@ public class Grid {
                     cells2[0][0].setLife(2);
                 }else if (neighbour == 2 && cells[0][0].getLife() == 1) {
                     cells2[0][0].setLife(1);
-                }else if (neighbour < 2 || neighbour > 3) {
+                }else if (neighbour < 2) {
                     cells2[0][0].setLife(1);
                 }
         
@@ -264,7 +264,7 @@ public class Grid {
                     cells2[cells.length-1][0].setLife(2);
                 }else if (neighbour == 2 && cells[cells.length -1][0].getLife() == 1) {
                     cells2[cells.length-1][0].setLife(1);
-                }else if (neighbour < 2 || neighbour > 3) {
+                }else if (neighbour < 2) {
                     cells2[cells.length-1][0].setLife(1);
                 }
        
@@ -291,7 +291,7 @@ public class Grid {
                     cells2[0][cells.length-1].setLife(1);
                 }else if (neighbour == 2 && cells[0][cells.length].getLife() == 2) {
                     cells2[0][cells.length-1].setLife(2);
-                }else if (neighbour < 2 || neighbour > 3) {
+                }else if (neighbour < 2) {
                     cells2[0][cells.length-1].setLife(1);
                 }
         
@@ -301,7 +301,7 @@ public class Grid {
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
                 if (cells[cells.length-1][cells.length-2].getLife() == 2) {
-                neighbour += 1;
+                    neighbour += 1;
                     if (cells[cells.length-2][cells.length-2].getLife() == 2) {
                         neighbour += 1;
                         if (cells[cells.length-2][cells.length-1].getLife() == 2) {
@@ -318,7 +318,7 @@ public class Grid {
             cells2[cells.length-1][cells.length-1].setLife(2);
         }else if (neighbour == 2 && cells[cells.length-1][cells.length-1].getLife() == 1) {
             cells2[cells.length-1][cells.length-1].setLife(1);
-        }else if (neighbour < 2 || neighbour > 3) {
+        }else if (neighbour < 2) {
             cells2[cells.length-1][cells.length-1].setLife(1);
         }
         
@@ -414,14 +414,48 @@ public class Grid {
         }
     }
     
-    private void isCentro(){
+    public void isCentro(){
         int neighbour = 0;
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
-
+                }
             }
-        }
+               /* if(i != 0 && j != 0 && i != cells.length-1 && j != cells.length-1) {
+                    if(cells[i-1][j-1].getLife()== 2) {
+                        neighbour +=1;
+                    }else if(cells[i-1][j].getLife()==2) {
+                        neighbour +=1;
+                    }else if(cells[i-1][j+1].getLife()==2) {
+                        neighbour +=1;
+                    }else if(cells[i][j-1].getLife()== 2) {
+                        neighbour +=1;
+                    }else if(cells[i][j+1].getLife()== 2) {
+                        neighbour +=1;
+                    }else if(cells[i+1][j-1].getLife()== 2) {
+                        neighbour +=1;
+                    }else if(cells[i+1][j].getLife()== 2) {
+                        neighbour +=1;
+                    }else if(cells[i+1][j+1].getLife()== 2) {
+                        neighbour +=1;
+                    }                
+                if (neighbour == 3) {
+                    insertPosition(i, j, true);
+                    }else if (neighbour == 2 && cells[i][j].getLife() == 2) {
+                    insertPosition(i, j, true);
+                    }else if (neighbour == 2 && cells[i][j].getLife() == 1) {
+                    insertPosition(i, j, false);
+                    }else if (neighbour < 2 || neighbour > 3) {
+                    insertPosition(i, j, false);
+                }
+                }
+            }
+            
+        } */
+        
     }
-}
+    
+} 
+
+
 
 
