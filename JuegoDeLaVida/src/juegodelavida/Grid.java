@@ -13,6 +13,7 @@ package juegodelavida;
  */
 public class Grid {
     private Cell[][] cells;
+    private Cell[][] cells2;
     private int generation = 0;
 
     /**
@@ -60,6 +61,7 @@ public class Grid {
                 }
             }
         }
+        duplicateCells();
     }
     
     /**Falta completar este método para hacerlo con click, por lo tanto no está comentado 
@@ -77,25 +79,27 @@ public class Grid {
             //0,1,2,3,4,5,6,7 tanto en fila como columna.
             if(value == true){
                 Cell cell01 = new Cell(2);
-                cells[positionRow][positionColumn] = cell01; //true 
+                cells[positionRow][positionColumn] = cell01; //true
+                duplicateCells();
             }else if(value == false){
                 Cell cell01 = new Cell(1);
                 cells[positionRow][positionColumn] = cell01; //false  
+                duplicateCells();
             } 
+            
         }else{
             System.out.println("Digite una posición válida");
             
         }  
     }
     
-    private Cell[][] duplicateCells(){
-        Cell[][] cells2 = new Cell[cells.length][cells.length];
+    private void duplicateCells(){
+        cells2 = new Cell[cells.length][cells.length];
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
                 cells2[i][j] = cells[i][j];
             }
         }
-        return cells2;
     }
     
     /**
@@ -224,14 +228,14 @@ public class Grid {
             }
         }
         
-        if (neighbour == 3) {
-                    insertPosition(0, 0, true);
+                if (neighbour == 3) {
+                    cells2[0][0].setLife(2);
                 }else if (neighbour == 2 && cells[0][0].getLife() == 2) {
-                    insertPosition(0, 0, true);
+                    cells2[0][0].setLife(2);
                 }else if (neighbour == 2 && cells[0][0].getLife() == 1) {
-                    insertPosition(0, 0, false);
+                    cells2[0][0].setLife(1);
                 }else if (neighbour < 2 || neighbour > 3) {
-                    insertPosition(0, 0, false);
+                    cells2[0][0].setLife(1);
                 }
         
     }
