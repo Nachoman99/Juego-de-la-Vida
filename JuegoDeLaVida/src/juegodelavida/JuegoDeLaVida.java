@@ -26,6 +26,9 @@ public class JuegoDeLaVida {
         grid.insertPosition(0, 2, true);
         grid.insertPosition(1, 2, true);
         grid.insertPosition(1, 3, true);
+        grid.insertPosition(0, 6, true);
+        grid.insertPosition(1, 1, true);
+        grid.insertPosition(1, 1, true);
         
         //grid.insertPosition(0, 0, true);
         //grid.insertPosition(0, 7, true);

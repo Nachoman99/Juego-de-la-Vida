@@ -85,9 +85,17 @@ public class Grid {
         }else{
             System.out.println("Digite una posición válida");
             
+        }  
+    }
+    
+    private Cell[][] duplicateCells(){
+        Cell[][] cells2 = new Cell[cells.length][cells.length];
+        for (int i = 0; i < cells.length; i++) {
+            for (int j = 0; j < cells.length; j++) {
+                cells2[i][j] = cells[i][j];
+            }
         }
-
-        
+        return cells2;
     }
     
     /**
@@ -350,7 +358,7 @@ public class Grid {
         }  */
         int neighbour = 0;
         for (int i = 0; i < cells.length; i++) {
-            for (int j = 1; j < cells.length -1; j++) {
+            for (int j = 0; j < cells.length; j++) {
                 if (i == 0) {   //arriba
                     if (j != 0 && j != cells.length-1) {
                         //procedimiento del lado arriba  
