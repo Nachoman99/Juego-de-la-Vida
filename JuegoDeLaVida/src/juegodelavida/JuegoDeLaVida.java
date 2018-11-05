@@ -30,25 +30,29 @@ public class JuegoDeLaVida {
         grid.insertPosition(1, 1, true);
         grid.insertPosition(1, 1, true);*/
         
-        grid.insertPosition(0, 0, true);
-        System.out.println(grid.getStringMatrix());
+        grid.insertPosition(0, 0, true); 
         grid.insertPosition(0, 1, true);
-        System.out.println(grid.getStringMatrix());
         grid.insertPosition(1, 0, true);
-        System.out.println(grid.getStringMatrix());
         grid.insertPosition(1, 1, true);
-        System.out.println(grid.getStringMatrix());
         
-        grid.insertPosition(0, 7, true);
-        System.out.println(grid.getStringMatrix());
+        
+        grid.insertPosition(0, 7, true);    
         grid.insertPosition(0, 6, true);
         grid.insertPosition(1, 6, true);
         grid.insertPosition(1, 7, true);
         
+        
         grid.insertPosition(7, 0, true);
-        System.out.println(grid.getStringMatrix());
+        grid.insertPosition(7, 1, true);
+        grid.insertPosition(6, 0, true);
+        grid.insertPosition(6, 1, true);
+        
+        
         grid.insertPosition(7, 7, true);
-        System.out.println(grid.getStringMatrix());
+        grid.insertPosition(6, 7, true);
+        grid.insertPosition(6, 6, true);
+        grid.insertPosition(7, 6, true);
+        
         //grid.randomCells();
         grid.hasLife();
         System.out.println(grid.getStringMatrix());
