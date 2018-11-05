@@ -35,14 +35,15 @@ public class Grid {
     }
     public  String getStringMatrix(){ 
         String imprimir = "";
-        for(int i = 0; i<cells.length; i++){
-            for(int j = 0; j<cells[i].length; j++){
-               imprimir  =imprimir  + cells[i][j] + " "; 
+        for(int i = 0; i<cells2.length; i++){
+            for(int j = 0; j<cells2[i].length; j++){
+               imprimir  =imprimir  + cells2[i][j] + " "; 
             }     
             imprimir  =imprimir + "\n"; 
         }
         return imprimir ;
     }
+    
     /**
      * Declaration: public void randomCells()
      * This method generates cells in random positions of the grid
@@ -177,34 +178,34 @@ public class Grid {
     }
     */
     
-    private void isSide(){
-        esquinaDerechaArriba();
+    private void isSide(){//este metodo va a ser 
         esquinaIzquierdaAbajo();
         esquinaIzquierdaArriba();
         esquinaDerechaAbajo();
+        esquinaDerechaArriba();
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
                 if (i == 0) {   //arriba
                     if (j != 0 || j != cells.length-1) {
                         //procedimiento del lado arriba  
-                        ladoArriba();
+                        //ladoArriba();
                     }
                 
                 }else if(i == cells.length-1 ){ //abajo
                     if (j != 0 || j!= cells.length-1) {
                         //Procedimiento de abajo
-                        ladoAbajo();
+                        //ladoAbajo();
                     }
                 
                 }else if(j == 0){ //Izquierda
                     if (i != 0 || i != cells.length-1) {
                         // procedimiento izquierda
-                        ladoIzquierdo();
+                        //ladoIzquierdo();
                     }
                 
                 }else if(j == cells.length-1){ //derecha
                     if (i != 0 || i != cells.length-1){
-                        ladoDerecho();
+                        //ladoDerecho();
                     }
                 
                 }
@@ -257,14 +258,14 @@ public class Grid {
             }
         }
         
-       if (neighbour == 3) {
-                    insertPosition(cells.length-1, 0, true);
+                if (neighbour == 3) {
+                    cells2[cells.length-1][0].setLife(2);
                 }else if (neighbour == 2 && cells[cells.length -1][0].getLife() == 2) {
-                    insertPosition(cells.length-1, 0, true);
+                    cells2[cells.length-1][0].setLife(2);
                 }else if (neighbour == 2 && cells[cells.length -1][0].getLife() == 1) {
-                    insertPosition(cells.length-1, 0, false);
+                    cells2[cells.length-1][0].setLife(1);
                 }else if (neighbour < 2 || neighbour > 3) {
-                    insertPosition(cells.length-1, 0, false);
+                    cells2[cells.length-1][0].setLife(1);
                 }
        
     }
@@ -284,14 +285,14 @@ public class Grid {
                 }
             }
         }
-        if (neighbour == 3) {
-                    cells[0][cells.length-1].setLife(2);
+                if (neighbour == 3) {
+                    cells2[0][cells.length-1].setLife(2);
                 }else if(neighbour == 2 && cells[0][cells.length-1].getLife() == 1){
-                    cells[0][cells.length -1].setLife(1);
+                    cells2[0][cells.length-1].setLife(1);
                 }else if (neighbour == 2 && cells[0][cells.length].getLife() == 2) {
-                    cells[0][cells.length-1].setLife(2);
+                    cells2[0][cells.length-1].setLife(2);
                 }else if (neighbour < 2 || neighbour > 3) {
-                    cells[0][cells.length-1].setLife(1);
+                    cells2[0][cells.length-1].setLife(1);
                 }
         
     }
@@ -312,13 +313,13 @@ public class Grid {
             }
         }
         if (neighbour == 3) {
-            insertPosition(cells.length-1, cells.length-1, true);
+            cells2[cells.length-1][cells.length-1].setLife(2);
         }else if (neighbour == 2 && cells[cells.length-1][cells.length-1].getLife() == 2) {
-            insertPosition(cells.length-1, cells.length-1, true);
+            cells2[cells.length-1][cells.length-1].setLife(2);
         }else if (neighbour == 2 && cells[cells.length-1][cells.length-1].getLife() == 1) {
-            insertPosition(cells.length-1, cells.length-1, false);
+            cells2[cells.length-1][cells.length-1].setLife(1);
         }else if (neighbour < 2 || neighbour > 3) {
-            insertPosition(cells.length-1, cells.length-1, false);
+            cells2[cells.length-1][cells.length-1].setLife(1);
         }
         
     }
@@ -372,7 +373,6 @@ public class Grid {
                                 if(k!=0 && p!=j){
                                     if(cells[k][p].getLife() == 2){
                                         neighbour += 1;
-                                        System.out.println(neighbour);
                                     }
                                 }   
                             }

@@ -23,17 +23,32 @@ public class JuegoDeLaVida {
      */
     public static void main(String[] args) {
         Grid grid = new Grid(8);
-        grid.insertPosition(0, 2, true);
+        /*grid.insertPosition(0, 2, true);
         grid.insertPosition(1, 2, true);
         grid.insertPosition(1, 3, true);
         grid.insertPosition(0, 6, true);
         grid.insertPosition(1, 1, true);
-        grid.insertPosition(1, 1, true);
+        grid.insertPosition(1, 1, true);*/
         
-        //grid.insertPosition(0, 0, true);
-        //grid.insertPosition(0, 7, true);
-       // grid.insertPosition(7, 0, true);
-       // grid.insertPosition(7, 7, true);
+        grid.insertPosition(0, 0, true);
+        System.out.println(grid.getStringMatrix());
+        grid.insertPosition(0, 1, true);
+        System.out.println(grid.getStringMatrix());
+        grid.insertPosition(1, 0, true);
+        System.out.println(grid.getStringMatrix());
+        grid.insertPosition(1, 1, true);
+        System.out.println(grid.getStringMatrix());
+        
+        grid.insertPosition(0, 7, true);
+        System.out.println(grid.getStringMatrix());
+        grid.insertPosition(0, 6, true);
+        grid.insertPosition(1, 6, true);
+        grid.insertPosition(1, 7, true);
+        
+        grid.insertPosition(7, 0, true);
+        System.out.println(grid.getStringMatrix());
+        grid.insertPosition(7, 7, true);
+        System.out.println(grid.getStringMatrix());
         //grid.randomCells();
         grid.hasLife();
         System.out.println(grid.getStringMatrix());
