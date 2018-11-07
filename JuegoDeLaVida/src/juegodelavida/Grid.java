@@ -206,6 +206,7 @@ public class Grid {
         esquinaDerechaAbajo();
         esquinaDerechaArriba();
         ladoArriba();
+        ladoAbajo();
         /*for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
                 if (i == 0) {   //arriba
@@ -430,12 +431,36 @@ public class Grid {
     }
         
     private void ladoAbajo(){
-        for (int i = 0; i < cells.length; i++) {
-            for (int j = 0; j < cells.length; j++) {
-                
+        int neighbour = 0;
+        for (int i = cells.length -1; i < cells.length -1; i++) {
+           for (int j = 1; j < cells.length -1; j++) {
+               System.out.println("Hola");
+                int initialColumnPosition = -1 + j;
+                int finalColumnPosition = 1 + j;
+                neighbour = 0;
+                for (int k = cells.length -2; k <= cells.length -1; k++) {
+                    for (int l = initialColumnPosition; l <= finalColumnPosition; l++) {
+                        if (k!=cells.length -1 || l!=j) {
+                            if (cells[k][l].getLife() == 2) {
+                                neighbour += 1;
+                            }
+                        }
+                    }
+                }
+                System.out.println(neighbour);
+                if (neighbour == 3) {
+                    insertPosition2(i, j, true);
+                }else if (neighbour == 2 && cells[cells.length][j].getLife() == 2) {
+                    insertPosition2(i, j, true);
+                }else if (neighbour == 2 && cells[cells.length][j].getLife() == 1) {
+                    insertPosition2(i, j, false);
+                }else if (neighbour < 2 || neighbour > 3) {
+                    insertPosition2(i, j, false);
+                }
             }
         }
     }
+    
     private void ladoIzquierdo(){
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
