@@ -53,8 +53,8 @@ public class JuegoDeLaVida {
         grid.insertPosition(6, 6, true);
         grid.insertPosition(7, 6, true);
         
-        //grid.insertPosition(0, 4, true);
-        grid.insertPosition(1, 3, true);
+        grid.insertPosition(0, 2, true);
+        //grid.insertPosition(1, 3, true);
        // grid.insertPosition(1, 4, true);
         
         //grid.randomCells();

@@ -26,10 +26,12 @@ public class Grid {
         Cell cell1 = new Cell(1);
         if (size >= 8 && size <= 20) {
             this.cells = new Cell[size][size];
+            this.cells2 = new Cell[size][size];
         }
         for(int i = 0; i < cells.length;i++){
             for(int j = 0; j < cells.length;j++){
                 cells[i][j] = cell1;
+                cells2[i][j] = cell1;
             }    
         }
     }
@@ -62,7 +64,7 @@ public class Grid {
                 }
             }
         }
-        duplicateCells();
+      
     }
     
     /**Falta completar este método para hacerlo con click, por lo tanto no está comentado 
@@ -81,11 +83,11 @@ public class Grid {
             if(value == true){
                 Cell cell01 = new Cell(2);
                 cells[positionRow][positionColumn] = cell01; //true
-                duplicateCells();
+                
             }else if(value == false){
                 Cell cell01 = new Cell(1);
                 cells[positionRow][positionColumn] = cell01; //false  
-                duplicateCells();
+              
             } 
             
         }else{
@@ -94,15 +96,34 @@ public class Grid {
         }  
     }
     
-    private void duplicateCells(){
+    public void insertPosition2 (int positionRow,int positionColumn, boolean value){
+         if (cells2[positionRow][positionColumn] != null && positionColumn >= 0 && positionColumn <= cells2.length-1 &&
+                positionRow >= 0 && positionRow <= cells2.length-1) {//Primero verifica la posicion si no es nula, y despes
+            //ve si la posicion columna y fila estan en ese intervalo si esta afuera no se puede, es decir de 0 a
+            // cells.length -1 xq ese es la cantidad de valores maximo ejemplo = 8 filas y columnas entonces va de 
+            //0,1,2,3,4,5,6,7 tanto en fila como columna.
+            if(value == true){
+                Cell cell01 = new Cell(2);
+                cells2[positionRow][positionColumn] = cell01; //true
+                
+            }else if(value == false){
+                Cell cell01 = new Cell(1);
+                cells2[positionRow][positionColumn] = cell01; //false  
+              
+            }
+         }
+    }
+    
+    
+    /*private void duplicateCells(){
         cells2 = cells.clone();
-        /*String [] array = (String []) arrayOrigen.clone();
+        String [] array = (String []) arrayOrigen.clone();
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
                 cells2[i][j] = cells[i][j];
             }
-        }*/
-    }
+        }
+    }*/
     
     /**
      * Este método lo que hace es seguir las reglas para ver cuales nacen y cuales mueren
@@ -229,13 +250,17 @@ public class Grid {
         }
      
                 if (neighbour == 3) {
-                    cells2[0][0].setLife(2);
+                    //ells2[0][0].setLife(2);
+                    insertPosition2(0, 0, true);
                 }else if (neighbour == 2 && cells[0][0].getLife() == 2) {
-                    cells2[0][0].setLife(2);
+                    //cells2[0][0].setLife(2);
+                    insertPosition2(0, 0, true);
                 }else if (neighbour == 2 && cells[0][0].getLife() == 1) {
-                    cells2[0][0].setLife(1);
+                    //cells2[0][0].setLife(1);
+                    insertPosition2(0, 0, false);
                 }else if (neighbour < 2 || neighbour > 3) {
-                    cells2[0][0].setLife(1);
+                   // cells2[0][0].setLife(1);
+                   insertPosition2(0, 0, false);
                 }
         
     }
@@ -254,13 +279,17 @@ public class Grid {
         }
      
                 if (neighbour == 3) {
-                    cells2[cells.length-1][0].setLife(2);
+                    //cells2[cells.length-1][0].setLife(2);
+                    insertPosition2(cells.length-1, 0, true);
                 }else if (neighbour == 2 && cells[cells.length -1][0].getLife() == 2) {
-                    cells2[cells.length-1][0].setLife(2);
+                   // cells2[cells.length-1][0].setLife(2);
+                    insertPosition2(cells.length-1, 0, true);
                 }else if (neighbour == 2 && cells[cells.length -1][0].getLife() == 1) {
-                    cells2[cells.length-1][0].setLife(1);
+                    //cells2[cells.length-1][0].setLife(1);
+                    insertPosition2(cells.length-1, 0, false);
                 }else if (neighbour < 2 || neighbour > 3) {
-                    cells2[cells.length-1][0].setLife(1);
+                    //cells2[cells.length-1][0].setLife(1);
+                    insertPosition2(cells.length-1, 0, false);
                 }
        
     }
@@ -277,13 +306,17 @@ public class Grid {
             }
         }
                 if (neighbour == 3) {
-                    cells2[0][cells.length-1].setLife(2);
+                    //cells2[0][cells.length-1].setLife(2);
+                    insertPosition2(0, cells.length-1, true);
                 }else if(neighbour == 2 && cells[0][cells.length-1].getLife() == 1){
-                    cells2[0][cells.length-1].setLife(1);
+                    //cells2[0][cells.length-1].setLife(1);
+                    insertPosition2(0, cells.length-1, false);
                 }else if (neighbour == 2 && cells[0][cells.length].getLife() == 2) {
-                    cells2[0][cells.length-1].setLife(2);
+                    //cells2[0][cells.length-1].setLife(2);
+                    insertPosition2(0, cells.length-1, true);
                 }else if (neighbour < 2 || neighbour > 3) {
-                    cells2[0][cells.length-1].setLife(1);
+                    //cells2[0][cells.length-1].setLife(1);
+                    insertPosition2(0, cells.length-1, false);
                 }
         
     }
@@ -301,13 +334,17 @@ public class Grid {
             }
         }
         if (neighbour == 3) {
-            cells2[cells.length-1][cells.length-1].setLife(2);
+            //cells2[cells.length-1][cells.length-1].setLife(2);
+            insertPosition2(cells.length-1, cells.length-1, true);
         }else if (neighbour == 2 && cells[cells.length-1][cells.length-1].getLife() == 2) {
-            cells2[cells.length-1][cells.length-1].setLife(2);
+            //cells2[cells.length-1][cells.length-1].setLife(2);
+            insertPosition2(cells.length-1, cells.length-1, true);
         }else if (neighbour == 2 && cells[cells.length-1][cells.length-1].getLife() == 1) {
-            cells2[cells.length-1][cells.length-1].setLife(1);
+           // cells2[cells.length-1][cells.length-1].setLife(1);
+            insertPosition2(cells.length-1, cells.length-1, false);
         }else if (neighbour < 2 || neighbour > 3) {
-            cells2[cells.length-1][cells.length-1].setLife(1);
+           // cells2[cells.length-1][cells.length-1].setLife(1);
+            insertPosition2(cells.length-1, cells.length-1, false);
         }
         
     }
@@ -370,16 +407,19 @@ public class Grid {
                         }
                         
                         if (neighbour == 3) {
-                            
+                            insertPosition2(i, j, true);
                             //cells2[i][j].setLife(2);
                             //System.out.println("conta= "+neighbour);
                         }else if (neighbour == 2 && cells[0][j].getLife() == 2) {
+                            insertPosition2(i, j, true);
                             //cells2[i][j].setLife(2);
                             //System.out.println("conta= "+neighbour);
                         }else if (neighbour == 2 && cells[0][j].getLife() == 1) {
+                            insertPosition2(i, j, false);
                            //cells2[i][j].setLife(1);
                              //System.out.println("conta= "+neighbour);
                         }else if (neighbour < 2 || neighbour > 3) {
+                            insertPosition2(i, j, false);
                            // cells2[i][j].setLife(1);
                             // System.out.println("conta= "+neighbour);
                         }
