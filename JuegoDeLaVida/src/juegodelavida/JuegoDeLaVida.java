@@ -61,6 +61,9 @@ public class JuegoDeLaVida {
         //grid.insertPosition(1, 3, true);
        // grid.insertPosition(1, 4, true);
         
+        grid.insertPosition(3, 0, false);
+        grid.insertPosition(3, 1, true);
+        grid.insertPosition(4, 0, true);
         //grid.randomCells();
         
         grid.hasLife();

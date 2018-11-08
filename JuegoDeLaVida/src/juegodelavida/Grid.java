@@ -207,6 +207,7 @@ public class Grid {
         esquinaDerechaArriba();
         ladoArriba();
         ladoAbajo();
+        ladoIzquierdo();
         /*for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
                 if (i == 0) {   //arriba
@@ -400,8 +401,8 @@ public class Grid {
                                     //System.out.println(cells[k][p].getLife());
                                     if(cells[k][p].getLife() == 2){
                                         neighbour += 1;
-                                        System.out.println(" i= "+i +" j =" + j+" k= " + k + " p= " + p );
-                                        System.out.println("conta= " +neighbour);
+                                        //System.out.println(" i= "+i +" j =" + j+" k= " + k + " p= " + p );
+                                       // System.out.println("conta= " +neighbour);
                                     }
                                 }   
                             }
@@ -432,13 +433,12 @@ public class Grid {
         
     private void ladoAbajo(){
         int neighbour = 0;
-        for (int i = cells.length -1; i < cells.length -1; i++) {
+        for (int i = cells.length -1; i <= cells.length-1; i++) {
            for (int j = 1; j < cells.length -1; j++) {
-               System.out.println("Hola");
-                int initialColumnPosition = -1 + j;
-                int finalColumnPosition = 1 + j;
+                int initialColumnPosition = -1+j;
+                int finalColumnPosition = 1+j;
                 neighbour = 0;
-                for (int k = cells.length -2; k <= cells.length -1; k++) {
+                for (int k = cells.length-2; k <= cells.length-1; k++) {
                     for (int l = initialColumnPosition; l <= finalColumnPosition; l++) {
                         if (k!=cells.length -1 || l!=j) {
                             if (cells[k][l].getLife() == 2) {
@@ -447,12 +447,12 @@ public class Grid {
                         }
                     }
                 }
-                System.out.println(neighbour);
+                //System.out.println(neighbour);
                 if (neighbour == 3) {
                     insertPosition2(i, j, true);
-                }else if (neighbour == 2 && cells[cells.length][j].getLife() == 2) {
+                }else if (neighbour == 2 && cells[cells.length-1][j].getLife() == 2) {
                     insertPosition2(i, j, true);
-                }else if (neighbour == 2 && cells[cells.length][j].getLife() == 1) {
+                }else if (neighbour == 2 && cells[cells.length-1][j].getLife() == 1) {
                     insertPosition2(i, j, false);
                 }else if (neighbour < 2 || neighbour > 3) {
                     insertPosition2(i, j, false);
@@ -462,11 +462,49 @@ public class Grid {
     }
     
     private void ladoIzquierdo(){
-        for (int i = 0; i < cells.length; i++) {
-            for (int j = 0; j < cells.length; j++) {
-                
+        int neighbour = 0;
+        for (int j = 1; j < cells.length-1; j++) {//columna
+            for (int i = 0; i < 1; i++ ) {//fila
+                        //procedimiento del lado arriba
+                        System.out.println(i);
+                        System.out.println(j);
+                        int initialColumnPosition = -1+j;
+                        int finalColumnPosition = 1+j;
+                        neighbour = 0;
+                        for(int p = initialColumnPosition; p <= finalColumnPosition; p++){
+                            for(int k = 0; k <= 1; k++){
+                                if((p!=j || k!=0)){
+                                    //System.out.println(cells[k][p].getLife());
+                                    if(cells[p][k].getLife() == 2){
+                                        neighbour += 1;
+                                        //System.out.println(" i= "+i +" j =" + j+" k= " + k + " p= " + p );
+                                       // System.out.println("conta= " +neighbour);
+                                    }
+                                }   
+                            }
+                        }
+                        
+                        if (neighbour == 3) {
+                            insertPosition2(j, i, true);
+                            //cells2[i][j].setLife(2);
+                            //System.out.println("conta= "+neighbour);
+                        }else if (neighbour == 2 && cells[j][0].getLife() == 2) {
+                            insertPosition2(j, i, true);
+                            //cells2[i][j].setLife(2);
+                            //System.out.println("conta= "+neighbour);
+                        }else if (neighbour == 2 && cells[j][0].getLife() == 1) {
+                            insertPosition2(j, i, false);
+                           //cells2[i][j].setLife(1);
+                             //System.out.println("conta= "+neighbour);
+                        }else if (neighbour < 2 || neighbour > 3) {
+                            insertPosition2(j, i, false);
+                           // cells2[i][j].setLife(1);
+                            // System.out.println("conta= "+neighbour);
+                        }
+                    
+                }
             }
-        }
+        
     }
     private void ladoDerecho(){
         for (int i = 0; i < cells.length; i++) {
