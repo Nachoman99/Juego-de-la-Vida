@@ -518,12 +518,12 @@ public class Grid {
             for (int j = 1; j < cells.length -2; j++) {
                 int initialColumnPosition = 1 - j;
                 int finalColumnPosition = 1 + j;
-                int initialRowPosition = 1 - j;
-                int finalRowPosition = 1 +j;
+                int initialRowPosition = 1 - i;
+                int finalRowPosition = 1 + i;
                 neighbour = 0;
                 for (int k = initialRowPosition; k <= finalRowPosition; k++) {
                     for (int l = initialColumnPosition; l <= finalColumnPosition; l++) {
-                        if (k!=j || l!=i ) {
+                        if (k!= i || l!= j ) {
                             if (cells[k][l].getLife() == 2) {
                                 neighbour += 1;
                             }
