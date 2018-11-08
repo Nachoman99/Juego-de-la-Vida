@@ -4,13 +4,16 @@
  * and open the template in the editor.
  */
 package juegodelavida.logicGame;
-
+import juegodelavida.models.Cell;
+import juegodelavida.models.Grid;
 /**
  *
  * @author Kevin Trejos
  */
 public class LogicGame {
- 
+    Grid grid = new Grid(0);
+    private Cell[][] cells = new Cell[8][8];
+    private Cell[][] cells2 = new Cell[8][8];
     
      /**
      * Declaration: public void randomCells()
