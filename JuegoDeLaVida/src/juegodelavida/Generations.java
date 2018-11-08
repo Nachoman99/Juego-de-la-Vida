@@ -10,9 +10,10 @@ package juegodelavida;
  * @author Kevin Trejos
  */
 public class Generations {
-    private Grid[] generations;
+    private Grid[] generations = new Grid[20];
 
     public Generations() {
+        this(new Grid[20]);
     }
 
     public Generations(Grid[] generations) {
