@@ -6,6 +6,7 @@
 package juegodelavida;
 
 import javax.swing.JOptionPane;
+import juegodelavida.models.Grid;
 
 
 
