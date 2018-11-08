@@ -466,8 +466,6 @@ public class Grid {
         for (int j = 1; j < cells.length-1; j++) {//columna
             for (int i = 0; i < 1; i++ ) {//fila
                         //procedimiento del lado arriba
-                        System.out.println(i);
-                        System.out.println(j);
                         int initialColumnPosition = -1+j;
                         int finalColumnPosition = 1+j;
                         neighbour = 0;
