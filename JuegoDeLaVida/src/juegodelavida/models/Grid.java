@@ -37,6 +37,7 @@ public class Grid {
             }    
         }
     }
+    
     public  String getStringMatrix(){ 
         String imprimir = "";
         for(int i = 0; i<cells.length; i++){
@@ -48,25 +49,7 @@ public class Grid {
         return imprimir ;
     }
     
-    /**
-     * Declaration: public void randomCells()
-     * This method generates cells in random positions of the grid
-     */
-    public void randomCells(){
-        int random;
-        for (int i = 0; i < cells.length; i++) {
-            for (int j = 0; j < cells.length; j++) {
-                random = (int)(Math.random()*2) + 1;
-                if (random == 2) {
-                    Cell cell1 = new Cell(2);
-                    cells[i][j] = cell1;
-                }else{
-                    Cell cell2 = new Cell(1);
-                    cells[i][j] = cell2;
-                }
-            }
-        }
-    }
+   
     
     /**Falta completar este método para hacerlo con click, por lo tanto no está comentado 
      * correctamente
