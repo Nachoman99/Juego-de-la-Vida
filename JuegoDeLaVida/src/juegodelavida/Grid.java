@@ -466,10 +466,10 @@ public class Grid {
         for (int j = 1; j < cells.length-1; j++) {//columna
             for (int i = 0; i < 1; i++ ) {//fila
                         //procedimiento del lado arriba
-                        int initialColumnPosition = -1+j;
-                        int finalColumnPosition = 1+j;
+                        int initialRowPosition = -1+j;
+                        int finalRowPosition = 1+j;
                         neighbour = 0;
-                        for(int p = initialColumnPosition; p <= finalColumnPosition; p++){
+                        for(int p = initialRowPosition; p <= finalRowPosition; p++){
                             for(int k = 0; k <= 1; k++){
                                 if((p!=j || k!=0)){
                                     //System.out.println(cells[k][p].getLife());
