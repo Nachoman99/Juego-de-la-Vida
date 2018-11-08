@@ -505,10 +505,34 @@ public class Grid {
         
     }
     private void ladoDerecho(){
-        for (int i = 0; i < cells.length; i++) {
-            for (int j = 0; j < cells.length; j++) {
-                
+    int neighbour = 0;
+        for (int j = 1; j < cells.length - 1; j++) { //filas
+            for (int i = cells.length-2; i < cells.length -1; i++) { //columnas
+                //Procedimiento lado derecho
+                int initialRowPosition = -1+i;
+                int finalRowPosition = i+1;
+                neighbour = 0;
+                for(int l = initialRowPosition; l <= finalRowPosition; l++) {
+                    for(int k = cells.length-2; k <= cells.length-1;k++) {
+                        if (l!=j|| k!=cells.length -1 ) {
+                            if(cells[l][k].getLife()==2) {
+                                neighbour += 1;
+                            }
+                        }
+                    }
+                }
+                 if (neighbour == 3) {
+                    insertPosition2(i, j, true);
+                }else if (neighbour == 2 && cells[i][cells.length-1].getLife() == 2) {
+                    insertPosition2(i, j, true);
+                }else if (neighbour == 2 && cells[i][cells.length-1].getLife() == 1) {
+                    insertPosition2(i, j, false);
+                }else if (neighbour < 2 || neighbour > 3) {
+                    insertPosition2(i, j, false);
+                }
+
             }
+
         }
     }
     
