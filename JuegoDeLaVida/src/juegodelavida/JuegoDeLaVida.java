@@ -71,6 +71,7 @@ public class JuegoDeLaVida {
         grid.insertPosition(2, 4, true);
         grid.hasLife();
         System.out.println(grid.getStringMatrix());
+        
         //System.out.println(grid.getStringMatrix());
         
         //grid.hasLife();

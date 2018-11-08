@@ -102,18 +102,6 @@ public class Grid {
     }
    
     public void hasLife(){
-        for (int i = 0; i < cells.length; i++) {
-            for (int j = 0; j < cells.length; j++) {
-                if(i == 0 || i == cells.length-1 || j == 0 || j == cells.length-1){
-                  isSide();
-                }else{
-                    isCentro();
-                }
-            }
-        }
-    }
-    
-    private void isSide(){ 
         esquinaIzquierdaAbajo();
         esquinaIzquierdaArriba();
         esquinaDerechaAbajo();
@@ -122,7 +110,13 @@ public class Grid {
         ladoAbajo();
         ladoIzquierdo();
         ladoDerecho();
+        isCentro();
+        /*clear(cells);
+        duplicate();
+        clear(cells2);*/
     }
+    
+   
     
     private void esquinaIzquierdaArriba(){
         int neighbour = 0;
