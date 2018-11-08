@@ -514,8 +514,8 @@ public class Grid {
     
     public void isCentro(){
         int neighbour = 0;
-        for (int i = 1; i < cells.length -2; i++) {
-            for (int j = 1; j < cells.length -2; j++) {
+        for (int i = 1; i <= cells.length -2; i++) {
+            for (int j = 1; j <= cells.length -2; j++) {
                 int initialColumnPosition = 1 - j;
                 int finalColumnPosition = 1 + j;
                 int initialRowPosition = 1 - i;
