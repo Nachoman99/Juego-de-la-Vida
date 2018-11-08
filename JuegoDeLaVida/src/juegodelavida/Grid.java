@@ -600,6 +600,15 @@ public class Grid {
         
     }
     
+    public void clear(Cell[][] cellsClear){
+        Cell cell1 = new Cell(1);
+        for(int i = 0; i < cellsClear.length;i++){
+            for(int j = 0; j < cellsClear.length;j++){
+                cellsClear[i][j] = cell1;
+            }    
+        }
+    }
+    
 } 
 
 
