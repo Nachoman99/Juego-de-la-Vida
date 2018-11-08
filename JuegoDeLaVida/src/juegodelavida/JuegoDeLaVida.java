@@ -32,7 +32,7 @@ public class JuegoDeLaVida {
         
         grid.insertPosition(0, 0, true); 
         //grid.insertPosition(0, 1, true);
-        grid.insertPosition(1, 0, true);
+        grid.insertPosition(1, 0, false);
         grid.insertPosition(1, 1, true);
         
         
