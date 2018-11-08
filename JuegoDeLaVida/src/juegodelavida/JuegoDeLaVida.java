@@ -72,6 +72,9 @@ public class JuegoDeLaVida {
         grid.hasLife();
         System.out.println(grid.getStringMatrix());
         
+       
+         grid.hasLife();
+        System.out.println(grid.getStringMatrix());       
         //System.out.println(grid.getStringMatrix());
         
         //grid.hasLife();

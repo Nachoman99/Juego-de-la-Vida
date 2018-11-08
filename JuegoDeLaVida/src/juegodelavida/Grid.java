@@ -37,9 +37,9 @@ public class Grid {
     }
     public  String getStringMatrix(){ 
         String imprimir = "";
-        for(int i = 0; i<cells2.length; i++){
-            for(int j = 0; j<cells2[i].length; j++){
-               imprimir  =imprimir  + cells2[i][j] + " "; 
+        for(int i = 0; i<cells.length; i++){
+            for(int j = 0; j<cells[i].length; j++){
+               imprimir  =imprimir  + cells[i][j] + " "; 
             }     
             imprimir  =imprimir + "\n"; 
         }
@@ -111,9 +111,9 @@ public class Grid {
         ladoIzquierdo();
         ladoDerecho();
         isCentro();
-        /*clear(cells);
+        clear(cells);
         duplicate();
-        clear(cells2);*/
+        clear(cells2);
     }
     
    
