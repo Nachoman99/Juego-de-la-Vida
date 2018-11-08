@@ -12,13 +12,13 @@ import juegodelavida.graphicInterface.GraphicInterface;
  *
  * @author Kevin Trejos
  */
-public class Generations1 {
+public class Generations {
     private Grid[] generations = new Grid[20];
     
-    public Generations1() {
+    public Generations() {
     }
 
-    public Generations1(Grid[] generations) {
+    public Generations(Grid[] generations) {
         this.generations = generations;
     }
 
