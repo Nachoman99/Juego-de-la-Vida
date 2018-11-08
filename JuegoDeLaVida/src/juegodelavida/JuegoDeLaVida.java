@@ -61,11 +61,14 @@ public class JuegoDeLaVida {
         //grid.insertPosition(1, 3, true);
        // grid.insertPosition(1, 4, true);
         
-        grid.insertPosition(3, 0, false);
+        grid.insertPosition(3, 0, true);
         grid.insertPosition(3, 1, true);
         grid.insertPosition(4, 0, true);
         //grid.randomCells();
-        
+        //prueba  del centro
+        grid.insertPosition(3, 3, true);
+        grid.insertPosition(2, 3, true);
+        grid.insertPosition(2, 4, true);
         grid.hasLife();
         System.out.println(grid.getStringMatrix());
         //System.out.println(grid.getStringMatrix());

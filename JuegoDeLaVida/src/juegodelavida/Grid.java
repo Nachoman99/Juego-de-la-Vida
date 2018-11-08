@@ -514,10 +514,33 @@ public class Grid {
     
     public void isCentro(){
         int neighbour = 0;
-        for (int i = 0; i < cells.length; i++) {
-            for (int j = 0; j < cells.length; j++) {
+        for (int i = 1; i < cells.length -2; i++) {
+            for (int j = 1; j < cells.length -2; j++) {
+                int initialColumnPosition = 1 - j;
+                int finalColumnPosition = 1 + j;
+                int initialRowPosition = 1 - j;
+                int finalRowPosition = 1 +j;
+                neighbour = 0;
+                for (int k = initialRowPosition; k <= finalRowPosition; k++) {
+                    for (int l = initialColumnPosition; l <= finalColumnPosition; l++) {
+                        if (k!=j || l!=i ) {
+                            if (cells[k][l].getLife() == 2) {
+                                neighbour += 1;
+                            }
+                        }
+                    }
+                }
+                if (neighbour == 3) {
+                    insertPosition2(i, j, true);
+                }else if (neighbour == 2 && cells[i][j].getLife() == 2) {
+                    insertPosition2(i, j, true);
+                }else if (neighbour == 2 && cells[i][j].getLife() == 1) {
+                    insertPosition2(i, j, false);
+                }else if (neighbour < 2 || neighbour > 3) {
+                    insertPosition2(i, j, false);
                 }
             }
+        }
                /* if(i != 0 && j != 0 && i != cells.length-1 && j != cells.length-1) {
                     if(cells[i-1][j-1].getLife()== 2) {
                         neighbour +=1;
