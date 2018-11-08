@@ -208,6 +208,7 @@ public class Grid {
         ladoArriba();
         ladoAbajo();
         ladoIzquierdo();
+        ladoDerecho();
         /*for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
                 if (i == 0) {   //arriba
@@ -507,7 +508,7 @@ public class Grid {
     private void ladoDerecho(){
     int neighbour = 0;
         for (int j = 1; j < cells.length - 1; j++) { //filas
-            for (int i = cells.length-2; i < cells.length -1; i++) { //columnas
+            for (int i = cells.length-1; i <= cells.length -1; i++) { //columnas
                 //Procedimiento lado derecho
                 int initialRowPosition = -1+i;
                 int finalRowPosition = i+1;
