@@ -365,7 +365,15 @@ public class Grid {
                 cellsClear[i][j] = cell1;
             }    
         }
-    }   
+    }
+    
+    private void duplicate(){
+        for (int i = 0; i < cells.length; i++) {
+            for (int j = 0; j < cells.length; j++) {
+                cells[i][j] = cells2[i][j];
+            }
+        }
+    }
 } 
 
 
