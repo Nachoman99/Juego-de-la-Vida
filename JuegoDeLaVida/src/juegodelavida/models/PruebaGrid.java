@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package juegodelavida;
+package juegodelavida.models;
 
+import juegodelavida.*;
 import javax.swing.JOptionPane;
 
 
@@ -16,7 +17,7 @@ import javax.swing.JOptionPane;
  * @author Jose Ignacio Zamora
  * @version 29/10/2018
  */
-public class JuegoDeLaVida {
+public class PruebaGrid {
     
     /**
      * @param args the command line arguments

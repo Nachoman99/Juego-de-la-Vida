@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package juegodelavida;
+package juegodelavida.models;
+
+import juegodelavida.*;
 
 /**
  * This class represents the cells of the game

@@ -3,20 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package juegodelavida;
+package juegodelavida.models;
+
+import juegodelavida.*;
+import juegodelavida.graphicInterface.GraphicInterface;
 
 /**
  *
  * @author Kevin Trejos
  */
-public class Generations {
+public class Generations1 {
     private Grid[] generations = new Grid[20];
-
-    public Generations() {
-        this(new Grid[20]);
+    
+    public Generations1() {
     }
 
-    public Generations(Grid[] generations) {
+    public Generations1(Grid[] generations) {
         this.generations = generations;
     }
 
