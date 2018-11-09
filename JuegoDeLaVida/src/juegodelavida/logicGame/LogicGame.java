@@ -15,7 +15,14 @@ public class LogicGame {
     private Grid cells;
     private Grid cells2;
 
-        
+    
+    public LogicGame(int size) {
+        cells = new Grid(size);
+        cells2 = new Grid(size);
+    }
+
+
+    
      /**
      * Declaration: public void randomCells()
      * This method generates cells in random positions of the grid
@@ -41,7 +48,13 @@ public class LogicGame {
     private void duplicate(){
         for (int i = 0; i < cells.getLength(); i++) {
             for (int j = 0; j < cells.getLength(); j++) {
-                cells = cells2[i][j];
+                if(cells.getLife(i, j) == 2){
+                  cells2.insertPosition(i, j, true);
+                }else if (cells.getLife(i, j) == 1){
+                  cells2.insertPosition(i, j, false); 
+                }
+                
+               
             }
         }
     }
@@ -64,9 +77,10 @@ public class LogicGame {
         ladoIzquierdo();
         ladoDerecho();
         isCentro();
-        clear(cells);
+        cells.clear();
         duplicate();
-        clear(cells2);
+        cells2.clear();
+       
     }
     
     private void esquinaIzquierdaArriba(){
@@ -116,22 +130,22 @@ public class LogicGame {
     private void esquinaDerechaArriba(){
         int neighbour = 0;
         for (int i = 0; i <= 1; i++) {
-            for (int j = cells.length-2; j < cells.length; j++) {
-                if (i != 0 || j != cells.length-1) {
-                    if (cells[i][j].getLife() == 2) {
+            for (int j = cells.getLength()-2; j < cells.getLength(); j++) {
+                if (i != 0 || j != cells.getLength()-1) {
+                    if (cells.getLife(i,j) == 2) {
                         neighbour += 1;
                     }
                 }
             }
         }
         if (neighbour == 3) {
-            insertPosition2(0, cells.length-1, true);
-        }else if(neighbour == 2 && cells[0][cells.length-1].getLife() == 1){
-            insertPosition2(0, cells.length-1, false);
-        }else if (neighbour == 2 && cells[0][cells.length].getLife() == 2) {
-            insertPosition2(0, cells.length-1, true);
+            cells2.insertPosition(0, cells.getLength()-1, true);
+        }else if(neighbour == 2 && cells.getLife(0, cells.getLength()-1) == 1){
+            cells2.insertPosition(0, cells.getLength()-1, false);
+        }else if (neighbour == 2 && cells.getLife(0, cells.getLength()-1) == 2) {
+            cells2.insertPosition(0, cells.getLength()-1, true);
         }else if (neighbour < 2 || neighbour > 3) {
-            insertPosition2(0, cells.length-1, false);
+            cells2.insertPosition(0, cells.getLength()-1, false);
         }    
     }
     

@@ -63,11 +63,11 @@ public class Grid {
         }  
     }
         
-     public void clear(Cell[][] cellsClear){
+     public void clear( ){
         Cell cell1 = new Cell(1);
-        for(int i = 0; i < cellsClear.length;i++){
-            for(int j = 0; j < cellsClear.length;j++){
-                cellsClear[i][j] = cell1;
+        for(int i = 0; i < cells.length;i++){
+            for(int j = 0; j < cells.length;j++){
+                cells[i][j] = cell1;
             }    
         }
     }
