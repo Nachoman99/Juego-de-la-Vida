@@ -44,33 +44,6 @@ public class LogicGame {
      * @param positionColumn 
      * @param value 
      */
-    public void insertPosition(int positionRow,int positionColumn, boolean value){
-        if (cells[positionRow][positionColumn] != null && positionColumn >= 0 && positionColumn <= cells.length-1 &&
-                positionRow >= 0 && positionRow <= cells.length-1) {
-            if(value == true){
-                Cell cell01 = new Cell(2);
-                cells[positionRow][positionColumn] = cell01; 
-            }else if(value == false){
-                Cell cell01 = new Cell(1);
-                cells[positionRow][positionColumn] = cell01;   
-            } 
-        }else{
-            System.out.println("Digite una posición válida");
-        }  
-    }
-    
-    public void insertPosition2 (int positionRow,int positionColumn, boolean value){
-         if (cells2[positionRow][positionColumn] != null && positionColumn >= 0 && positionColumn <= cells2.length-1 &&
-                positionRow >= 0 && positionRow <= cells2.length-1) {
-            if(value == true){
-                Cell cell01 = new Cell(2);
-                cells2[positionRow][positionColumn] = cell01;
-            }else if(value == false){
-                Cell cell01 = new Cell(1);
-                cells2[positionRow][positionColumn] = cell01;  
-            }
-        }
-    }
     
     public void hasLife(){
         esquinaIzquierdaAbajo();
@@ -320,21 +293,5 @@ public class LogicGame {
             }
         }
     }
-    
-    public void clear(Cell[][] cellsClear){
-        Cell cell1 = new Cell(1);
-        for(int i = 0; i < cellsClear.length;i++){
-            for(int j = 0; j < cellsClear.length;j++){
-                cellsClear[i][j] = cell1;
-            }    
-        }
-    }
-    
-    private void duplicate(){
-        for (int i = 0; i < cells.length; i++) {
-            for (int j = 0; j < cells.length; j++) {
-                cells[i][j] = cells2[i][j];
-            }
-        }
-    }
+
 }
