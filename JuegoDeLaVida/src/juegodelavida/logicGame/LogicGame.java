@@ -14,8 +14,8 @@ import juegodelavida.models.Grid;
 public class LogicGame {
     private Grid cells;
     private Grid cells2;
-    
-    
+
+        
      /**
      * Declaration: public void randomCells()
      * This method generates cells in random positions of the grid
@@ -23,24 +23,25 @@ public class LogicGame {
     public void randomCells(){
         
         int random;
-        for (int i = 0; i < cells.length; i++) {
-            for (int j = 0; j < cells.length; j++) {
+        for (int i = 0; i < cells.getLength(); i++) {
+            for (int j = 0; j < cells.getLength(); j++) {
                 random = (int)(Math.random()*2) + 1;
                 if (random == 2) {
-                    Cell cell1 = new Cell(2);
-                    cells[i][j] = cell1;
+                    //Cell cell1 = new Cell(2);
+                    cells.insertPosition(i, j, true);
+                    
                 }else{
-                    Cell cell2 = new Cell(1);
-                    cells[i][j] = cell2;
+                    //Cell cell2 = new Cell(1);
+                    cells.insertPosition(i, j, false);
                 }
             }
         }
     }
     
     private void duplicate(){
-        for (int i = 0; i < cells.length; i++) {
-            for (int j = 0; j < cells.length; j++) {
-                cells[i][j] = cells2[i][j];
+        for (int i = 0; i < cells.getLength(); i++) {
+            for (int j = 0; j < cells.getLength(); j++) {
+                cells = cells2[i][j];
             }
         }
     }
@@ -73,42 +74,42 @@ public class LogicGame {
         for (int i = 0; i <= 1; i++) {
             for (int j = 0; j <=1; j++) {
                 if(i != 0 || j != 0){
-                    if (cells[i][j].getLife() == 2) {
+                    if (cells.getLife(i, j) == 2) {
                         neighbour += 1;    
                     }
                 }
             }
         }
         if (neighbour == 3) {
-            insertPosition2(0, 0, true);
-        }else if (neighbour == 2 && cells[0][0].getLife() == 2) {
-            insertPosition2(0, 0, true);
-        }else if (neighbour == 2 && cells[0][0].getLife() == 1) {
-            insertPosition2(0, 0, false);
+            cells2.insertPosition(0, 0, true);
+        }else if (neighbour == 2 && cells.getLife(0, 0) == 2) {
+            cells2.insertPosition(0, 0, true);
+        }else if (neighbour == 2 && cells.getLife(0,0) == 1) {
+            cells2.insertPosition(0, 0, false);
         }else if (neighbour < 2 || neighbour > 3) {
-        insertPosition2(0, 0, false);
+            cells2.insertPosition(0, 0, false);
         }
     }
         
     private void esquinaIzquierdaAbajo(){
         int neighbour = 0;
-        for (int i = cells.length-2 ; i < cells.length; i++) {
+        for (int i = cells.getLength()-2 ; i < cells.getLength(); i++) {
             for (int j = 0; j <= 1; j++) {
-                if (i != cells.length-1 || j != 0) {     
-                    if (cells[i][j].getLife() == 2) {
+                if (i != cells.getLength()-1 || j != 0) {     
+                    if (cells.getLife(i,j) == 2) {
                         neighbour += 1;
                     }
                 }   
             }
         }
         if (neighbour == 3) {
-            insertPosition2(cells.length-1, 0, true);
-        }else if (neighbour == 2 && cells[cells.length -1][0].getLife() == 2) {
-            insertPosition2(cells.length-1, 0, true);
-        }else if (neighbour == 2 && cells[cells.length -1][0].getLife() == 1) {
-            insertPosition2(cells.length-1, 0, false);
+            cells2.insertPosition(cells.getLength()-1, 0, true);
+        }else if (neighbour == 2 && cells.getLife(cells.getLength() -1,0) == 2) {
+            cells2.insertPosition(cells.getLength()-1, 0, true);
+        }else if (neighbour == 2 && cells.getLife(cells.getLength() -1,0) == 1) {
+            cells2.insertPosition(cells.getLength()-1, 0, false);
         }else if (neighbour < 2 || neighbour > 3) {
-            insertPosition2(cells.length-1, 0, false);
+            cells2.insertPosition(cells.getLength()-1, 0, false);
         }
     }
     
@@ -136,23 +137,23 @@ public class LogicGame {
     
     private void esquinaDerechaAbajo(){
         int neighbour = 0;
-        for (int i = cells.length-2; i < cells.length; i++) {
-            for (int j = cells.length-2; j < cells.length; j++) {
-                if (i != cells.length-1 || j != cells.length-1) {
-                    if (cells[i][j].getLife() == 2) {
+        for (int i = cells.getLength()-2; i < cells.getLength(); i++) {
+            for (int j = cells.getLength()-2; j < cells.getLength(); j++) {
+                if (i != cells.getLength()-1 || j != cells.getLength()-1) {
+                    if (cells.getLife(i,j) == 2) {
                         neighbour += 1;   
                     }
                 }
             }
         }
         if (neighbour == 3) {
-            insertPosition2(cells.length-1, cells.length-1, true);
-        }else if (neighbour == 2 && cells[cells.length-1][cells.length-1].getLife() == 2) {
-            insertPosition2(cells.length-1, cells.length-1, true);
-        }else if (neighbour == 2 && cells[cells.length-1][cells.length-1].getLife() == 1) {
-            insertPosition2(cells.length-1, cells.length-1, false);
+            cells2.insertPosition(cells.getLength()-1, cells.getLength()-1, true);
+        }else if (neighbour == 2 && cells.getLife(cells.getLength()-1,cells.getLength()-1) == 2) {
+            cells2.insertPosition(cells.getLength()-1, cells.getLength()-1, true);
+        }else if (neighbour == 2 && cells.getLife(cells.getLength()-1, cells.getLength()-1) == 1) {
+            cells2.insertPosition(cells.getLength()-1, cells.getLength()-1, false);
         }else if (neighbour < 2 || neighbour > 3) {
-            insertPosition2(cells.length-1, cells.length-1, false);
+            cells2.insertPosition(cells.getLength()-1, cells.getLength()-1, false);
         }
     }
     
