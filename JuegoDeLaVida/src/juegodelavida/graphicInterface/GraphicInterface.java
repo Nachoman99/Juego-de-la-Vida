@@ -77,6 +77,12 @@ public class GraphicInterface {
         matrix[positionRow][positionColumn] = "O";
     }
     
+    public void presentation(){
+        JOptionPane.showMessageDialog(null, "        JUEGO DE LA VIDA     "+"\n"+"Integrantes: "+"\n"+"Kevin Trejos B87902"+"\n"+"Edwin Molina"+
+                "Carne Ed"+"\n"+"Jose Zamora B78541", "Juego de La Vida", JOptionPane.INFORMATION_MESSAGE, null);
+    }
+    
+    
     public int sizeDecisition(){
         int desition;
         String[] message ={"Elegir tamaño de matriz", "Valor por defecto"};
@@ -87,14 +93,17 @@ public class GraphicInterface {
         }
         return desition;
     }
-        
+       
     private int sizeMatrix(){
         int decisition;
+        String result;
         String[] position = {"8","9","10","11","12","13","14","15","16","17","18","19","20"};
-        JComboBox size = new JComboBox(position);
+        /*JComboBox size = new JComboBox(position);
         size.setEditable(true);
-        JOptionPane.showMessageDialog(null, size, "Filas", JOptionPane.QUESTION_MESSAGE);
-        decisition = Integer.parseInt(size.getSelectedItem().toString());
+        JOptionPane.showMessageDialog(null, size, "Filas", JOptionPane.QUESTION_MESSAGE);*/
+        result = (String)JOptionPane.showInputDialog(null, "¿De cuanto quiere su cuadricula?", "Filas y Columnas", JOptionPane.WARNING_MESSAGE , null,  position, "8");
+        //decisition = Integer.parseInt(size.getSelectedItem().toString());
+        decisition = Integer.parseInt(result);
         return decisition; 
     }
     
@@ -115,6 +124,74 @@ public class GraphicInterface {
         JOptionPane.showMessageDialog(null, gnt, "Elija una generación para ver",JOptionPane.QUESTION_MESSAGE);
         int gen= Integer.parseInt(gnt.getSelectedItem().toString());
         return gen;
+    }
+    
+    public int randomInsert(){//pregunta si quere que se ingresen datos aleatorios o insetar uno por uno
+        String[] buttons ={"Posiciones Aleatorias", "Ingresar posiciones a gusto"};
+        int desition = JOptionPane.showOptionDialog(null, "Seleccione alguna opción", "Seleccion de Relleno", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
+        return desition;
+    }
+    
+    
+    public String showGrid(int size){//transforma el grid en un string para mostralo pero talvez sea innecesario xq podemos mostrar de un solo tiro el grid
+       //muestra las posiciones como 1 2  3  4  5  7
+       //                            8 9 10 11 11 12
+        String[][] gridString = new String[size][size];
+        int number = 1;
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if(number<=9){
+                    gridString[i][j] = "    " + "00"+String.valueOf(number);
+                    number += 1;
+                }else if(number>=10 && number<=99){
+                    gridString[i][j] = "    " + "0"+String.valueOf(number);
+                    number += 1;
+                }else if(number>=100){
+                    gridString[i][j] = "    " +String.valueOf(number);
+                    number += 1;
+                }
+                
+            }
+        }
+        
+       return getStringMatrix(gridString);
+    }
+    
+    
+    public int insertPosition(int size, String gridString){ //ventana para insertar las posiciones
+        //el problema es que va tirar un numero de la posicion como ejemplo 17
+        //entonces con ese numero tendria que insetar la posicion en el grid original por eso mas adelante 
+        //esta translate
+        int decisition;
+        String result;
+        String[] position = new String[size*size];
+        int index = 0;
+        for (int i = 0; i < (size*size); i++) {
+                position[index] = String.valueOf(1+index);
+                index += 1;
+            
+        }
+        result = (String)JOptionPane.showInputDialog(null, gridString +"¿Cual posicion desea ingresar un valor?", "Ingreso de posiciones", JOptionPane.INFORMATION_MESSAGE , null,  position, "1");
+        decisition = Integer.parseInt(result);
+        return decisition; 
+    }
+    
+    public void translate(int size, int position){//metodos para traducir digamos
+        // 17 es la posicion X=0 y Y=1 (es un ejemplo)
+        //talves esto complique las varas pero si hay otra idea por favor diganla
+        // otra idea que se me dio fue que la persona ingrese la posicion dela cuadricula
+        //ejemplo una ventana pide X y otra el Y y una true/false y asi seria mas facil el manejo de datos
+        //pero no se debe de haber otra idea que no se me ocurre
+        int[] matrixPosition = new int[1];
+         switch(position){
+             case 1:
+                 
+                 break;
+             
+             default:
+                 
+                 break;
+         }
     }
     
 }

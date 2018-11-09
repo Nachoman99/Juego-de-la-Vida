@@ -25,8 +25,23 @@ public class JuegoDeLaVida {
     public static void main(String[] args) {
         Grid grid = new Grid(8);
         GraphicInterface inte = new GraphicInterface();
+        inte.presentation();
         int size = inte.sizeDecisition();
-        int generations = inte.generations();
+        //int generations = inte.generations();
+        int desition = inte.randomInsert();
+        System.out.println("size=" +size);
+        System.out.println("Random o Insertar= " + desition);
+        
+        
+        String gridString = inte.showGrid(size);
+        System.out.println(gridString);
+        int insert = inte.insertPosition(size, gridString);
+        System.out.println("isnert= " + insert);
+        /*
+        tira 0 si esa random y 1 si quiere inserta a la hora de hacer la logica se basa en esos numeros
+        */
+        
+        
         /*grid.insertPosition(0, 2, true);
         grid.insertPosition(1, 2, true);
         grid.insertPosition(1, 3, true);
