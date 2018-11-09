@@ -15,8 +15,7 @@ import juegodelavida.*;
  */
 public class Grid {
     private Cell[][] cells;
-    private Cell[][] cells2;
-    private int generation = 0;
+ 
 
     /**
      * Declaration public Grid(int size)
@@ -28,12 +27,12 @@ public class Grid {
         Cell cell1 = new Cell(1);
         if (size >= 8 && size <= 20) {
             this.cells = new Cell[size][size];
-            this.cells2 = new Cell[size][size];
+   
         }
         for(int i = 0; i < cells.length;i++){
             for(int j = 0; j < cells.length;j++){
                 cells[i][j] = cell1;
-                cells2[i][j] = cell1;
+
             }    
         }
     }

@@ -6,20 +6,22 @@
 package juegodelavida.logicGame;
 import juegodelavida.models.Cell;
 import juegodelavida.models.Grid;
+
 /**
  *
  * @author Kevin Trejos
  */
 public class LogicGame {
-    Grid grid = new Grid(0);
-    private Cell[][] cells = new Cell[8][8];
-    private Cell[][] cells2 = new Cell[8][8];
+    private Grid cells;
+    private Grid cells2;
+    
     
      /**
      * Declaration: public void randomCells()
      * This method generates cells in random positions of the grid
      */
     public void randomCells(){
+        
         int random;
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
