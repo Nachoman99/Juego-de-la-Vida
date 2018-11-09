@@ -8,8 +8,7 @@ package juegodelavida;
 import javax.swing.JOptionPane;
 import juegodelavida.logicGame.LogicGame;
 import juegodelavida.models.Grid;
-
-
+import juegodelavida.graphicInterface.GraphicInterface;
 
 
 
@@ -25,6 +24,9 @@ public class JuegoDeLaVida {
      */
     public static void main(String[] args) {
         Grid grid = new Grid(8);
+        GraphicInterface inte = new GraphicInterface();
+        int generations = inte.generations();
+        System.out.println(generations);
         /*grid.insertPosition(0, 2, true);
         grid.insertPosition(1, 2, true);
         grid.insertPosition(1, 3, true);

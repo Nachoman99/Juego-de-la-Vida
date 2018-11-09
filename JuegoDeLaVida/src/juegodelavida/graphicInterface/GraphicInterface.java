@@ -5,6 +5,7 @@
  */
 package juegodelavida.graphicInterface;
 
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -75,4 +76,45 @@ public class GraphicInterface {
         int positionColumn = Integer.parseInt(positions[1]);
         matrix[positionRow][positionColumn] = "O";
     }
+        
+    public int rowsDecisition(){
+        int rDecisition;
+        String[] positionRows = {"0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"};
+        JComboBox rows = new JComboBox(positionRows);
+        rows.setEditable(true);
+        JOptionPane.showMessageDialog(null, rows, "Filas", JOptionPane.QUESTION_MESSAGE);
+        rDecisition = (int)rows.getSelectedItem();
+        return rDecisition; 
+    }
+    
+    public int columnDecisition(){
+        int cDesition;
+        String[] positionColumns = {"0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"};
+        JComboBox columns = new JComboBox(positionColumns);
+        columns.setEditable(true);
+        JOptionPane.showMessageDialog(null, columns, "Columnas", JOptionPane.QUESTION_MESSAGE);
+        cDesition = (int)columns.getSelectedItem();
+        return cDesition;
+    }
+    
+    public int generations(){
+        String[] buttons ={"Siguiente", "Ver generaciones anteriores"};
+        int desition = JOptionPane.showOptionDialog(null, "Seleccione alguna opción", "GENERACIONES", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
+        if (desition == 1) {
+            int gen = generations1();
+            return gen;
+        }
+        return desition;
+    }
+    
+    private int generations1(){
+        String[] generation = {"0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"};
+        JComboBox gnt = new JComboBox(generation);
+        gnt.setEditable(true);
+        JOptionPane.showMessageDialog(null, gnt, "Elija una generación para ver",JOptionPane.QUESTION_MESSAGE);
+        int gen = (int)gnt.getSelectedItem();
+        return gen;
+    }
+    
 }
+
