@@ -37,6 +37,14 @@ public class LogicGame {
         }
     }
     
+    private void duplicate(){
+        for (int i = 0; i < cells.length; i++) {
+            for (int j = 0; j < cells.length; j++) {
+                cells[i][j] = cells2[i][j];
+            }
+        }
+    }
+    
      /**Falta completar este método para hacerlo con click, por lo tanto no está comentado 
      * correctamente
      * 

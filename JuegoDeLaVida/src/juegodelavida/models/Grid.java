@@ -15,7 +15,6 @@ import juegodelavida.*;
  */
 public class Grid {
     private Cell[][] cells;
-    private Cell[][] cells2;
  
 
     /**
@@ -73,30 +72,16 @@ public class Grid {
         }
     }
     
-    private void duplicate(){
-        for (int i = 0; i < cells.length; i++) {
-            for (int j = 0; j < cells.length; j++) {
-                cells[i][j] = cells2[i][j];
-            }
-        }
+    public int getLife(int positionRow, int positionColumn){
+        int value = cells[positionRow][positionColumn].getLife();
+        return value;
     }
     
-    public int getLife(int positionColumn, int positionRow){
-        for (int i = 0; i < cells.length; i++) {
-            for (int j = 0; j < cells.length; j++) {
-                if (positionColumn >= 0 || positionColumn <= cells.length -1) {
-                    if (positionRow >= 0 || positionRow <= cells.length -1) {
-                        if (cells[positionRow][positionColumn].getLife() == 2) {
-                            return 2;
-                        }else{
-                            return 1;
-                        }
-                    }
-                }
-            }
-        }
-        return 0;
+    public int getLength(){
+        int value = cells.length;
+        return value;
     }
+    
 } 
 
 
