@@ -76,25 +76,26 @@ public class GraphicInterface {
         int positionColumn = Integer.parseInt(positions[1]);
         matrix[positionRow][positionColumn] = "O";
     }
-        
-    public int rowsDecisition(){
-        int rDecisition;
-        String[] positionRows = {"0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"};
-        JComboBox rows = new JComboBox(positionRows);
-        rows.setEditable(true);
-        JOptionPane.showMessageDialog(null, rows, "Filas", JOptionPane.QUESTION_MESSAGE);
-        rDecisition = (int)rows.getSelectedItem();
-        return rDecisition; 
-    }
     
-    public int columnDecisition(){
-        int cDesition;
-        String[] positionColumns = {"0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"};
-        JComboBox columns = new JComboBox(positionColumns);
-        columns.setEditable(true);
-        JOptionPane.showMessageDialog(null, columns, "Columnas", JOptionPane.QUESTION_MESSAGE);
-        cDesition = (int)columns.getSelectedItem();
-        return cDesition;
+    public int sizeDecisition(){
+        int desition;
+        String[] message ={"Elegir tamaño de matriz", "Valor por defecto"};
+        desition = JOptionPane.showOptionDialog(null, "Seleccione una opción", "TAMAÑO MATRIZ", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, message, message[0]);
+        if (desition == 0) {
+            int size = sizeMatrix();
+            return size;
+        }
+        return desition;
+    }
+        
+    private int sizeMatrix(){
+        int decisition;
+        String[] position = {"8","9","10","11","12","13","14","15","16","17","18","19","20"};
+        JComboBox size = new JComboBox(position);
+        size.setEditable(true);
+        JOptionPane.showMessageDialog(null, size, "Filas", JOptionPane.QUESTION_MESSAGE);
+        decisition = Integer.parseInt(size.getSelectedItem().toString());
+        return decisition; 
     }
     
     public int generations(){
@@ -112,7 +113,7 @@ public class GraphicInterface {
         JComboBox gnt = new JComboBox(generation);
         gnt.setEditable(true);
         JOptionPane.showMessageDialog(null, gnt, "Elija una generación para ver",JOptionPane.QUESTION_MESSAGE);
-        int gen = (int)gnt.getSelectedItem();
+        int gen= Integer.parseInt(gnt.getSelectedItem().toString());
         return gen;
     }
     
