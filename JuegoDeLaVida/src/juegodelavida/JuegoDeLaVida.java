@@ -24,7 +24,7 @@ public class JuegoDeLaVida {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+        Grid grid = new Grid(8);
         /*grid.insertPosition(0, 2, true);
         grid.insertPosition(1, 2, true);
         grid.insertPosition(1, 3, true);
@@ -72,13 +72,11 @@ public class JuegoDeLaVida {
         grid.insertPosition(2, 3, true);
         grid.insertPosition(2, 4, true);
         grid.hasLife();
-        
-        System.out.println(grid2.getStringMatrix());
+        System.out.println(grid.getStringMatrix());
         
        
          grid.hasLife();
-
-        //System.out.println(grid.getStringMatrix());       
+        System.out.println(grid.getStringMatrix());       
         //System.out.println(grid.getStringMatrix());
         
         //grid.hasLife();
