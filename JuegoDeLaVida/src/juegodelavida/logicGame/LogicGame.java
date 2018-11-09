@@ -13,4 +13,8 @@ import juegodelavida.models.Grid;
  */
 public class LogicGame {
     
+    
+    
+    
+    
 }
