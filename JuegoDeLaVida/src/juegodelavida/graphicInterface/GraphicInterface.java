@@ -6,7 +6,6 @@
 package juegodelavida.graphicInterface;
 
 import javax.swing.JOptionPane;
-import juegodelavida.models.Grid;
 
 /**
  * In this class, window management will be given
@@ -15,7 +14,6 @@ import juegodelavida.models.Grid;
  * @author Kevin Trejos
  */
 public class GraphicInterface {
-    Grid grid;
     public GraphicInterface() {
     }
     

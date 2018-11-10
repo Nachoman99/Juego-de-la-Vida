@@ -6,7 +6,7 @@
 package juegodelavida.logicGame;
 
 import juegodelavida.models.Cell;
-import juegodelavida.models.Grid;
+import juegodelavida.logicGame.Grid;
 import juegodelavida.graphicInterface.GraphicInterface;
 
 

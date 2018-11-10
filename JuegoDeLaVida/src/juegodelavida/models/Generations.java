@@ -13,7 +13,6 @@ import juegodelavida.*;
  * @author Kevin Trejos
  */
 public class Generations {
-    Grid grid;
     private String[] generations = new String[20];
     int generationsInserts = 0;
     

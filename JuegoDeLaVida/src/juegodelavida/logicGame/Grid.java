@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package juegodelavida.models;
+package juegodelavida.logicGame;
 
+import juegodelavida.models.*;
 import juegodelavida.*;
 import juegodelavida.graphicInterface.GraphicInterface;
 
