@@ -38,8 +38,6 @@ public class LogicGame {
                     }else if(result == 1){
                         continuar = false;
                         enterGenerationsWindow = true;
-                    }else if(result == 2){
-                        continuar = false;
                     }
                 }else{
                     windows.randomSelection(maximoGen, grid.stringMatrix());

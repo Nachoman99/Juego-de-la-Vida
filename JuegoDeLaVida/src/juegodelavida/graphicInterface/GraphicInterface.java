@@ -316,22 +316,16 @@ public class GraphicInterface {
         JOptionPane.showMessageDialog(null, matrix);
     }
     
-    public int randomSelection(int generationNumber, String[][] initialMatrix){
+     public int randomSelection(int generationNumber, String[][] initialMatrix){
         if(generationNumber == 20){
             int desition;
-            String[] buttons = {"Ver generaciones", "Terminar juego"};
-            desition = JOptionPane.showOptionDialog(null, getStringMatrix(initialMatrix) + "Se llego al maximo de generaciones, selecciones ver generaciones", "INSERTAR POSICIONES", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, buttons, buttons[0]);
-            if (desition == 2) {
-                JOptionPane.showMessageDialog(null, "Muchas gracias por jugar");
-            }
+            String[] buttons = {"Ver generaciones"};
+            desition = JOptionPane.showOptionDialog(null, getStringMatrix(initialMatrix) + "Se llego al maximo de generaciones, selecciones ver generaciones", "RANDOM", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, buttons, buttons[0]);
             return desition;
         }else{
             int desition;
-            String[] buttons = {"Siguiente en procesar(siguiente generacion)", "Ver generaciones", "Terminar juego"};
-            desition = JOptionPane.showOptionDialog(null, getStringMatrix(initialMatrix) + "Seleccione una opción", "INSERTAR POSICIONES", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, buttons, buttons[0]);
-            if (desition == 2) {
-                JOptionPane.showMessageDialog(null, "Muchas gracias por jugar");
-            }
+            String[] buttons = {"Siguiente en procesar(siguiente generacion)", "Ver generaciones"};
+            desition = JOptionPane.showOptionDialog(null, getStringMatrix(initialMatrix) + "Seleccione una opción", "RAMNDOM", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, buttons, buttons[0]);
             return desition;
         }
         
