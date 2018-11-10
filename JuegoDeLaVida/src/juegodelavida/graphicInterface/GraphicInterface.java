@@ -164,7 +164,7 @@ public class GraphicInterface {
        return getStringMatrix(gridString);
     }*/
     
-    public int[] insertPosition(int size){ //ventana para insertar las posiciones
+    public int[] insertPosition(int size, String[][] initialMatrix){ //ventana para insertar las posiciones
         //el problema es que va tirar un numero de la posicion como ejemplo 17
         //entonces con ese numero tendria que insetar la posicion en el grid original por eso mas adelante 
         //esta translate
@@ -184,7 +184,7 @@ public class GraphicInterface {
         int row;
         int column;
         String[] buttons = {"Insertar una nueva posición", "Continuar"};
-        desition =JOptionPane.showOptionDialog(null, "Seleccione una opción", "INSERTAR POSICIONES", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, buttons, buttons[0]);
+        desition =JOptionPane.showOptionDialog(null, getStringMatrix(initialMatrix) + "Seleccione una opción", "INSERTAR POSICIONES", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, buttons, buttons[0]);
         if (desition == 0) {
             row = rowsInsert(size);
             column = columnInsert(size);

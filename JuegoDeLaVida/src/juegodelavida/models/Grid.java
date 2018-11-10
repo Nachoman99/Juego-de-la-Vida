@@ -58,7 +58,11 @@ public class Grid {
     public  String[][] stringMatrix(){ 
         for(int i = 0; i<cells.length; i++){
             for(int j = 0; j<cells[i].length; j++){
-               cells3[i][j] = String.valueOf(cells[i][j].getLife());
+                if(cells[i][j].getLife() == 1){
+                    cells3[i][j] = "□";
+                }else if(cells[i][j].getLife() == 2){
+                    cells3[i][j] = "■";
+                }
             }
         }
         return  cells3;

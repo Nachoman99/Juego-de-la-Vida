@@ -24,16 +24,31 @@ public class JuegoDeLaVida {
      */
     public static void main(String[] args) {
         Grid grid = new Grid(8);
-        grid.insertPosition(0, 2, true);
+        /*grid.insertPosition(0, 2, true);
         grid.insertPosition(1, 2, true);
         grid.insertPosition(1, 3, true);
         grid.insertPosition(0, 6, true);
-        grid.insertPosition(1, 1, true);
-        grid.hasLife();
+        grid.insertPosition(1, 1, true);*/
+        //grid.hasLife();
         GraphicInterface inte = new GraphicInterface();
-        inte.generations(grid.stringMatrix());
-        grid.hasLife();
-        inte.generations(grid.stringMatrix());
+        //inte.generations(grid.stringMatrix());
+        //grid.hasLife();
+        //inte.generations(grid.stringMatrix());
+        boolean terminar = true;
+        while(terminar){
+            int[] position = new int[1];
+            position = inte.insertPosition(8, grid.stringMatrix());
+            if(position == null){
+                terminar = false;
+            }else{
+              int x = position[0];
+              int y = position[1];
+              grid.insertPosition(x, y, true);  
+            }
+            
+        }
+        
+        
         //inte.showGrid(8);
         //inte.insertPosition(8);
         //inte.presentation();
