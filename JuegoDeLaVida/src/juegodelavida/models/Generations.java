@@ -5,6 +5,7 @@
  */
 package juegodelavida.models;
 
+import java.util.Arrays;
 import juegodelavida.*;
 
 /**
@@ -13,21 +14,21 @@ import juegodelavida.*;
  */
 public class Generations {
     Grid grid;
-    private Grid[] generations = new Grid[20];
+    private String[] generations = new String[20];
     int generationsInserts = 0;
     
     public Generations() {
     }
 
-    public Generations(Grid[] generations) {
+    public Generations(String[] generations) {
         this.generations = generations;
     }
 
-    public Grid[] getGenerations() {
+    public String[] getGenerations() {
         return generations;
     }
 
-    public void setGenerations(Grid[] generations) {
+    public void setGenerations(String[] generations) {
         this.generations = generations;
     }
 
@@ -36,13 +37,13 @@ public class Generations {
         return "Generations{" + "generations=" + generations + '}';
     }
     
-    public Grid[] insertVector(Grid matrixGenerations){
+    public String[] insertVector(String matrixGenerations){
         if (matrixGenerations != null) {
             generations[generationsInserts] = matrixGenerations;
             generationsInserts +=1;
             return generations;
         }
         return null;
-    } 
+    }     
 }
 

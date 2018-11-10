@@ -182,6 +182,10 @@ public class GraphicInterface {
         return decisition;
     }
     
+    public void showGenerations(int generationsToShow, String[] generations){
+        JOptionPane.showMessageDialog(null, generations[generationsToShow]);
+    }
+    
     public int randomInsert(){//pregunta si quere que se ingresen datos aleatorios o insetar uno por uno
     String[] buttons ={"Posiciones Aleatorias", "Ingresar posiciones a gusto"};
     int desition = JOptionPane.showOptionDialog(null, "Seleccione alguna opción", "Seleccion de Relleno", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
