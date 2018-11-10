@@ -35,7 +35,7 @@ public class Generations {
         return "Generations{" + "generations=" + generations + '}';
     }
     
-    public void insertVector(Grid matrixGenerations){
+    public Grid[] insertVector(Grid matrixGenerations){
         int generationsInserts = 0;
         for (int i = 0; i < generations.length; i++) {
             if (generations[i] != null) {
@@ -44,6 +44,7 @@ public class Generations {
                 generations[generationsInserts -1] = matrixGenerations;
             } 
         }
+        return generations;
     } 
 }
 
