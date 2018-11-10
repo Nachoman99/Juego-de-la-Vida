@@ -161,17 +161,18 @@ public class GraphicInterface {
         if (btDecision == 1) {
             JOptionPane.showMessageDialog(null, "Gracias por jugar");
             return btDecision;
+        }else{
+            String result;
+            String[] position = new String[generations];
+            int index = 0;
+            for (int i = 0; i < generations; i++) {
+                position[index] = String.valueOf(index);
+                index += 1;
+            }
+            result = (String)JOptionPane.showInputDialog(null,"¿Elija una generación a ver", "Ver generaciones", JOptionPane.INFORMATION_MESSAGE , null,  position, "1");
+            decisition = Integer.parseInt(result);
+            return decisition;
         }
-        String result;
-        String[] position = new String[generations];
-        int index = 0;
-        for (int i = 0; i < generations; i++) {
-            position[index] = String.valueOf(index);
-            index += 1;
-        }
-        result = (String)JOptionPane.showInputDialog(null,"¿Elija una generación a ver", "Ver generaciones", JOptionPane.INFORMATION_MESSAGE , null,  position, "1");
-        decisition = Integer.parseInt(result);
-        return decisition;
     }
     
     public void showGenerations(int generationsToShow, String[] generations){
