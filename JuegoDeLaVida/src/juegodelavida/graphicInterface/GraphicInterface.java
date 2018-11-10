@@ -119,7 +119,10 @@ public class GraphicInterface {
     private int generations1(){
         int decisition;
         String[] buttons ={"Aceptar","Salir"};
-        int btDecision = JOptionPane.
+        int btDecision = JOptionPane.showOptionDialog(null, "Seleccione aceptar para continuar con el juego o salir para salir del juego", "Juego", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
+        if (true) {
+            
+        }
         String result;
         String[] position = new String[20];
         int index = 0;
@@ -132,11 +135,11 @@ public class GraphicInterface {
         return decisition;
     }
     
-  /*  public int randomInsert(){//pregunta si quere que se ingresen datos aleatorios o insetar uno por uno
-        String[] buttons ={"Posiciones Aleatorias", "Ingresar posiciones a gusto"};
-        int desition = JOptionPane.showOptionDialog(null, "Seleccione alguna opción", "Seleccion de Relleno", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
-        return desition;
-    }*/
+    public int randomInsert(){//pregunta si quere que se ingresen datos aleatorios o insetar uno por uno
+    String[] buttons ={"Posiciones Aleatorias", "Ingresar posiciones a gusto"};
+    int desition = JOptionPane.showOptionDialog(null, "Seleccione alguna opción", "Seleccion de Relleno", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
+    return desition;
+    }
     
     public String showGrid(int size){//transforma el grid en un string para mostralo pero talvez sea innecesario xq podemos mostrar de un solo tiro el grid
        //muestra las posiciones como 1 2  3  4  5  7
