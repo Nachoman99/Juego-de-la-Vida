@@ -115,7 +115,7 @@ public class GraphicInterface {
             //return gen;
         //}else if (desition == 2) {
           //  JOptionPane.showMessageDialog(null, "Muchas gracias por jugar");
-        //}
+        }
         return desition;
     }
     /*
@@ -155,7 +155,7 @@ public class GraphicInterface {
     }
     */
     
-    public int generations1(int generations){
+    private int generations1(int generations){
         int decisition;
         String[] buttons ={"Aceptar"};
         int btDecision = JOptionPane.showOptionDialog(null,"","Juego", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
