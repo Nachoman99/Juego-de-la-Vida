@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 package juegodelavida.logicGame;
+
 import juegodelavida.models.Cell;
 import juegodelavida.models.Grid;
+import juegodelavida.graphicInterface.GraphicInterface;
 
 
 /**
@@ -13,9 +15,6 @@ import juegodelavida.models.Grid;
  * @author Kevin Trejos
  */
 public class LogicGame {
-    
-    
-    
-    
-    
+    Grid grid;
+
 }
