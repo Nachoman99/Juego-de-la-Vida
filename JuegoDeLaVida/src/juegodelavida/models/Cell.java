@@ -11,7 +11,7 @@ import juegodelavida.*;
  * This class represents the grid of the game
  * 
  *@version 29/10/2018
- * @author Kevin Trejos
+ * @author Kevin Trejos/
  */
 public class Cell {
     private int life;

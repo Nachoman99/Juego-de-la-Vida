@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
  * @author Kevin Trejos
  */
 public class GraphicInterface {
+    
     public GraphicInterface() {
     }
     
@@ -113,15 +114,8 @@ public class GraphicInterface {
             }
             return desition; 
         }else{
-           String[] buttons ={"Siguiente", "Ver generaciones anteriores", "Terminar juego"};
-            int desition = JOptionPane.showOptionDialog(null, getStringMatrix(generation1) + "Seleccione alguna opción", "GENERACIONES", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
-            if (desition == 2) {
-                JOptionPane.showMessageDialog(null, "Muchas gracias por jugar");
-                //int gen = generations1();
-                //return gen;
-            //}else if (desition == 2) {
-              //  JOptionPane.showMessageDialog(null, "Muchas gracias por jugar");
-            }
+           String[] buttons ={"Siguiente", "Ver generaciones anteriores"};
+            int desition = JOptionPane.showOptionDialog(null, getStringMatrix(generation1) + "Seleccione alguna opción", "GENERACIONES", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);  
             return desition; 
         }
        
@@ -166,8 +160,11 @@ public class GraphicInterface {
     
     private int generations1(int generations){
         int decisition;
-        String[] buttons ={"Aceptar"};
+        String[] buttons ={"Aceptar", "Salir"};
         int btDecision = JOptionPane.showOptionDialog(null,"","Juego", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
+        if (btDecision == 1) {
+            JOptionPane.showMessageDialog(null, "Gracias por jugar");
+        }
         String result;
         String[] position = new String[generations];
         int index = 0;
