@@ -39,10 +39,10 @@ public class Generations {
         int generationsInserts = 0;
         for (int i = 0; i < generations.length; i++) {
             if (generations[i] != null) {
-            generationsInserts += 1;
-            
-            }
-            
+                generationsInserts += 1;
+            }else if (generations[i] == null) {
+                generations[generationsInserts -1] = matrixGenerations;
+            } 
         }
     } 
 }
