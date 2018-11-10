@@ -6,7 +6,7 @@
 package juegodelavida;
 
 import javax.swing.JOptionPane;
-import juegodelavida.logicGame.LogicGame;
+import juegodelavida.models.Generations;
 import juegodelavida.models.Grid;
 import juegodelavida.graphicInterface.GraphicInterface;
 import java.util.Arrays;

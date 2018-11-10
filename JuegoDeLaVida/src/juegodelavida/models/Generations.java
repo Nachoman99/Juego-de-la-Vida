@@ -14,6 +14,7 @@ import juegodelavida.*;
 public class Generations {
     Grid grid;
     private Grid[] generations = new Grid[20];
+    int generationsInserts = 0;
     
     public Generations() {
     }
@@ -36,15 +37,12 @@ public class Generations {
     }
     
     public Grid[] insertVector(Grid matrixGenerations){
-        int generationsInserts = 0;
-        for (int i = 0; i < generations.length; i++) {
-            if (generations[i] != null) {
-                generationsInserts += 1;
-            }else if (generations[i] == null) {
-                generations[generationsInserts -1] = matrixGenerations;
-            } 
+        if (matrixGenerations != null) {
+            generations[generationsInserts] = matrixGenerations;
+            generationsInserts +=1;
+            return generations;
         }
-        return generations;
+        return null;
     } 
 }
 
