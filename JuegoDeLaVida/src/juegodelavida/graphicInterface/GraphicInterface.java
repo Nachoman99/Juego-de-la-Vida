@@ -119,7 +119,7 @@ public class GraphicInterface {
     private int generations1(){
         int decisition;
         String[] buttons ={"Aceptar","Salir"};
-        
+        int btDecision = JOptionPane.
         String result;
         String[] position = new String[20];
         int index = 0;
