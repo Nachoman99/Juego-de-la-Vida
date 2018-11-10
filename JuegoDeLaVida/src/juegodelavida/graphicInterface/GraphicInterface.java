@@ -109,12 +109,13 @@ public class GraphicInterface {
     public int generations(String[][] generation1){
         String[] buttons ={"Siguiente", "Ver generaciones anteriores", "Terminar juego"};
         int desition = JOptionPane.showOptionDialog(null, getStringMatrix(generation1) + "Seleccione alguna opción", "GENERACIONES", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
-        if (desition == 1) {
-            int gen = generations1();
-            return gen;
-        }else if (desition == 2) {
+        if (desition == 2) {
             JOptionPane.showMessageDialog(null, "Muchas gracias por jugar");
-        }
+            //int gen = generations1();
+            //return gen;
+        //}else if (desition == 2) {
+          //  JOptionPane.showMessageDialog(null, "Muchas gracias por jugar");
+        //}
         return desition;
     }
     /*
@@ -154,14 +155,14 @@ public class GraphicInterface {
     }
     */
     
-    private int generations1(){
+    public int generations1(int generations){
         int decisition;
         String[] buttons ={"Aceptar"};
         int btDecision = JOptionPane.showOptionDialog(null,"","Juego", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
         String result;
-        String[] position = new String[20];
+        String[] position = new String[generations];
         int index = 0;
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < generations; i++) {
             position[index] = String.valueOf(index);
             index += 1;
         }
