@@ -36,7 +36,7 @@ public class LogicGame {
                         grid.hasLife();
                         maximoGen += 1;
                         generationAmount += 1;
-                        generations.insertVector(grid.getStringMatrix());
+                        generations.insertVector(grid.stringGenerations());
                     }else if(result == 1){
                         continuar = false;
                         enterGenerationsWindow = true;

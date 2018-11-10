@@ -56,6 +56,23 @@ public class Grid {
         return imprimir ;
     }
     
+    public String stringGenerations(){
+        String imprimir = "";
+        for(int i = 0; i<cells.length; i++){
+            for(int j = 0; j<cells[i].length; j++){
+                if(cells[i][j].getLife() == 1){
+                    imprimir  =imprimir  +"□";
+                }else if(cells[i][j].getLife() == 2){
+                    imprimir  =imprimir  + "■";
+                }
+               
+            }     
+            imprimir  =imprimir + "\n";  
+        }
+        return imprimir ;
+    }
+    
+    
     public  String[][] stringMatrix(){ 
         for(int i = 0; i<cells.length; i++){
             for(int j = 0; j<cells[i].length; j++){

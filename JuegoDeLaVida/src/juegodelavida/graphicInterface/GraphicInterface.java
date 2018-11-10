@@ -166,8 +166,10 @@ public class GraphicInterface {
             String result;
             String[] position = new String[generations];
             int index = 1;
-            for (int i = 1; i < generations; i++) {
-                position[index] = String.valueOf(index);
+            int index2 = 0;
+            for (int i = 1; i <= generations; i++) {
+                position[index2] = String.valueOf(index);
+                index2 += 1;
                 index += 1;
             }
             result = (String)JOptionPane.showInputDialog(null,"¿Elija una generación a ver", "Ver generaciones", JOptionPane.INFORMATION_MESSAGE , null,  position, "1");
@@ -177,7 +179,7 @@ public class GraphicInterface {
     }
     
     public void showGenerations(int generationsToShow, Generations  generations){
-        JOptionPane.showMessageDialog(null, generations.getVector(generationsToShow));
+        JOptionPane.showMessageDialog(null, "GENERACION NUMERO "+generationsToShow + "\n"+generations.getVector(generationsToShow-1));
     }
     
     public int randomInsert(){//pregunta si quere que se ingresen datos aleatorios o insetar uno por uno
