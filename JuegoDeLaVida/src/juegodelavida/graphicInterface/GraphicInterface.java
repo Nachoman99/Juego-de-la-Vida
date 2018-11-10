@@ -107,22 +107,21 @@ public class GraphicInterface {
     }
     
     public int generations(){
-        String[] buttons ={"Siguiente", "Ver generaciones anteriores"};
+        String[] buttons ={"Siguiente", "Ver generaciones anteriores", "Terminar juego"};
         int desition = JOptionPane.showOptionDialog(null, "Seleccione alguna opción", "GENERACIONES", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
         if (desition == 1) {
             int gen = generations1();
             return gen;
+        }else if (desition == 2) {
+            JOptionPane.showMessageDialog(null, "Muchas gracias por jugar");
         }
         return desition;
     }
     
     private int generations1(){
         int decisition;
-        String[] buttons ={"Aceptar","Salir"};
-        int btDecision = JOptionPane.showOptionDialog(null, "Seleccione aceptar para continuar con el juego o salir para salir del juego", "Juego", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
-        if (true) {
-            
-        }
+        String[] buttons ={"Aceptar"};
+        int btDecision = JOptionPane.showOptionDialog(null,"","Juego", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
         String result;
         String[] position = new String[20];
         int index = 0;
@@ -141,7 +140,7 @@ public class GraphicInterface {
     return desition;
     }
     
-    public String showGrid(int size){//transforma el grid en un string para mostralo pero talvez sea innecesario xq podemos mostrar de un solo tiro el grid
+   /* public String showGrid(int size){//transforma el grid en un string para mostralo pero talvez sea innecesario xq podemos mostrar de un solo tiro el grid
        //muestra las posiciones como 1 2  3  4  5  7
        //                            8 9 10 11 11 12
         String[][] gridString = new String[size][size];
@@ -163,7 +162,7 @@ public class GraphicInterface {
         }
         
        return getStringMatrix(gridString);
-    }
+    }*/
     
     public int[] insertPosition(int size){ //ventana para insertar las posiciones
         //el problema es que va tirar un numero de la posicion como ejemplo 17
@@ -231,16 +230,27 @@ public class GraphicInterface {
         //ejemplo una ventana pide X y otra el Y y una true/false y asi seria mas facil el manejo de datos
         //pero no se debe de haber otra idea que no se me ocurre
         int[] matrixPosition = new int[1];
-         switch(position){
-             case 1:
+        switch(position){
+            case 1:
                  
-                 break;
+                break;
              
-             default:
+            default:
                  
-                 break;
-         }
+                break;
+        }
     }
-    
+
+    public void showGrid(int size){
+        int decisition;
+        String result;
+        String[][] matrix = new String[size][size];
+        int index = 0;
+        for (int i = 0; i < size; i++) {
+                matrix[index][index] = String.valueOf(index);
+                index += 1;
+        }
+        JOptionPane.showMessageDialog(null, matrix);
+    }
 }
 

@@ -23,9 +23,10 @@ public class JuegoDeLaVida {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Grid grid = new Grid();
+        //Grid grid = new Grid();
         GraphicInterface inte = new GraphicInterface();
-        inte.insertPosition(8);
+        inte.showGrid(8);
+        //inte.insertPosition(8);
         //inte.presentation();
         //int size = inte.sizeDecisition();
         //int generations = inte.generations();

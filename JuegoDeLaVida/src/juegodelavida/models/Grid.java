@@ -18,6 +18,7 @@ public class Grid {
     GraphicInterface graphic = new GraphicInterface();
     private Cell[][] cells;
     private Cell[][] cells2;
+    private String[][] cells3;
     private int generation = 0;
 
     /**
@@ -26,10 +27,6 @@ public class Grid {
      * With the size that the player wants
      * @param size is the size of the grid
      */
-    
-    public int getCellsLenght() { 
-        return cells.length;
-    }
 
     public Grid() {
         int size = graphic.sizeDecisition();
@@ -38,6 +35,7 @@ public class Grid {
         }else{
             this.cells = new Cell[size][size];
             this.cells2 = new Cell[size][size];
+            this.cells3 = new String[size][size];
         }
         Cell cell01 = new Cell(1);
         for(int i = 0; i < cells.length;i++){
@@ -58,6 +56,14 @@ public class Grid {
         return imprimir ;
     }
     
+    public  String[][] stringMatrix(){ 
+        for(int i = 0; i<cells.length; i++){
+            for(int j = 0; j<cells[i].length; j++){
+               cells3[i][j] = String.valueOf(cells[i][j].getLife());
+            }
+        }
+        return  cells3;
+    }
     /**
      * Declaration: public void randomCells()
      * This method generates cells in random positions of the grid
