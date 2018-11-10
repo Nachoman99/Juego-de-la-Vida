@@ -187,7 +187,8 @@ public class GraphicInterface {
         if (desition == 0) {
             row = rowsInsert(size);
             column = columnInsert(size);
-            JOptionPane.showMessageDialog(null, //Aqui va la matriz a insertar, "POSICION INGRESADA", JOptionPane.INFORMATION_MESSAGE);
+            //Aqui va la matriz a insertar
+            //JOptionPane.showMessageDialog(null,  "POSICION INGRESADA", JOptionPane.INFORMATION_MESSAGE);
             int[] positions = {row,column};
             return positions;
         }
@@ -195,34 +196,33 @@ public class GraphicInterface {
     }
     
     private int rowsInsert(int size){
-        int desition;
-        String[] position = new String[size*size];
+        int decisition;
+        String result;
+        String[] position = new String[size];
         int index = 0;
-        for (int i = 0; i < (size*size); i++) {
-            position[index] = String.valueOf(1+index);
-            index += 1;    
+        for (int i = 0; i < (size); i++) {
+                position[index] = String.valueOf(1+index);
+                index += 1;
+
         }
-        JComboBox rw = new JComboBox(position);
-        rw.setEditable(true);
-        JOptionPane.showMessageDialog(null, rw, "Elija una fila en la cual insertar", JOptionPane.QUESTION_MESSAGE);
-        desition = Integer.parseInt(rw.getSelectedItem().toString());
-        return desition;
+        result = (String)JOptionPane.showInputDialog(null,"¿En cuál fila desea ingresar un valor?", "Ingreso de posiciones", JOptionPane.INFORMATION_MESSAGE , null,  position, "1");
+        decisition = Integer.parseInt(result);
+        return decisition;
     }
     
     private int columnInsert(int size){
-        int desition;
-         String[] position = new String[size*size];
+        int decisition;
+        String result;
+        String[] position = new String[size];
         int index = 0;
-        for (int i = 0; i < (size*size); i++) {
-            position[index] = String.valueOf(1+index);
-            index += 1;    
+        for (int i = 0; i < (size); i++) {
+                position[index] = String.valueOf(1+index);
+                index += 1;
+
         }
-        
-        JComboBox cl = new JComboBox(position);
-        cl.setEditable(true);
-        JOptionPane.showMessageDialog(null, cl, "Elija una columna en la cual insertar", JOptionPane.QUESTION_MESSAGE);
-        desition = Integer.parseInt(cl.getSelectedItem().toString());
-        return desition;
+        result = (String)JOptionPane.showInputDialog(null,"¿En cuál columna desea ingresar un valor?", "Ingreso de posiciones", JOptionPane.INFORMATION_MESSAGE , null,  position, "1");
+        decisition = Integer.parseInt(result);
+        return decisition;
     }
     public void translate(int size, int position){//metodos para traducir digamos
         // 17 es la posicion X=0 y Y=1 (es un ejemplo)

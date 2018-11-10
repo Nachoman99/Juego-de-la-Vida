@@ -35,7 +35,7 @@ public class Grid {
         int size = graphic.sizeDecisition();
         if (size == 1) {
             randomCells();
-        }else if (size >= 8 && size <= 20) {
+        }else{
             this.cells = new Cell[size][size];
             this.cells2 = new Cell[size][size];
         }

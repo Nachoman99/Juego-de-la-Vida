@@ -25,7 +25,8 @@ public class JuegoDeLaVida {
     public static void main(String[] args) {
         Grid grid = new Grid();
         GraphicInterface inte = new GraphicInterface();
-        inte.insertPosition();
+        //inte.insertPosition(8);
+        System.out.println(inte.insertPosition(8));
         //inte.presentation();
         //int size = inte.sizeDecisition();
         //int generations = inte.generations();
