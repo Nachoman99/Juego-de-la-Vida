@@ -84,6 +84,7 @@ public class LogicGame {
                         grid.hasLife();
                         generationAmount += 1;
                         maximoGen += 1;
+                        generations.insertVector(grid.stringGenerations());
                     }else if(nextGeneration == 1){
                         insertGenerations = false;
                         enterGenerationsWindow = true;
