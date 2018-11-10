@@ -5,7 +5,6 @@
  */
 package juegodelavida.graphicInterface;
 
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import juegodelavida.models.Grid;
 
@@ -86,20 +85,15 @@ public class GraphicInterface {
         JOptionPane.showMessageDialog(null, "        JUEGO DE LA VIDA     "+"\n"+"Integrantes: "+"\n"+"Kevin Trejos B87902"+"\n"+"Edwin Molina"+
                 "Carne Ed"+"\n"+"Jose Zamora B78541", "Juego de La Vida", JOptionPane.INFORMATION_MESSAGE, null);
     }
-    
-    
+    /*
     public int sizeDecisition(){
         int desition;
-        String[] message ={"Elegir tamaño de matriz", "Valores aleatorios"};
+        String[] message ={"Elegir tamaño de matriz"};
         desition = JOptionPane.showOptionDialog(null, "Seleccione una opción", "TAMAÑO MATRIZ", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, message, message[0]);
-        if (desition == 0) {
-            int size = sizeMatrix();
-            return size;
-        }
-        return 1;
-    }
+        return 0;
+    }*/
        
-    private int sizeMatrix(){
+    public int sizeMatrix(){
         int decisition;
         String result;
         String[] position = {"8","9","10","11","12","13","14","15","16","17","18","19","20"};
@@ -123,12 +117,19 @@ public class GraphicInterface {
     }
     
     private int generations1(){
-        String[] generation = {"0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"};
-        JComboBox gnt = new JComboBox(generation);
-        gnt.setEditable(true);
-        JOptionPane.showMessageDialog(null, gnt, "Elija una generación para ver",JOptionPane.QUESTION_MESSAGE);
-        int gen= Integer.parseInt(gnt.getSelectedItem().toString());
-        return gen;
+        int decisition;
+        String[] buttons ={"Aceptar","Salir"};
+        
+        String result;
+        String[] position = new String[20];
+        int index = 0;
+        for (int i = 0; i < 20; i++) {
+            position[index] = String.valueOf(index);
+            index += 1;
+        }
+        result = (String)JOptionPane.showInputDialog(null,"¿Elija una generación a ver", "Ver generaciones", JOptionPane.INFORMATION_MESSAGE , null,  position, "1");
+        decisition = Integer.parseInt(result);
+        return decisition;
     }
     
   /*  public int randomInsert(){//pregunta si quere que se ingresen datos aleatorios o insetar uno por uno
@@ -136,7 +137,6 @@ public class GraphicInterface {
         int desition = JOptionPane.showOptionDialog(null, "Seleccione alguna opción", "Seleccion de Relleno", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
         return desition;
     }*/
-    
     
     public String showGrid(int size){//transforma el grid en un string para mostralo pero talvez sea innecesario xq podemos mostrar de un solo tiro el grid
        //muestra las posiciones como 1 2  3  4  5  7
@@ -161,7 +161,6 @@ public class GraphicInterface {
         
        return getStringMatrix(gridString);
     }
-    
     
     public int[] insertPosition(int size){ //ventana para insertar las posiciones
         //el problema es que va tirar un numero de la posicion como ejemplo 17
@@ -201,9 +200,8 @@ public class GraphicInterface {
         String[] position = new String[size];
         int index = 0;
         for (int i = 0; i < (size); i++) {
-                position[index] = String.valueOf(1+index);
-                index += 1;
-
+            position[index] = String.valueOf(index);
+            index += 1;
         }
         result = (String)JOptionPane.showInputDialog(null,"¿En cuál fila desea ingresar un valor?", "Ingreso de posiciones", JOptionPane.INFORMATION_MESSAGE , null,  position, "1");
         decisition = Integer.parseInt(result);
@@ -215,10 +213,9 @@ public class GraphicInterface {
         String result;
         String[] position = new String[size];
         int index = 0;
-        for (int i = 0; i < (size); i++) {
-                position[index] = String.valueOf(1+index);
+        for (int i = 0; i < size; i++) {
+                position[index] = String.valueOf(index);
                 index += 1;
-
         }
         result = (String)JOptionPane.showInputDialog(null,"¿En cuál columna desea ingresar un valor?", "Ingreso de posiciones", JOptionPane.INFORMATION_MESSAGE , null,  position, "1");
         decisition = Integer.parseInt(result);
