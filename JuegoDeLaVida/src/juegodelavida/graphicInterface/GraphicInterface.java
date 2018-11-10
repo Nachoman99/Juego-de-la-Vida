@@ -135,6 +135,25 @@ public class GraphicInterface {
     }
     */
     
+    /*
+    private int generations1(int generations){
+        int decisition;
+        String[] buttons ={"Aceptar"};
+        int btDecision = JOptionPane.showOptionDialog(null,"","Juego", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
+        String result;
+        String[] position = new String[generations];
+        int index = 0;
+        for (int i = 0; i < generations; i++) {
+            position[index] = String.valueOf(index);
+            index += 1;
+        }
+        result = (String)JOptionPane.showInputDialog(null,"¿Elija una generación a ver", "Ver generaciones", JOptionPane.INFORMATION_MESSAGE , null,  position, "1");
+        decisition = Integer.parseInt(result);
+        JOptionPane.showMessageDialog(null, );
+        return decisition;
+    }
+    */
+    
     private int generations1(){
         int decisition;
         String[] buttons ={"Aceptar"};
