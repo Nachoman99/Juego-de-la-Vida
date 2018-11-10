@@ -46,7 +46,6 @@ public class LogicGame {
                     continuar = false;
                 } 
             }
-            
             while (enterGenerationsWindow) {                
                 int generationsOrClose = windows.generations1(generationAmount);
                 if(generationsOrClose == 0){

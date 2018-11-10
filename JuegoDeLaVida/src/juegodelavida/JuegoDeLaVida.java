@@ -5,6 +5,7 @@
  */
 package juegodelavida;
 
+import juegodelavida.logicGame.LogicGame;
 import javax.swing.JOptionPane;
 import juegodelavida.models.Generations;
 import juegodelavida.logicGame.Grid;
@@ -23,14 +24,16 @@ public class JuegoDeLaVida {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Grid grid = new Grid(8);
+        LogicGame logic = new LogicGame();
+        logic.startGame();
+// Grid grid = new Grid(8);
         /*grid.insertPosition(0, 2, true);
         grid.insertPosition(1, 2, true);
         grid.insertPosition(1, 3, true);
         grid.insertPosition(0, 6, true);
         grid.insertPosition(1, 1, true);*/
         //grid.hasLife();
-        GraphicInterface inte = new GraphicInterface();
+       // GraphicInterface inte = new GraphicInterface();
         //inte.generations(grid.stringMatrix());
         //grid.hasLife();
         //inte.generations(grid.stringMatrix());
@@ -49,7 +52,7 @@ public class JuegoDeLaVida {
         }*/
         //System.out.println(inte.insertPosition(8, grid.stringMatrix()));
         
-        grid.randomCells();
+        /*grid.randomCells();
         boolean continuar = true;
         boolean generations = false;
         int maximoGen =0;
@@ -75,7 +78,7 @@ public class JuegoDeLaVida {
 
         while (generations){
             System.out.println("Holaaaaa");
-        }
+        }*/
         //System.out.println(inte.columnInsert(8));
         
         //inte.showGrid(8);
