@@ -50,6 +50,8 @@ public class LogicGame {
                 int generationsOrClose = windows.generations1(generationAmount);
                 if(generationsOrClose == 0){
                     enterGenerationsWindow = false;
+                }else if(generationsOrClose == -1){
+                    
                 }else{
                    windows.showGenerations(generationsOrClose, generations);
                 }

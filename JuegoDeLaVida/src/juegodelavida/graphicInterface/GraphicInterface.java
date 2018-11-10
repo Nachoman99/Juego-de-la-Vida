@@ -172,8 +172,14 @@ public class GraphicInterface {
                 index2 += 1;
                 index += 1;
             }
-            result = (String)JOptionPane.showInputDialog(null,"¿Elija una generación a ver", "Ver generaciones", JOptionPane.INFORMATION_MESSAGE , null,  position, "1");
-            decisition = Integer.parseInt(result);
+            result = (String)JOptionPane.showInputDialog(null,"Elija una generación a ver y por favor no tocar el boton cancelar (si lo toca no realizara nada)", "Ver generaciones", JOptionPane.INFORMATION_MESSAGE , null,  position, "1");
+            if (result == null) {
+              decisition = -1;
+              JOptionPane.showMessageDialog(null, "Por Favor no tocar el cancelar");
+            }else{
+              decisition = Integer.parseInt(result); 
+            }
+      
             return decisition;
         }
     }
