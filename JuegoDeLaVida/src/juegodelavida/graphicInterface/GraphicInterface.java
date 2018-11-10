@@ -108,19 +108,14 @@ public class GraphicInterface {
     public int generations(int generationNumber, String[][] generation1){
         int desition;
         if(generationNumber == 20){
-            String[] buttons ={"Ver generaciones anteriores", "Terminar juego"};
+            String[] buttons ={"Ver generaciones anteriores"};
             desition = JOptionPane.showOptionDialog(null, getStringMatrix(generation1) + "Se llego al maximo de generaciones, selecciones ver generaciones o terminar el juego", "GENERACIONES", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
-            if (desition == 2) {
-                JOptionPane.showMessageDialog(null, "Muchas gracias por jugar");
-                return desition;
-            }
-             
+            return desition;
         }else{
            String[] buttons ={"Siguiente", "Ver generaciones anteriores"};
             desition = JOptionPane.showOptionDialog(null, getStringMatrix(generation1) + "Seleccione alguna opción", "GENERACIONES", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);  
             return desition; 
         }
-        return desition;
     }
     /*
     public int generations(String[][] generation1){
@@ -165,6 +160,7 @@ public class GraphicInterface {
         int btDecision = JOptionPane.showOptionDialog(null,"","Juego", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
         if (btDecision == 1) {
             JOptionPane.showMessageDialog(null, "Gracias por jugar");
+            return btDecision;
         }
         String result;
         String[] position = new String[generations];
