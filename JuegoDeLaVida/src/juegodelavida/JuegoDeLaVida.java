@@ -23,20 +23,21 @@ public class JuegoDeLaVida {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Grid grid = new Grid(8);
+        Grid grid = new Grid();
         GraphicInterface inte = new GraphicInterface();
-        inte.presentation();
-        int size = inte.sizeDecisition();
+        inte.insertPosition();
+        //inte.presentation();
+        //int size = inte.sizeDecisition();
         //int generations = inte.generations();
-        int desition = inte.randomInsert();
-        System.out.println("size=" +size);
-        System.out.println("Random o Insertar= " + desition);
+        //int desition = inte.randomInsert();
+        //System.out.println("size=" +size);
+        //System.out.println("Random o Insertar= " + desition);
+        //System.out.println(grid.getStringMatrix());
         
-        
-        String gridString = inte.showGrid(size);
-        System.out.println(gridString);
-        int insert = inte.insertPosition(size, gridString);
-        System.out.println("isnert= " + insert);
+        //String gridString = inte.showGrid(size);
+        //System.out.println(gridString);
+        //int insert = inte.insertPosition(size, gridString);
+        //System.out.println("isnert= " + insert);
         /*
         tira 0 si esa random y 1 si quiere inserta a la hora de hacer la logica se basa en esos numeros
         */
@@ -49,7 +50,7 @@ public class JuegoDeLaVida {
         grid.insertPosition(1, 1, true);
         grid.insertPosition(1, 1, true);*/
         
-        grid.insertPosition(0, 0, true); 
+       /* grid.insertPosition(0, 0, true); 
         //grid.insertPosition(0, 1, true);
         grid.insertPosition(1, 0, false);
         grid.insertPosition(1, 1, true);
@@ -98,5 +99,6 @@ public class JuegoDeLaVida {
         
         //grid.hasLife();
         //System.out.println(grid.getStringMatrix());
-    }
+    */}
 }
+//

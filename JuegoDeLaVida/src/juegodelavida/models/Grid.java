@@ -6,6 +6,7 @@
 package juegodelavida.models;
 
 import juegodelavida.*;
+import juegodelavida.graphicInterface.GraphicInterface;
 
 /**
  * This class represents the cells of the game
@@ -14,6 +15,7 @@ import juegodelavida.*;
  * @author Kevin Trejos
  */
 public class Grid {
+    GraphicInterface graphic = new GraphicInterface();
     private Cell[][] cells;
     private Cell[][] cells2;
     private int generation = 0;
@@ -24,16 +26,24 @@ public class Grid {
      * With the size that the player wants
      * @param size is the size of the grid
      */
-    public Grid(int size) { 
-        Cell cell1 = new Cell(1);
-        if (size >= 8 && size <= 20) {
+    
+    public int getCellsLenght() { 
+        return cells.length;
+    }
+
+    public Grid() {
+        int size = graphic.sizeDecisition();
+        if (size == 1) {
+            randomCells();
+        }else if (size >= 8 && size <= 20) {
             this.cells = new Cell[size][size];
             this.cells2 = new Cell[size][size];
         }
+        Cell cell01 = new Cell(1);
         for(int i = 0; i < cells.length;i++){
             for(int j = 0; j < cells.length;j++){
-                cells[i][j] = cell1;
-                cells2[i][j] = cell1;
+                cells[i][j] = cell01;
+                cells2[i][j] = cell01;
             }    
         }
     }
@@ -52,14 +62,14 @@ public class Grid {
      * Declaration: public void randomCells()
      * This method generates cells in random positions of the grid
      */
-    public void randomCells(){
+    private void randomCells(){
         int random;
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
                 random = (int)(Math.random()*2) + 1;
                 if (random == 2) {
-                    Cell cell1 = new Cell(2);
-                    cells[i][j] = cell1;
+                    Cell cell01 = new Cell(2);
+                    cells[i][j] = cell01;
                 }else{
                     Cell cell2 = new Cell(1);
                     cells[i][j] = cell2;

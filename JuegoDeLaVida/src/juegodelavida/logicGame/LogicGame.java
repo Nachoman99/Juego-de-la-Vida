@@ -7,6 +7,7 @@ package juegodelavida.logicGame;
 import juegodelavida.models.Cell;
 import juegodelavida.models.Grid;
 
+
 /**
  *
  * @author Kevin Trejos

@@ -7,6 +7,7 @@ package juegodelavida.graphicInterface;
 
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import juegodelavida.models.Grid;
 
 /**
  * In this class, window management will be given
@@ -15,6 +16,10 @@ import javax.swing.JOptionPane;
  * @author Kevin Trejos
  */
 public class GraphicInterface {
+    Grid grid;
+    public GraphicInterface() {
+    }
+    
     /**
      * Declaration: public void showMessage(String message)
      * this method shows a window with a message
@@ -85,13 +90,13 @@ public class GraphicInterface {
     
     public int sizeDecisition(){
         int desition;
-        String[] message ={"Elegir tamaño de matriz", "Valor por defecto"};
+        String[] message ={"Elegir tamaño de matriz", "Valores aleatorios"};
         desition = JOptionPane.showOptionDialog(null, "Seleccione una opción", "TAMAÑO MATRIZ", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, message, message[0]);
         if (desition == 0) {
             int size = sizeMatrix();
             return size;
         }
-        return desition;
+        return 1;
     }
        
     private int sizeMatrix(){
@@ -126,11 +131,11 @@ public class GraphicInterface {
         return gen;
     }
     
-    public int randomInsert(){//pregunta si quere que se ingresen datos aleatorios o insetar uno por uno
+  /*  public int randomInsert(){//pregunta si quere que se ingresen datos aleatorios o insetar uno por uno
         String[] buttons ={"Posiciones Aleatorias", "Ingresar posiciones a gusto"};
         int desition = JOptionPane.showOptionDialog(null, "Seleccione alguna opción", "Seleccion de Relleno", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
         return desition;
-    }
+    }*/
     
     
     public String showGrid(int size){//transforma el grid en un string para mostralo pero talvez sea innecesario xq podemos mostrar de un solo tiro el grid
@@ -158,11 +163,11 @@ public class GraphicInterface {
     }
     
     
-    public int insertPosition(int size, String gridString){ //ventana para insertar las posiciones
+    public int[] insertPosition(int size){ //ventana para insertar las posiciones
         //el problema es que va tirar un numero de la posicion como ejemplo 17
         //entonces con ese numero tendria que insetar la posicion en el grid original por eso mas adelante 
         //esta translate
-        int decisition;
+        /*int decisition;
         String result;
         String[] position = new String[size*size];
         int index = 0;
@@ -173,9 +178,52 @@ public class GraphicInterface {
         }
         result = (String)JOptionPane.showInputDialog(null, gridString +"¿Cual posicion desea ingresar un valor?", "Ingreso de posiciones", JOptionPane.INFORMATION_MESSAGE , null,  position, "1");
         decisition = Integer.parseInt(result);
-        return decisition; 
+        return decisition;*/
+        int desition;
+        int row;
+        int column;
+        String[] buttons = {"Insertar una nueva posición", "Continuar"};
+        desition =JOptionPane.showOptionDialog(null, "Seleccione una opción", "INSERTAR POSICIONES", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, buttons, buttons[0]);
+        if (desition == 0) {
+            row = rowsInsert(size);
+            column = columnInsert(size);
+            JOptionPane.showMessageDialog(null, //Aqui va la matriz a insertar, "POSICION INGRESADA", JOptionPane.INFORMATION_MESSAGE);
+            int[] positions = {row,column};
+            return positions;
+        }
+        return null;
     }
     
+    private int rowsInsert(int size){
+        int desition;
+        String[] position = new String[size*size];
+        int index = 0;
+        for (int i = 0; i < (size*size); i++) {
+            position[index] = String.valueOf(1+index);
+            index += 1;    
+        }
+        JComboBox rw = new JComboBox(position);
+        rw.setEditable(true);
+        JOptionPane.showMessageDialog(null, rw, "Elija una fila en la cual insertar", JOptionPane.QUESTION_MESSAGE);
+        desition = Integer.parseInt(rw.getSelectedItem().toString());
+        return desition;
+    }
+    
+    private int columnInsert(int size){
+        int desition;
+         String[] position = new String[size*size];
+        int index = 0;
+        for (int i = 0; i < (size*size); i++) {
+            position[index] = String.valueOf(1+index);
+            index += 1;    
+        }
+        
+        JComboBox cl = new JComboBox(position);
+        cl.setEditable(true);
+        JOptionPane.showMessageDialog(null, cl, "Elija una columna en la cual insertar", JOptionPane.QUESTION_MESSAGE);
+        desition = Integer.parseInt(cl.getSelectedItem().toString());
+        return desition;
+    }
     public void translate(int size, int position){//metodos para traducir digamos
         // 17 es la posicion X=0 y Y=1 (es un ejemplo)
         //talves esto complique las varas pero si hay otra idea por favor diganla
