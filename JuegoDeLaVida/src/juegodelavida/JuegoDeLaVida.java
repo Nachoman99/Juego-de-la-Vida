@@ -34,7 +34,7 @@ public class JuegoDeLaVida {
         //inte.generations(grid.stringMatrix());
         //grid.hasLife();
         //inte.generations(grid.stringMatrix());
-        boolean terminar = true;
+        /*boolean terminar = true;
         while(terminar){
             int[] position = new int[1];
             position = inte.insertPosition(8, grid.stringMatrix());
@@ -46,8 +46,10 @@ public class JuegoDeLaVida {
               grid.insertPosition(x, y, true);  
             }
             
-        }
+        }*/
+        System.out.println(inte.insertPosition(8, grid.stringMatrix()));
         
+        //System.out.println(inte.columnInsert(8));
         
         //inte.showGrid(8);
         //inte.insertPosition(8);

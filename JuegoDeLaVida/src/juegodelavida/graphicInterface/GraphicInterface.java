@@ -227,8 +227,12 @@ public class GraphicInterface {
             column = columnInsert(size);
             //Aqui va la matriz a insertar
             //JOptionPane.showMessageDialog(null,  "POSICION INGRESADA", JOptionPane.INFORMATION_MESSAGE);
-            int[] positions = {row,column};
-            return positions;
+            if(row != -1 && column != -1){
+               int[] positions = {row,column}; 
+               return positions; 
+    
+            }
+ 
         }
         return null;
     }
@@ -243,15 +247,16 @@ public class GraphicInterface {
             index += 1;
         }
         result = (String)JOptionPane.showInputDialog(null,"¿En cuál fila desea ingresar un valor?", "Ingreso de posiciones", JOptionPane.INFORMATION_MESSAGE , null,  position, "0");
-        decisition = Integer.parseInt(result);
-        if (decisition == 1) {
-            insertPosition(size, grid.stringMatrix());
+        if (result == null) {
+              decisition = -1;  
+        }else{
+           decisition = Integer.parseInt(result); 
         }
         return decisition;
     }
     
-    private int columnInsert(int size){
-        int decisition;
+    public int columnInsert(int size){
+        int decisition =0;
         String[] buttons ={"Aceptar", "Cancelar"};
         String result;
         String[] position = new String[size];
@@ -261,10 +266,13 @@ public class GraphicInterface {
                 index += 1;
         }
         result = (String)JOptionPane.showInputDialog(null,"¿En cuál columna desea ingresar un valor?", "Ingreso de posiciones", JOptionPane.YES_OPTION , null,  position, "0");
-        decisition = Integer.parseInt(result);
-        if (decisition == JOptionPane.CANCEL_OPTION) {
-            insertPosition(size, grid.stringMatrix());
+        if (result == null) {
+              decisition = -1;  
+        }else{
+           decisition = Integer.parseInt(result); 
         }
+        
+        
         return decisition;
     }
     public void translate(int size, int position){//metodos para traducir digamos
