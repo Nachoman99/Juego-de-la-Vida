@@ -56,14 +56,30 @@ public class LogicGame {
                    windows.showGenerations(generationsOrClose, generations);
                 } 
             }   
-        }else if (desitionRandomOrInsert == 1) {
-            int[] positionsToInsert = windows.insertPosition(size, grid.stringMatrix());
             
-            grid.insertPosition(size, generationAmount, true);
-            while (true) {                
+            
+        }else if (desitionRandomOrInsert == 1) {
+            boolean insertValues = true;
+            boolean insertGenerations = false;
+            while(insertValues){
+                int[] position = new int[1];
+                position = windows.insertPosition(size, grid.stringMatrix());
+                if(position == null){
+                    insertValues = false;
+                    insertGenerations = true;
+                }else{
+                  int x = position[0];
+                  int y = position[1];
+                  grid.insertPosition(x, y, true);
+                }
+     
+            }
+            
+            while (insertGenerations){
                 
             }
-        }
-    }
+            
+         }
 
+    }
 }
