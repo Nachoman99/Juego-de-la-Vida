@@ -221,7 +221,7 @@ public class GraphicInterface {
         int row;
         int column;
         String[] buttons = {"Insertar una nueva posición", "Continuar"};
-        desition =JOptionPane.showOptionDialog(null, getStringMatrix(initialMatrix) + "Seleccione una opción", "INSERTAR POSICIONES", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, buttons, buttons[0]);
+        desition = JOptionPane.showOptionDialog(null, getStringMatrix(initialMatrix) + "Seleccione una opción", "INSERTAR POSICIONES", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, buttons, buttons[0]);
         if (desition == 0) {
             row = rowsInsert(size);
             column = columnInsert(size);
@@ -244,11 +244,15 @@ public class GraphicInterface {
         }
         result = (String)JOptionPane.showInputDialog(null,"¿En cuál fila desea ingresar un valor?", "Ingreso de posiciones", JOptionPane.INFORMATION_MESSAGE , null,  position, "0");
         decisition = Integer.parseInt(result);
+        if (decisition == 1) {
+            insertPosition(size, grid.stringMatrix());
+        }
         return decisition;
     }
     
     private int columnInsert(int size){
         int decisition;
+        String[] buttons ={"Aceptar", "Cancelar"};
         String result;
         String[] position = new String[size];
         int index = 0;
@@ -256,8 +260,11 @@ public class GraphicInterface {
                 position[index] = String.valueOf(index);
                 index += 1;
         }
-        result = (String)JOptionPane.showInputDialog(null,"¿En cuál columna desea ingresar un valor?", "Ingreso de posiciones", JOptionPane.INFORMATION_MESSAGE , null,  position, "0");
+        result = (String)JOptionPane.showInputDialog(null,"¿En cuál columna desea ingresar un valor?", "Ingreso de posiciones", JOptionPane.YES_OPTION , null,  position, "0");
         decisition = Integer.parseInt(result);
+        if (decisition == JOptionPane.CANCEL_OPTION) {
+            insertPosition(size, grid.stringMatrix());
+        }
         return decisition;
     }
     public void translate(int size, int position){//metodos para traducir digamos
