@@ -61,6 +61,7 @@ public class LogicGame {
         }else if (desitionRandomOrInsert == 1) {
             boolean insertValues = true;
             boolean insertGenerations = false;
+            boolean enterGenerationsWindow = false;
             while(insertValues){
                 int[] position = new int[1];
                 position = windows.insertPosition(size, grid.stringMatrix());
@@ -76,8 +77,34 @@ public class LogicGame {
             }
             
             while (insertGenerations){
+                int maximoGen =0;
+                if(maximoGen != 20){
+                    int nextGeneration = windows.generations(generationAmount, grid.stringMatrix());
+                    if(nextGeneration == 0){
+                        grid.hasLife();
+                        generationAmount += 1;
+                        maximoGen += 1;
+                    }else if(nextGeneration == 1){
+                        insertGenerations = false;
+                        enterGenerationsWindow = true;
+                    }
+                }
                 
+
             }
+            
+            while (enterGenerationsWindow) {                
+                int generationsOrClose = windows.generations1(generationAmount);
+                if(generationsOrClose == 0){
+                    enterGenerationsWindow = false;
+                }else if(generationsOrClose == -1){
+                    
+                }else{
+                   windows.showGenerations(generationsOrClose, generations);
+                } 
+            }
+            
+            
             
          }
 
