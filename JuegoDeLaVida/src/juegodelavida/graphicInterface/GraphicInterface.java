@@ -205,7 +205,7 @@ public class GraphicInterface {
             position[index] = String.valueOf(index);
             index += 1;
         }
-        result = (String)JOptionPane.showInputDialog(null,"¿En cuál fila desea ingresar un valor?", "Ingreso de posiciones", JOptionPane.INFORMATION_MESSAGE , null,  position, "1");
+        result = (String)JOptionPane.showInputDialog(null,"¿En cuál fila desea ingresar un valor?", "Ingreso de posiciones", JOptionPane.INFORMATION_MESSAGE , null,  position, "0");
         decisition = Integer.parseInt(result);
         return decisition;
     }
@@ -219,7 +219,7 @@ public class GraphicInterface {
                 position[index] = String.valueOf(index);
                 index += 1;
         }
-        result = (String)JOptionPane.showInputDialog(null,"¿En cuál columna desea ingresar un valor?", "Ingreso de posiciones", JOptionPane.INFORMATION_MESSAGE , null,  position, "1");
+        result = (String)JOptionPane.showInputDialog(null,"¿En cuál columna desea ingresar un valor?", "Ingreso de posiciones", JOptionPane.INFORMATION_MESSAGE , null,  position, "0");
         decisition = Integer.parseInt(result);
         return decisition;
     }
