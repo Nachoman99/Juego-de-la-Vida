@@ -28,8 +28,7 @@ public class Grid {
      * @param size is the size of the grid
      */
 
-    public Grid() {
-        int size = graphic.sizeDecisition();
+    public Grid(int size) {
         if (size == 1) {
             randomCells();
         }else{
