@@ -6,6 +6,7 @@
 package juegodelavida.graphicInterface;
 
 import javax.swing.JOptionPane;
+import juegodelavida.models.Generations;
 
 /**
  * In this class, window management will be given
@@ -154,11 +155,11 @@ public class GraphicInterface {
     }
     */
     
-    private int generations1(int generations){
+    public int generations1(int generations){
         int decisition;
-        String[] buttons ={"Aceptar", "Salir"};
+        String[] buttons ={"Salir","Aceptar" };
         int btDecision = JOptionPane.showOptionDialog(null,"","Juego", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
-        if (btDecision == 1) {
+        if (btDecision == 0) {
             JOptionPane.showMessageDialog(null, "Gracias por jugar");
             return btDecision;
         }else{
@@ -175,8 +176,8 @@ public class GraphicInterface {
         }
     }
     
-    public void showGenerations(int generationsToShow, String[] generations){
-        JOptionPane.showMessageDialog(null, generations[generationsToShow]);
+    public void showGenerations(int generationsToShow, Generations  generations){
+        JOptionPane.showMessageDialog(null, generations.getVector(generationsToShow));
     }
     
     public int randomInsert(){//pregunta si quere que se ingresen datos aleatorios o insetar uno por uno

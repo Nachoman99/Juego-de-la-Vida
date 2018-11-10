@@ -43,6 +43,14 @@ public class Generations {
             return generations;
         }
         return null;
-    }     
+    }  
+    
+    public String getVector(int index){
+        String stringVector;
+        stringVector = generations[index];
+        return  stringVector;
+        
+    }
+    
 }
 

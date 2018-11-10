@@ -22,6 +22,7 @@ public class LogicGame {
         windows.presentation();
         int size = windows.sizeMatrix();
         Grid grid = new Grid(size);
+        int generationAmount = 0;
         int desitionRandomOrInsert = windows.randomInsert();
         if (desitionRandomOrInsert == 0) {
             grid.randomCells();
@@ -34,6 +35,7 @@ public class LogicGame {
                     if(result ==0 ){
                         grid.hasLife();
                         maximoGen += 1;
+                        generationAmount += 1;
                         generations.insertVector(grid.getStringMatrix());
                     }else if(result == 1){
                         continuar = false;
@@ -44,7 +46,15 @@ public class LogicGame {
                     continuar = false;
                 } 
             }
+            
             while (enterGenerationsWindow) {                
+                int generationsOrClose = windows.generations1(generationAmount);
+                if(generationsOrClose == 0){
+                    enterGenerationsWindow = false;
+                }else{
+                   windows.showGenerations(generationsOrClose, generations);
+                }
+                
                 
             }
             
