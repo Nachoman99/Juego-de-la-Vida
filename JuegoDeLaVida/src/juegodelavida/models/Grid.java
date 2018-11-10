@@ -71,7 +71,7 @@ public class Grid {
      * Declaration: public void randomCells()
      * This method generates cells in random positions of the grid
      */
-    private void randomCells(){
+    public void randomCells(){
         int random;
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
@@ -198,7 +198,7 @@ public class Grid {
             insertPosition2(0, cells.length-1, true);
         }else if(neighbour == 2 && cells[0][cells.length-1].getLife() == 1){
             insertPosition2(0, cells.length-1, false);
-        }else if (neighbour == 2 && cells[0][cells.length].getLife() == 2) {
+        }else if (neighbour == 2 && cells[0][cells.length-1].getLife() == 2) {
             insertPosition2(0, cells.length-1, true);
         }else if (neighbour < 2 || neighbour > 3) {
             insertPosition2(0, cells.length-1, false);

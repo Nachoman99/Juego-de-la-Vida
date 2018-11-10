@@ -47,8 +47,35 @@ public class JuegoDeLaVida {
             }
             
         }*/
-        System.out.println(inte.insertPosition(8, grid.stringMatrix()));
+        //System.out.println(inte.insertPosition(8, grid.stringMatrix()));
         
+        grid.randomCells();
+        boolean continuar = true;
+        boolean generations = false;
+        int maximoGen =0;
+        while(continuar){
+            if(maximoGen != 20){
+                int result = inte.randomSelection(maximoGen, grid.stringMatrix());
+                if(result ==0 ){
+                    grid.hasLife();
+                    maximoGen += 1;
+                    System.out.println("gen= " + maximoGen);
+                }else if(result == 1){
+                    continuar = false;
+                    generations = true;
+                }else if(result == 2){
+                    continuar = false;
+                }
+            }else{
+                inte.randomSelection(maximoGen, grid.stringMatrix());
+                continuar = false;
+            }
+            
+        }
+
+        while (generations){
+            System.out.println("Holaaaaa");
+        }
         //System.out.println(inte.columnInsert(8));
         
         //inte.showGrid(8);

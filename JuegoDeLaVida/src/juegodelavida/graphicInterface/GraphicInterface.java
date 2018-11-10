@@ -106,17 +106,28 @@ public class GraphicInterface {
         return decisition; 
     }
     
-    public int generations(String[][] generation1){
-        String[] buttons ={"Siguiente", "Ver generaciones anteriores", "Terminar juego"};
-        int desition = JOptionPane.showOptionDialog(null, getStringMatrix(generation1) + "Seleccione alguna opción", "GENERACIONES", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
-        if (desition == 2) {
-            JOptionPane.showMessageDialog(null, "Muchas gracias por jugar");
-            //int gen = generations1();
-            //return gen;
-        //}else if (desition == 2) {
-          //  JOptionPane.showMessageDialog(null, "Muchas gracias por jugar");
+    public int generations(int generationNumber, String[][] generation1){
+        if(generationNumber == 20){
+            String[] buttons ={"Ver generaciones anteriores", "Terminar juego"};
+            int desition = JOptionPane.showOptionDialog(null, getStringMatrix(generation1) + "Se llego al maximo de generaciones, selecciones ver generaciones o terminar el juego", "GENERACIONES", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
+            if (desition == 2) {
+                JOptionPane.showMessageDialog(null, "Muchas gracias por jugar");
+            }
+            return desition; 
+        }else{
+           String[] buttons ={"Siguiente", "Ver generaciones anteriores", "Terminar juego"};
+            int desition = JOptionPane.showOptionDialog(null, getStringMatrix(generation1) + "Seleccione alguna opción", "GENERACIONES", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
+            if (desition == 2) {
+                JOptionPane.showMessageDialog(null, "Muchas gracias por jugar");
+                //int gen = generations1();
+                //return gen;
+            //}else if (desition == 2) {
+              //  JOptionPane.showMessageDialog(null, "Muchas gracias por jugar");
+            }
+            return desition; 
         }
-        return desition;
+       
+        
     }
     /*
     public int generations(String[][] generation1){
@@ -303,6 +314,27 @@ public class GraphicInterface {
                 index += 1;
         }
         JOptionPane.showMessageDialog(null, matrix);
+    }
+    
+    public int randomSelection(int generationNumber, String[][] initialMatrix){
+        if(generationNumber == 20){
+            int desition;
+            String[] buttons = {"Ver generaciones", "Terminar juego"};
+            desition = JOptionPane.showOptionDialog(null, getStringMatrix(initialMatrix) + "Se llego al maximo de generaciones, selecciones ver generaciones", "INSERTAR POSICIONES", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, buttons, buttons[0]);
+            if (desition == 2) {
+                JOptionPane.showMessageDialog(null, "Muchas gracias por jugar");
+            }
+            return desition;
+        }else{
+            int desition;
+            String[] buttons = {"Siguiente en procesar(siguiente generacion)", "Ver generaciones", "Terminar juego"};
+            desition = JOptionPane.showOptionDialog(null, getStringMatrix(initialMatrix) + "Seleccione una opción", "INSERTAR POSICIONES", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, buttons, buttons[0]);
+            if (desition == 2) {
+                JOptionPane.showMessageDialog(null, "Muchas gracias por jugar");
+            }
+            return desition;
+        }
+        
     }
 }
 
