@@ -5,17 +5,15 @@
  */
 package juegodelavida.models;
 
-import juegodelavida.*;
-
 /**
- * This class represents the grid of the game
+ * This class represents the cells of the game
  * 
  *@version 29/10/2018
- * @author Kevin Trejos/
+ * @author Kevin Trejos/Jose Ignacio Zamora/Edwin Molina
  */
 public class Cell {
     private int life;
-
+    
     public Cell() {
         this(1);
     }

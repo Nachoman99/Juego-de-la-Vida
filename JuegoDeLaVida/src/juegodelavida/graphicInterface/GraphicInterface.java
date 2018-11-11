@@ -12,7 +12,7 @@ import juegodelavida.models.Generations;
  * In this class, window management will be given
  * 
  *@version 30/10/2018
- * @author Kevin Trejos
+ * @author Kevin Trejos/Jose Ignacio Zamora/Edwin Molina
  */
 public class GraphicInterface {
     
@@ -20,35 +20,12 @@ public class GraphicInterface {
     }
     
     /**
-     * Declaration: public void showMessage(String message)
-     * this method shows a window with a message
-     * @param message the message to show
+     * Declaration: public static String getStringMatrix(String[][] matrix1)
+     * Convert the matrix to a string array
+     * @param matrix1 matrix to convert
+     * @return the converted matrix
      */
-    public void showMessage(String message){
-        JOptionPane.showMessageDialog(null, message);
-    }
-    
-    /**
-     * Declaration: public void requestInt(String message)
-     * this method asks the user for an integer 
-     * @param message the message to show
-     */
-    public void requestInt(String message){
-        JOptionPane.showInputDialog(message);
-    }
-    
-    /**
-     * Declaration: public void requestYesOrNo(String message, String tittle)
-     * this method shows a question window to the user with the answer options yes/no/cancel
-     * @param message the message to show
-     * @param tittle the tittle of the window
-     */
-    public void requestYesOrNo(String message, String tittle){
-        JOptionPane.showConfirmDialog(null, message, tittle, JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
-    }
-    
-    
-    public static String getStringMatrix(String[][] matrix1){ //lo pongo para poder poner la matriz bien bonita
+    public static String getStringMatrix(String[][] matrix1){ 
         String imprimir = "";
         for(int i = 0; i<matrix1.length; i++){
             for(int j = 0; j<matrix1[i].length; j++){
@@ -59,53 +36,39 @@ public class GraphicInterface {
         }
         return imprimir ;
     }
-    /*String[] rowColumn = {"0","1","2","3","4","5","6","7"};
-        String[][] matrix = {{"■","■","■","■","■","■","■","■"},
-                             {"■","■","■","■","■","■","■","■"},
-                             {"■","■","■","■","■","■","■","■"},
-                             {"■","■","■","■","■","■","■","■"},
-                             {"■","■","■","■","■","■","■","■"},
-                             {"■","■","■","■","■","■","■","■"},
-                             {"■","■","■","■","■","■","■","■"},
-                             {"■","■","■","■","■","■","■","■"}};*/
-    public String[] selection(String[] rowColumn, String[][] matrix){
-        String result1 = (String)JOptionPane.showInputDialog(null, getStringMatrix(matrix) +"¿Seleccione el numero de la Fila?", "Fila", JOptionPane.INFORMATION_MESSAGE ,null , rowColumn, "0"); 
-        String result2 = (String)JOptionPane.showInputDialog(null, getStringMatrix(matrix) +"\n" +"¿Seleccione el numero de la Columna?", "Columna", JOptionPane.INFORMATION_MESSAGE ,null , rowColumn, "0"); 
-        String[] finalResult = {result1, result2};
-        return finalResult;
-    }
-       
-    public static void changeMatrix(String[][] matrix, String[] positions){
-        int positionRow = Integer.parseInt(positions[0]);
-        int positionColumn = Integer.parseInt(positions[1]);
-        matrix[positionRow][positionColumn] = "O";
-    }
-    
+
+    /**
+     * Declaration: public void presentation()
+     * In this method, the creators of the game are presented
+     */
     public void presentation(){
         JOptionPane.showMessageDialog(null, "        JUEGO DE LA VIDA     "+"\n"+"Integrantes: "+"\n"+"Kevin Trejos B87902"+"\n"+"Edwin Molina"+
                 "Carne Ed"+"\n"+"Jose Zamora B78541", "Juego de La Vida", JOptionPane.INFORMATION_MESSAGE, null);
     }
-    /*
-    public int sizeDecisition(){
-        int desition;
-        String[] message ={"Elegir tamaño de matriz"};
-        desition = JOptionPane.showOptionDialog(null, "Seleccione una opción", "TAMAÑO MATRIZ", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, message, message[0]);
-        return 0;
-    }*/
-       
+    
+    /**
+     * Declaration: public int sizeMatrix()
+     * This method creates a window where the user is 
+     * asked about the size of the matrix
+     * @return the size that the user decided
+     */
     public int sizeMatrix(){
         int decisition;
         String result;
         String[] position = {"8","9","10","11","12","13","14","15","16","17","18","19","20"};
-        /*JComboBox size = new JComboBox(position);
-        size.setEditable(true);
-        JOptionPane.showMessageDialog(null, size, "Filas", JOptionPane.QUESTION_MESSAGE);*/
-        result = (String)JOptionPane.showInputDialog(null, "¿De cuanto quiere su cuadricula?", "Filas y Columnas", JOptionPane.WARNING_MESSAGE , null,  position, "8");
-        //decisition = Integer.parseInt(size.getSelectedItem().toString());
+        result = (String)JOptionPane.showInputDialog(null, "¿De cuanto quiere su cuadricula?", "Filas y Columnas", JOptionPane.QUESTION_MESSAGE, null,  position, "8");
         decisition = Integer.parseInt(result);
         return decisition; 
     }
     
+    /**
+     * Declaration: public int generations(int generationNumber, String[][] generation1)
+     * In this method, a window is created where you can choose between
+     * seeing the generations that have passed or seeing the next generation
+     * @param generationNumber A counter of the total number of generations entered
+     * @param generation1 The matrix to show
+     * @return The user's choice
+     */
     public int generations(int generationNumber, String[][] generation1){
         int desition;
         if(generationNumber == 20){
@@ -118,43 +81,14 @@ public class GraphicInterface {
             return desition; 
         }
     }
-    /*
-    public int generations(String[][] generation1){
-        int generationsCreated = 0;
-        String[] buttons ={"Siguiente", "Ver generaciones anteriores", "Terminar juego"};
-        int desition = JOptionPane.showOptionDialog(null, getStringMatrix(generation1) + "Seleccione alguna opción", "GENERACIONES", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
-        if (desition == 0) {
-            generationsCreated +=1;
-        }
-        if (desition == 1) {
-            int gen = generations1(generationsCreated);
-            return gen;
-        }else if (desition == 2) {
-            JOptionPane.showMessageDialog(null, "Muchas gracias por jugar");
-        }
-        return desition;
-    }
-    */
-    
-    /*
-    private int generations1(int generations){
-        int decisition;
-        String[] buttons ={"Aceptar"};
-        int btDecision = JOptionPane.showOptionDialog(null,"","Juego", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
-        String result;
-        String[] position = new String[generations];
-        int index = 0;
-        for (int i = 0; i < generations; i++) {
-            position[index] = String.valueOf(index);
-            index += 1;
-        }
-        result = (String)JOptionPane.showInputDialog(null,"¿Elija una generación a ver", "Ver generaciones", JOptionPane.INFORMATION_MESSAGE , null,  position, "1");
-        decisition = Integer.parseInt(result);
-        JOptionPane.showMessageDialog(null, );
-        return decisition;
-    }
-    */
-    
+     
+    /**
+     * Declaration: public int generations1(int generations)
+     * In this method a window is created where the generation 
+     * that the user wants to see is decided
+     * @param generations The number of created generations
+     * @return Returns the user's decision
+     */
     public int generations1(int generations){
         int decisition;
         String[] buttons ={"Salir","Aceptar" };
@@ -179,61 +113,39 @@ public class GraphicInterface {
             }else{
               decisition = Integer.parseInt(result); 
             }
-      
             return decisition;
         }
     }
     
+    /**
+     * Declaration: public void showGenerations(int generationsToShow, Generations generations)
+     * This method shows a window with the chosen generation
+     * @param generationsToShow generations to show
+     * @param generations a vector with generations
+     */
     public void showGenerations(int generationsToShow, Generations  generations){
         JOptionPane.showMessageDialog(null, "GENERACION NUMERO "+generationsToShow + "\n"+generations.getVector(generationsToShow-1));
     }
     
-    public int randomInsert(){//pregunta si quere que se ingresen datos aleatorios o insetar uno por uno
+    /**
+     * Declaration: public int randomInsert()
+     * This method displays a window with the option of random positions or positions manually
+     * @return the decision of the user
+     */
+    public int randomInsert(){
     String[] buttons ={"Posiciones Aleatorias", "Ingresar posiciones a gusto"};
     int desition = JOptionPane.showOptionDialog(null, "Seleccione alguna opción", "Seleccion de Relleno", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
     return desition;
     }
     
-   /* public String showGrid(int size){//transforma el grid en un string para mostralo pero talvez sea innecesario xq podemos mostrar de un solo tiro el grid
-       //muestra las posiciones como 1 2  3  4  5  7
-       //                            8 9 10 11 11 12
-        String[][] gridString = new String[size][size];
-        int number = 1;
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                if(number<=9){
-                    gridString[i][j] = "    " + "00"+String.valueOf(number);
-                    number += 1;
-                }else if(number>=10 && number<=99){
-                    gridString[i][j] = "    " + "0"+String.valueOf(number);
-                    number += 1;
-                }else if(number>=100){
-                    gridString[i][j] = "    " +String.valueOf(number);
-                    number += 1;
-                }
-                
-            }
-        }
-        
-       return getStringMatrix(gridString);
-    }*/
-    
-    public int[] insertPosition(int size, String[][] initialMatrix){ //ventana para insertar las posiciones
-        //el problema es que va tirar un numero de la posicion como ejemplo 17
-        //entonces con ese numero tendria que insetar la posicion en el grid original por eso mas adelante 
-        //esta translate
-        /*int decisition;
-        String result;
-        String[] position = new String[size*size];
-        int index = 0;
-        for (int i = 0; i < (size*size); i++) {
-                position[index] = String.valueOf(1+index);
-                index += 1;
-            
-        }
-        result = (String)JOptionPane.showInputDialog(null, gridString +"¿Cual posicion desea ingresar un valor?", "Ingreso de posiciones", JOptionPane.INFORMATION_MESSAGE , null,  position, "1");
-        decisition = Integer.parseInt(result);
-        return decisition;*/
+    /**
+     * Declaration: public int[] insertPosition(int size, String[][] initialMatrix)
+     * this method displays a window where the user can insert a position or the option to continue with the game
+     * @param size size of columns and rows
+     * @param initialMatrix matrix to show with entered positions
+     * @return positions to enter the matrix
+     */
+    public int[] insertPosition(int size, String[][] initialMatrix){ 
         int desition;
         int row;
         int column;
@@ -242,18 +154,20 @@ public class GraphicInterface {
         if (desition == 0) {
             row = rowsInsert(size);
             column = columnInsert(size);
-            //Aqui va la matriz a insertar
-            //JOptionPane.showMessageDialog(null,  "POSICION INGRESADA", JOptionPane.INFORMATION_MESSAGE);
             if(row != -1 && column != -1){
                int[] positions = {row,column}; 
                return positions; 
-    
             }
- 
         }
         return null;
     }
     
+    /**
+     * Declaration: private int rowsInsert(int size)
+     * It shows a window with the rows to insert in the matrix
+     * @param size number of options to show
+     * @return the positions chosen by the user
+     */
     private int rowsInsert(int size){
         int decisition;
         String result;
@@ -272,56 +186,38 @@ public class GraphicInterface {
         return decisition;
     }
     
-    public int columnInsert(int size){
+    /**
+     * Declaration: private int columnInsert(int size)
+     * It shows a window with the columns to insert in the matrix
+     * @param size number of options to show
+     * @return the positions chosen by the user
+     */
+    private int columnInsert(int size){
         int decisition =0;
         String[] buttons ={"Aceptar", "Cancelar"};
         String result;
         String[] position = new String[size];
         int index = 0;
         for (int i = 0; i < size; i++) {
-                position[index] = String.valueOf(index);
-                index += 1;
+            position[index] = String.valueOf(index);
+            index += 1;
         }
         result = (String)JOptionPane.showInputDialog(null,"¿En cuál columna desea ingresar un valor?", "Ingreso de posiciones", JOptionPane.YES_OPTION , null,  position, "0");
         if (result == null) {
-              decisition = -1;  
+            decisition = -1;  
         }else{
            decisition = Integer.parseInt(result); 
         }
-        
-        
         return decisition;
     }
-    public void translate(int size, int position){//metodos para traducir digamos
-        // 17 es la posicion X=0 y Y=1 (es un ejemplo)
-        //talves esto complique las varas pero si hay otra idea por favor diganla
-        // otra idea que se me dio fue que la persona ingrese la posicion dela cuadricula
-        //ejemplo una ventana pide X y otra el Y y una true/false y asi seria mas facil el manejo de datos
-        //pero no se debe de haber otra idea que no se me ocurre
-        int[] matrixPosition = new int[1];
-        switch(position){
-            case 1:
-                 
-                break;
-             
-            default:
-                 
-                break;
-        }
-    }
-
-    public void showGrid(int size){
-        int decisition;
-        String result;
-        String[][] matrix = new String[size][size];
-        int index = 0;
-        for (int i = 0; i < size; i++) {
-                matrix[index][index] = String.valueOf(index);
-                index += 1;
-        }
-        JOptionPane.showMessageDialog(null, matrix);
-    }
     
+    /**
+     * Declaration: public int randomSelections(int generationNumber, String[][] initialMatrix)
+     * Show a window with options to see previous generations or see the next generation
+     * @param generationNumber generations created
+     * @param initialMatrix
+     * @return matrix with the logic process
+     */
      public int randomSelection(int generationNumber, String[][] initialMatrix){
         if(generationNumber == 20){
             int desition;
@@ -333,8 +229,7 @@ public class GraphicInterface {
             String[] buttons = {"Siguiente en procesar(siguiente generacion)", "Ver generaciones"};
             desition = JOptionPane.showOptionDialog(null, getStringMatrix(initialMatrix) + "Seleccione una opción", "RAMNDOM", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, buttons, buttons[0]);
             return desition;
-        }
-        
+        } 
     }
 }
 

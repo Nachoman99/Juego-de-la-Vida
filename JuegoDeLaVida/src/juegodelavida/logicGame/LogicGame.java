@@ -5,17 +5,25 @@
  */
 package juegodelavida.logicGame;
 
-import juegodelavida.models.Cell;
-import juegodelavida.logicGame.Grid;
 import juegodelavida.models.Generations;
 import juegodelavida.graphicInterface.GraphicInterface;
 
-
 /**
- *
- * @author Kevin Trejos
+ * In this class all the logical procedure of the game is done
+ * 
+ *@version 10/11/2018
+ * @author Kevin Trejos/Jose Ignacio Zamora/Edwin Molina
  */
 public class LogicGame {
+
+    public LogicGame() {
+    }
+    
+    /**
+     * Declaration: public void startGame()
+     * This method starts the game and gives the order of the 
+     * windows and their respective processions
+     */
     public void startGame(){
         GraphicInterface windows = new GraphicInterface();
         Generations generations = new Generations();
@@ -55,9 +63,7 @@ public class LogicGame {
                 }else{
                    windows.showGenerations(generationsOrClose, generations);
                 } 
-            }   
-            
-            
+            }     
         }else if (desitionRandomOrInsert == 1) {
             boolean insertValues = true;
             boolean insertGenerations = false;
@@ -73,9 +79,7 @@ public class LogicGame {
                   int y = position[1];
                   grid.insertPosition(x, y, true);
                 }
-     
             }
-            
             while (insertGenerations){
                 int maximoGen =0;
                 if(maximoGen != 20){
@@ -90,10 +94,7 @@ public class LogicGame {
                         enterGenerationsWindow = true;
                     }
                 }
-                
-
             }
-            
             while (enterGenerationsWindow) {                
                 int generationsOrClose = windows.generations1(generationAmount);
                 if(generationsOrClose == 0){
@@ -103,11 +104,7 @@ public class LogicGame {
                 }else{
                    windows.showGenerations(generationsOrClose, generations);
                 } 
-            }
-            
-            
-            
-         }
-
+            }  
+        }
     }
 }

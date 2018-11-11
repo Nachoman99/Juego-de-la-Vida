@@ -6,14 +6,13 @@
 package juegodelavida.logicGame;
 
 import juegodelavida.models.*;
-import juegodelavida.*;
 import juegodelavida.graphicInterface.GraphicInterface;
 
 /**
  * This class represents the cells of the game
  * 
  *@version 29/10/2018
- * @author Kevin Trejos
+ * @author Kevin Trejos/Jose Ignacio Zamora/Edwin Molina
  */
 public class Grid {
     GraphicInterface graphic = new GraphicInterface();
@@ -45,17 +44,12 @@ public class Grid {
             }    
         }
     }
-    public  String getStringMatrix(){ 
-        String imprimir = "";
-        for(int i = 0; i<cells.length; i++){
-            for(int j = 0; j<cells[i].length; j++){
-               imprimir  =imprimir  + cells[i][j] + " "; 
-            }     
-            imprimir  =imprimir + "\n"; 
-        }
-        return imprimir ;
-    }
     
+    /**
+     * public String stringGenerations()
+     * Este metodo convierte la matriz de tipo cells a string
+     * @return converted matrix
+     */
     public String stringGenerations(){
         String imprimir = "";
         for(int i = 0; i<cells.length; i++){
@@ -72,7 +66,12 @@ public class Grid {
         return imprimir ;
     }
     
-    
+    /**
+     * Declarations:public String[][] stringMatrix()
+     * Validate the positions of the matrix, in case the cells are alive 
+     * the sign changes, even if they are dead
+     * @return converted matrix
+     */
     public  String[][] stringMatrix(){ 
         for(int i = 0; i<cells.length; i++){
             for(int j = 0; j<cells[i].length; j++){
@@ -85,6 +84,7 @@ public class Grid {
         }
         return  cells3;
     }
+    
     /**
      * Declaration: public void randomCells()
      * This method generates cells in random positions of the grid
@@ -105,12 +105,12 @@ public class Grid {
         }
     }
     
-    /**Falta completar este método para hacerlo con click, por lo tanto no está comentado 
-     * correctamente
-     * 
-     * @param positionRow 
-     * @param positionColumn 
-     * @param value 
+    /** 
+     * Declaration: public void insertPosition(int positionRow, int positionColumn, boolean value)
+     * This method inserts cells in the matrix
+     * @param positionRow position of the row in which to insert
+     * @param positionColumn position of the column in which to insert
+     * @param value value of the cell, (whether it is alive or dead)
      */
     public void insertPosition(int positionRow,int positionColumn, boolean value){
         if (cells[positionRow][positionColumn] != null && positionColumn >= 0 && positionColumn <= cells.length-1 &&
@@ -127,6 +127,13 @@ public class Grid {
         }  
     }
     
+    /**
+     * Declaration:public void insertPosition2(int positionRow, int positionColumn, boolean value)
+     * This method inserts cells in the matrix2
+     * @param positionRow position of the row in which to insert
+     * @param positionColumn position of the column in which to insert
+     * @param value value of the cell, (whether it is alive or dead)
+     */
     public void insertPosition2 (int positionRow,int positionColumn, boolean value){
          if (cells2[positionRow][positionColumn] != null && positionColumn >= 0 && positionColumn <= cells2.length-1 &&
                 positionRow >= 0 && positionRow <= cells2.length-1) {
@@ -140,13 +147,18 @@ public class Grid {
         }
     }
    
+    /**
+     * Declaration: public void hasLife()
+     * This method calls other methods to validate which 
+     * cells are alive or dead
+     */
     public void hasLife(){
-        esquinaIzquierdaAbajo();
-        esquinaIzquierdaArriba();
-        esquinaDerechaAbajo();
-        esquinaDerechaArriba();
-        ladoArriba();
-        ladoAbajo();
+        downLeftCorner();
+        leftCornerUp();
+        downRightCorner();
+        rightCornerUp();
+        sideUp();
+        downSide();
         ladoIzquierdo();
         ladoDerecho();
         isCentro();
@@ -155,9 +167,11 @@ public class Grid {
         clear(cells2);
     }
     
-   
-    
-    private void esquinaIzquierdaArriba(){
+   /**
+    * Declaration: private void leftCornerUp()
+    * This method validates the cells that are in the left corner above
+    */
+    private void leftCornerUp(){
         int neighbour = 0;
         for (int i = 0; i <= 1; i++) {
             for (int j = 0; j <=1; j++) {
@@ -178,8 +192,12 @@ public class Grid {
         insertPosition2(0, 0, false);
         }
     }
-        
-    private void esquinaIzquierdaAbajo(){
+     
+    /**
+     * Declaration: private void downLeftCorner()
+     * this method validates the cells in the left corner below
+     */
+    private void downLeftCorner(){
         int neighbour = 0;
         for (int i = cells.length-2 ; i < cells.length; i++) {
             for (int j = 0; j <= 1; j++) {
@@ -201,7 +219,11 @@ public class Grid {
         }
     }
     
-    private void esquinaDerechaArriba(){
+    /**
+     * Declaration: private void rightCornerUp()
+     * this method validates the positions of the right corner above
+     */
+    private void rightCornerUp(){
         int neighbour = 0;
         for (int i = 0; i <= 1; i++) {
             for (int j = cells.length-2; j < cells.length; j++) {
@@ -223,7 +245,11 @@ public class Grid {
         }    
     }
     
-    private void esquinaDerechaAbajo(){
+    /**
+     * Declaration: private void downRightCorner()
+     * this method validates the cells in the right corner below
+     */
+    private void downRightCorner(){
         int neighbour = 0;
         for (int i = cells.length-2; i < cells.length; i++) {
             for (int j = cells.length-2; j < cells.length; j++) {
@@ -245,7 +271,11 @@ public class Grid {
         }
     }
     
-    private void ladoArriba(){
+    /**
+     * Declaration: private void sideUp()
+     * this method validates the cells on the top side
+     */
+    private void sideUp(){
         int neighbour = 0;
         for (int i = 0; i < 1; i++) {
             for (int j = 1; j < cells.length-1; j++) {
@@ -274,7 +304,11 @@ public class Grid {
         } 
     }
         
-    private void ladoAbajo(){
+    /**
+     * Declaration: private void downSide()
+     * This method validates the cells on the down side
+     */
+    private void downSide(){
         int neighbour = 0;
         for (int i = cells.length -1; i <= cells.length-1; i++) {
            for (int j = 1; j < cells.length -1; j++) {
@@ -303,6 +337,10 @@ public class Grid {
         }
     }
     
+    /**
+     * Declaration: private void leftSide()
+     * This method validates the cells on the left side
+     */
     private void ladoIzquierdo(){
         int neighbour = 0;
         for (int j = 1; j < cells.length-1; j++) {
@@ -331,6 +369,11 @@ public class Grid {
             }
         }  
     }
+    
+    /**
+     * Declaration: private void rightSide()
+     * This method validates the cells of the right side
+     */
     private void ladoDerecho(){
         int neighbour = 0;
         for (int j = 1; j < cells.length - 1; j++) { //filas
@@ -360,7 +403,11 @@ public class Grid {
         }
     }
     
-    public void isCentro(){
+    /**
+     * Declaration: private void isCentro()
+     * This method validates the center's cells
+     */
+    private void isCentro(){
         int neighbour = 0;
         for (int i = 1; i <= cells.length -2; i++) {
             for (int j = 1; j <= cells.length -2; j++) {
@@ -391,7 +438,12 @@ public class Grid {
         }
     }
     
-    public void clear(Cell[][] cellsClear){
+    /**
+     * Declaration: private void clear(Cell[][] cellsClear)
+     * This method makes all the cells in the matrix dead
+     * @param cellsClear 
+     */
+    private void clear(Cell[][] cellsClear){
         Cell cell1 = new Cell(1);
         for(int i = 0; i < cellsClear.length;i++){
             for(int j = 0; j < cellsClear.length;j++){
@@ -400,16 +452,17 @@ public class Grid {
         }
     }
     
+    /**
+     * Declaration: private void duplicate()
+     * This method duplicates the matrix
+     */
     private void duplicate(){
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells.length; j++) {
                 cells[i][j] = cells2[i][j];
             }
         }
-    }
-    
-    
-    
+    }  
 } 
 
 

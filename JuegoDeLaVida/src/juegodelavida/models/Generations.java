@@ -5,12 +5,11 @@
  */
 package juegodelavida.models;
 
-import java.util.Arrays;
-import juegodelavida.*;
-
 /**
- *
- * @author Kevin Trejos
+ * This class is responsible for saving the generations in a vector
+ * 
+ *@version 09/11/2018
+ * @author Kevin Trejos/Jose Ignacio Zamora/Edwin Molina
  */
 public class Generations {
     private String[] generations = new String[20];
@@ -36,6 +35,12 @@ public class Generations {
         return "Generations{" + "generations=" + generations + '}';
     }
     
+    /**
+     * Declaration: public String[] insertVector(String matrixGenerations)
+     * This method inserts a matrix into a vector
+     * @param matrixGenerations is the matrix to insert
+     * @return vector with inserted matrix
+     */
     public String[] insertVector(String matrixGenerations){
         if (matrixGenerations != null) {
             generations[generationsInserts] = matrixGenerations;
@@ -45,12 +50,16 @@ public class Generations {
         return null;
     }  
     
+    /**
+     * Declaration: public String getVector(int index)
+     * This method receives the position that the user wants and returns it
+     * @param index desired position
+     * @return the index to show
+     */
     public String getVector(int index){
         String stringVector;
         stringVector = generations[index];
-        return  stringVector;
-        
+        return  stringVector;   
     }
-    
 }
 
