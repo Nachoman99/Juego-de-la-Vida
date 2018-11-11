@@ -57,8 +57,12 @@ public class GraphicInterface {
         String result;
         String[] position = {"8","9","10","11","12","13","14","15","16","17","18","19","20"};
         result = (String)JOptionPane.showInputDialog(null, "¿De cuanto quiere su cuadricula?", "Filas y Columnas", JOptionPane.QUESTION_MESSAGE, null,  position, "8");
-        decisition = Integer.parseInt(result);
-        return decisition; 
+        if (result == null) {
+              decisition = -1;  
+        }else{
+           decisition = Integer.parseInt(result); 
+        }
+        return decisition;
     }
     
     /**
