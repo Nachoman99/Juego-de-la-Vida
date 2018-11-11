@@ -143,22 +143,6 @@ public class GraphicInterface {
     }
     
     /**
-     * Declaration: public String[][] guide(int size)
-     * @param size the size of the grid
-     * @return A string matrix with all the coordinates
-     */
-    public String[][] guide(int size){
-        String[][] examples = new String[size][size];
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                examples[i][j] =" "+ "("+i+" , " +j+")";
-
-            }
-        }
-        return examples;
-    }
-    
-    /**
      * Declaration: public int[] insertPosition(int size, String[][] initialMatrix)
      * this method displays a window where the user can insert a position or the option to continue with the game
      * @param size size of columns and rows
@@ -170,7 +154,7 @@ public class GraphicInterface {
         int row;
         int column;
         String[] buttons = {"Insertar una nueva posición", "Continuar"};
-        desition = JOptionPane.showOptionDialog(null, getStringMatrix(guide(size)) +"\n"+getStringMatrix(initialMatrix) + "Seleccione una opción", "INSERTAR POSICIONES", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, buttons, buttons[0]);
+        desition = JOptionPane.showOptionDialog(null, getStringMatrix(initialMatrix) + "Se va dividir en filas y columnas, tanto las filas como las columnas van a iniciar de 0 a "+(size-1)+" (La fila 0 y columna 0 va a hacer la esquina izquiera arriba)"+"\n" +"Seleccione una opción:", "INSERTAR POSICIONES", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, buttons, buttons[0]);
         if (desition == 0) {
             row = rowsInsert(size);
             column = columnInsert(size);
