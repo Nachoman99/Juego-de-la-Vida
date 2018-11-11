@@ -222,7 +222,7 @@ public class GraphicInterface {
             position[index] = String.valueOf(index);
             index += 1;
         }
-        result = (String)JOptionPane.showInputDialog(null,"¿En cuál columna desea ingresar un valor?", "Ingreso de posiciones", JOptionPane.YES_OPTION , null,  position, "0");
+        result = (String)JOptionPane.showInputDialog(null,"¿En cuál columna desea ingresar un valor?", "Ingreso de posiciones", JOptionPane.INFORMATION_MESSAGE , null,  position, "0");
         if (result == null) {
             decisition = -1;  
         }else{
